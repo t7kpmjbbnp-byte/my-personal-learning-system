@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-27",
+  "relationships": [
+    {
+      "id": "cirrhosis-to-portal-hypertension",
+      "source": "cirrhosis",
+      "target": "portal_hypertension",
+      "type": "mechanism_context",
+      "label": "có thể gây",
+      "evidence": [
+        {
+          "source": "Issue #12",
+          "path": "02_PROGRESS/CURRENT_STATE.md"
+        }
+      ]
+    },
+    {
+      "id": "portal-hypertension-to-ascites",
+      "source": "portal_hypertension",
+      "target": "ascites",
+      "type": "mechanism",
+      "label": "góp phần gây",
+      "evidence": [
+        {
+          "source": "Issue #12",
+          "path": "02_PROGRESS/CURRENT_STATE.md"
+        }
+      ]
+    },
+    {
+      "id": "ascites-assessed-by-saag",
+      "source": "ascites",
+      "target": "saag",
+      "type": "assessed_by",
+      "label": "đánh giá bằng",
+      "evidence": [
+        {
+          "source": "Issue #12",
+          "path": "01_SUBJECTS/NOI_CO_SO_RHM_CTUMP/CLINICAL_CASES.md"
+        }
+      ]
+    },
+    {
+      "id": "saag-has-threshold",
+      "source": "saag",
+      "target": "saag_threshold",
+      "type": "has_interpretive_threshold",
+      "label": "ngưỡng diễn giải",
+      "evidence": [
+        {
+          "source": "Issue #12",
+          "path": "02_PROGRESS/CURRENT_STATE.md"
+        }
+      ]
+    },
+    {
+      "id": "saag-threshold-suggests-portal-hypertension",
+      "source": "saag_threshold",
+      "target": "portal_hypertension",
+      "type": "suggests",
+      "label": "gợi ý",
+      "evidence": [
+        {
+          "source": "Issue #12",
+          "path": "02_PROGRESS/CURRENT_STATE.md"
+        }
+      ]
+    },
+    {
+      "id": "ascites-assessed-by-pmn",
+      "source": "ascites",
+      "target": "pmn",
+      "type": "assessed_by",
+      "label": "đánh giá tế bào bằng",
+      "evidence": [
+        {
+          "source": "Issue #12",
+          "path": "01_SUBJECTS/NOI_CO_SO_RHM_CTUMP/CLINICAL_CASES.md"
+        }
+      ]
+    },
+    {
+      "id": "pmn-has-threshold",
+      "source": "pmn",
+      "target": "pmn_threshold",
+      "type": "has_interpretive_threshold",
+      "label": "ngưỡng tế bào học",
+      "evidence": [
+        {
+          "source": "Issue #12",
+          "path": "02_PROGRESS/CURRENT_STATE.md"
+        }
+      ]
+    },
+    {
+      "id": "pmn-threshold-supports-sbp",
+      "source": "pmn_threshold",
+      "target": "sbp",
+      "type": "supports_suspicion",
+      "label": "hỗ trợ nhận diện",
+      "evidence": [
+        {
+          "source": "Issue #12",
+          "path": "02_PROGRESS/CURRENT_STATE.md"
+        }
+      ]
+    },
+    {
+      "id": "sbp-managed-with-prompt-antibiotics",
+      "source": "sbp",
+      "target": "prompt_antibiotics",
+      "type": "management_principle",
+      "label": "nguyên tắc xử trí",
+      "evidence": [
+        {
+          "source": "Issue #12",
+          "path": "02_PROGRESS/CURRENT_STATE.md"
+        }
+      ]
+    },
+    {
+      "id": "sbp-requires-renal-hemodynamic-assessment",
+      "source": "sbp",
+      "target": "renal_hemodynamic_assessment",
+      "type": "assessment_priority",
+      "label": "cần đánh giá",
+      "evidence": [
+        {
+          "source": "Issue #12",
+          "path": "02_PROGRESS/CURRENT_STATE.md"
+        }
+      ]
+    }
+  ]
+}
