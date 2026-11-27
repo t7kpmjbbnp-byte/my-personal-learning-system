@@ -82,3 +82,11 @@ No.	Case	Main Topic	Difficulty	Status
 **Ngày:** 15:33:39 27/11/2026
 
 Ca mô phỏng: Bệnh nhân nam 56 tuổi, xơ gan, bụng chướng, sốt và đau bụng.
+
+
+<!-- learning-update-issue-8 -->
+## Ca lâm sàng — Issue #8
+**Ngày:** 15:53:58 27/11/2026
+
+Ca mô phỏng: Bệnh nhân xơ gan, SAAG 1,8 g/dL, PMN 600 tế bào/mm³.
+Nhận định: Nghi viêm phúc mạc tự phát.

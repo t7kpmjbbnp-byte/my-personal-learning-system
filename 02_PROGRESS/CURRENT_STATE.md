@@ -48,3 +48,12 @@ Not started.
 **Ngày:** 15:33:39 27/11/2026
 
 Môn: Nội cơ sở – Răng Hàm Mặt CTUMP
+
+
+<!-- learning-update-issue-8 -->
+## Cập nhật tiến độ — Issue #8
+**Ngày:** 15:53:58 27/11/2026
+
+Chủ đề: Phân tích dịch báng.
+Tiến độ: Đã học có hướng dẫn.
+Năng lực: Chưa xác nhận thành thạo độc lập.

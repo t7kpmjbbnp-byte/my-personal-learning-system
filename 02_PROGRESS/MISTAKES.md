@@ -42,3 +42,10 @@ No mistakes recorded yet.
 **Ngày:** 15:33:39 27/11/2026
 
 Chưa xác định lỗi sai cần ghi nhận trong buổi học này.
+
+
+<!-- learning-update-issue-8 -->
+## Ghi nhận lỗi sai — Issue #8
+**Ngày:** 15:53:58 27/11/2026
+
+Cần củng cố phân biệt dịch báng do nguyên nhân tim mạch và tăng áp lực tĩnh mạch cửa.

@@ -43,3 +43,12 @@ No topics scheduled yet.
 **Ngày:** 15:33:39 27/11/2026
 
 Ngày học: 27/11/2026
+
+
+<!-- learning-update-issue-8 -->
+## Lịch sử ôn tập — Issue #8
+**Ngày:** 15:53:58 27/11/2026
+
+Ngày học: 27/11/2026.
+Lịch ôn: 28/11 và 30/11.
+Kết quả: Chưa thực hiện.
