@@ -147,6 +147,7 @@ function showMotherSystem3D(galaxyId){
    const state=rec(topic.id),col=levelColor(state.level),size=.23+(i%3)*.035;
    const material=new THREE.MeshStandardMaterial({color:col,roughness:.68,metalness:.08,emissive:col,emissiveIntensity:.22});
    const mesh=new THREE.Mesh(new THREE.SphereGeometry(size,32,32),material);mesh.position.set(ring,0,0);mesh.userData.topic=topic;group.add(mesh);
+   const labelCanvas=document.createElement("canvas");labelCanvas.width=512;labelCanvas.height=128;const labelCtx=labelCanvas.getContext("2d");labelCtx.font="bold 38px -apple-system, sans-serif";labelCtx.textAlign="center";labelCtx.textBaseline="middle";labelCtx.lineWidth=8;labelCtx.strokeStyle="#061323";labelCtx.strokeText(topic.name,256,64,490);labelCtx.fillStyle="#eaf6ff";labelCtx.fillText(topic.name,256,64,490);const labelTexture=new THREE.CanvasTexture(labelCanvas);labelTexture.colorSpace=THREE.SRGBColorSpace;const label=new THREE.Sprite(new THREE.SpriteMaterial({map:labelTexture,transparent:true,depthWrite:false}));label.scale.set(1.28,.32,1);label.position.set(ring,.42,0);group.add(label);
    const aura=new THREE.Mesh(new THREE.SphereGeometry(size*1.42,24,24),new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:.12,side:THREE.BackSide}));mesh.add(aura);
    const hit=new THREE.Mesh(new THREE.SphereGeometry(size*1.9,16,16),new THREE.MeshBasicMaterial({transparent:true,opacity:0,depthWrite:false}));mesh.add(hit);
    planets.push({topic,mesh,group,ring,speed:.0012+(i%5)*.00023,hit});
