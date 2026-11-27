@@ -110,7 +110,7 @@ html.fullscreen-open,body.fullscreen-open{overflow:hidden!important;width:100%!i
 </head><body>
 <header><div class="eyebrow">SÁCH TRỜI · Knowledge universe</div><h1>VŨ TRỤ TRI THỨC</h1><p>Học tới đâu, vũ trụ mở tới đó. Mỗi nhánh có hành trình riêng; ánh sáng chỉ tăng khi bạn học và vượt qua kiểm tra.</p></header>
 <main class="wrap">
-<div class="toolbar"><a class="btn" href="./index.html">← Bản đồ CLS / sơ đồ kiến thức</a><button class="btn" id="export">Sao lưu tiến trình</button><button class="btn" id="import">Khôi phục</button><input id="file" type="file" accept="application/json" hidden></div>
+<div class="toolbar"><a class="btn" href="./index.html">← Bản đồ CLS / sơ đồ kiến thức</a><span id="storageStatus" role="status" aria-live="polite" style="font-size:12px;color:#a9d7f2">Tự lưu trên thiết bị này</span><button class="btn" id="export">Sao lưu tiến trình</button><button class="btn" id="import">Khôi phục</button><input id="file" type="file" accept="application/json,.json" hidden></div>
 <section class="universe" id="universeView" aria-label="Bản đồ vũ trụ tương tác"><button class="btn scene-nav" id="galaxyBack" type="button" hidden>← Toàn cảnh vũ trụ</button><button class="btn fullscreen-toggle" id="fullscreenToggle" type="button" aria-label="Mở bản đồ toàn màn hình">⛶ Toàn màn hình</button><svg id="space" viewBox="0 0 1000 560" role="img" aria-label="Các thiên hà tri thức"><defs><radialGradient id="nebula"><stop stop-color="#285b85" stop-opacity=".55"/><stop offset="1" stop-color="#14243a" stop-opacity="0"/></radialGradient><filter id="glow"><feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><ellipse cx="500" cy="275" rx="390" ry="220" fill="url(#nebula)"/><g id="stars" class="starfield"></g><g id="orbits" fill="none" stroke="#567da2" stroke-dasharray="3 10" opacity=".24"><ellipse cx="500" cy="275" rx="440" ry="235"/><ellipse cx="500" cy="275" rx="330" ry="170"/><ellipse cx="500" cy="275" rx="210" ry="110"/></g><g id="connections"></g><g id="galaxies"></g></svg><div id="motherSystem3D" class="mother-system-3d" aria-label="Hệ hành tinh mẹ 3D"><canvas id="motherSystemCanvas"></canvas><div class="mother-system-hint">Chạm để chọn · Kéo để xoay · Vuốt hai ngón / cuộn để phóng to thu nhỏ</div><aside class="mother-system-card" id="motherSystemCard"><div class="eyebrow">HỆ HÀNH TINH MẸ</div><h2 id="motherSystemTitle">Chọn một hành tinh</h2><p id="motherSystemGroup">Các chủ đề trong CLS Tiêu hóa</p><p id="motherSystemSummary">Chạm vào một hành tinh đang quay để xem nội dung cốt lõi và độ sáng.</p><div class="mother-system-level" id="motherSystemLevel"></div><button type="button" class="good" id="motherSystemExplore" disabled>Khám phá hành tinh →</button></aside></div><div class="planet-visual" id="planetVisual"><canvas id="planet3d" aria-label="Mô hình hành tinh 3D"></canvas><div class="planet-sphere" id="planetSphere"></div><div class="mission-orbit-control" id="missionOrbitControl" aria-label="Kéo để xoay, chụm hai ngón để thu phóng hệ vệ tinh"><div class="mission-orbits" id="missionOrbits" aria-label="Các điểm nhiệm vụ"></div></div><div class="planet-caption" id="planetCaption"></div></div><aside class="planet-panel" id="planetPanel" aria-live="polite"><button class="btn planet-back" id="planetBack">← Bản đồ CLS Tiêu hóa</button><div class="eyebrow">PLANET EXPLORATION</div><h2 id="planetName">Hành tinh tri thức</h2><p class="muted" id="planetMeta">Tiến độ khám phá</p><div class="mastery" id="planetMastery"></div><div class="muted" id="planetLevel">0/5 · Chưa khai mở</div><div class="progressbar"><i id="planetProgress"></i></div><h3 style="font-size:13px;margin:14px 0 4px">Nhiệm vụ tại hành tinh</h3><div id="planetMissions"></div><section id="satelliteDetail" class="satellite-detail" hidden></section><div class="actions"><button class="good" id="planetOpenLesson">Mở bảng học tập & đánh giá</button></div></aside><div class="legend"><span><i class="swatch" style="background:#33445a"></i>Chưa khai mở</span><span><i class="swatch" style="background:#5b9dcc"></i>Cấp 1</span><span><i class="swatch" style="background:#319dff"></i>Cấp 2</span><span><i class="swatch" style="background:#a77bff"></i>Cấp 3</span><span><i class="swatch" style="background:#49d6b7"></i>Cấp 4</span><span><i class="swatch" style="background:#ffe18a"></i>Cấp 5</span></div></section>
 <section class="panel" id="reviewPanel" style="margin:14px 0"><h2>🧭 Trạm ôn tập</h2><p class="muted" id="reviewSummary">Ôn tập sẽ xuất hiện sau khi bạn ghi nhận đã học một chủ đề.</p><div id="reviewQueue"></div><p class="muted">Lịch gợi ý: 1 → 3 → 7 → 14 → 30 ngày khi nhớ tốt. Nếu chưa nhớ vững, lịch quay về 1 ngày. Bỏ lỡ lịch không tự động làm giảm cấp ánh sáng.</p></section><section class="panel" id="journeyPanel" style="margin:14px 0"><h2>🎯 Nhiệm vụ & thành tựu</h2><p class="muted" id="questSummary">Nhiệm vụ được tính từ hoạt động học tập thực tế.</p><div id="questList"></div><h3 style="margin:16px 0 6px">🏅 Bộ sưu tập thành tựu</h3><div class="achievement-grid" id="achievementGrid"></div></section><div class="lower"><section class="panel"><h2 id="galaxyHeading">Chọn một thiên hà</h2><p class="muted" id="galaxyDesc">Chạm vào thiên hà trên bản đồ để xem các nhánh kiến thức.</p><div id="branches" class="branch-list"></div><div class="notice">Các vùng tối là nhánh đã được định vị trong cấu trúc nhưng chưa có bằng chứng học tập/kiểm tra để phát sáng. Không tự động xem việc mở bản đồ là đã học.</div></section>
 <section class="panel" id="detail"><div class="muted">BẢNG ĐIỀU KHIỂN KIẾN THỨC</div><h2 class="selected-title" id="topicTitle">Chưa chọn chủ đề</h2><div id="topicTags"></div><p class="muted" id="topicDesc">Chọn một nhánh để xem nội dung và cập nhật tiến trình sau buổi học.</p><div class="mastery" id="mastery"></div><div class="muted" id="levelText">0/5 · Chưa khai mở</div><div class="actions"><button class="good" id="studied">Đánh dấu đã học</button><button id="passed">Ghi nhận đánh giá đạt</button><button id="reviewGood">Ôn tập · Nhớ tốt</button><button id="reviewWeak" class="warn">Ôn tập · Chưa vững</button><button class="warn" id="forgot">Ghi nhận quên · −1 cấp</button></div><p class="muted" id="history"></p><div class="notice">Mỗi lần quên làm giảm 1 cấp. Từ lần quên thứ 4, chủ đề trở về cấp 0 và cần học lại. Ghi nhận đánh giá yêu cầu lưu hình thức, người đánh giá và bằng chứng cụ thể. Ứng dụng không tự đọc hoặc xác minh cuộc trò chuyện.</div></section></div>
@@ -125,9 +125,39 @@ const curriculum=[
 {id:"function",name:"Thăm dò chức năng & xét nghiệm máu",topics:["Chức năng dạ dày","Chức năng ruột non","Chức năng ruột già","Xét nghiệm gan – mật","Dấu ấn u"]}]},
 {id:"noi",name:"Nội khoa · ca học",sub:"Các khái niệm đã có trong knowledge graph",x:245,y:155,color:"#bd9aff",groups:[{id:"liver",name:"Gan · dịch báng · SBP",topics:["Xơ gan","Tăng áp lực tĩnh mạch cửa","Dịch báng","SAAG","SAAG ≥ 1,1 g/dL","PMN dịch báng","PMN ≥ 250 tế bào/mm³","Viêm phúc mạc tự phát (SBP)","Kháng sinh kinh nghiệm sớm","Đánh giá thận và huyết động"]}]}
 ];
-const KEY="sach_troi_universe_v1";let state={version:1,topics:{}};let activeGalaxy=null,activeTopic=null,mapScene="universe";
-const $=id=>document.getElementById(id);function load(){try{const v=JSON.parse(localStorage.getItem(KEY)||"{}");if(v&&v.version===1&&v.topics)state=v}catch(e){}}
-function save(){localStorage.setItem(KEY,JSON.stringify(state))}
+const KEY="sach_troi_universe_v1",BACKUP_PREFIX=KEY+"_local_backup_";let state={version:1,topics:{}};let activeGalaxy=null,activeTopic=null,mapScene="universe";
+const $=id=>document.getElementById(id);
+function setStorageStatus(message,isError=false){const el=$("storageStatus");if(el){el.textContent=message;el.style.color=isError?"#ffb3a7":"#a9d7f2"}}
+function validState(v){return !!v&&typeof v==="object"&&v.version===1&&v.topics&&typeof v.topics==="object"&&!Array.isArray(v.topics)}
+function readLocalBackup(){for(let i=1;i<=3;i++){try{const raw=localStorage.getItem(BACKUP_PREFIX+i);if(!raw)continue;const v=JSON.parse(raw);if(validState(v))return v}catch(e){}}return null}
+function load(){
+ try{const raw=localStorage.getItem(KEY);if(raw){const v=JSON.parse(raw);if(validState(v)){state=v;setStorageStatus("Đã khôi phục tiến trình đã lưu");return}}}
+ catch(e){console.warn("Không đọc được tiến trình chính:",e)}
+ const recovered=readLocalBackup();
+ if(recovered){state=recovered;try{localStorage.setItem(KEY,JSON.stringify(state));setStorageStatus("Đã khôi phục từ bản sao lưu cục bộ")}catch(e){setStorageStatus("Đã khôi phục tạm · bộ nhớ bị hạn chế",true)}}
+ else setStorageStatus("Chưa có tiến trình lưu · tự lưu khi học");
+}
+function save(){
+ const serialized=JSON.stringify(state);
+ try{
+  const previous=localStorage.getItem(KEY);
+  if(previous&&previous!==serialized){
+   for(let i=3;i>=2;i--){const item=localStorage.getItem(BACKUP_PREFIX+(i-1));if(item)localStorage.setItem(BACKUP_PREFIX+i,item)}
+   localStorage.setItem(BACKUP_PREFIX+"1",previous);
+  }
+  localStorage.setItem(KEY,serialized);
+  setStorageStatus("Đã tự lưu · "+new Date().toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit"}));
+  return true;
+ }catch(e){console.error("Không thể lưu tiến trình:",e);setStorageStatus("LỖI LƯU · hãy xuất bản sao lưu ngay",true);return false}
+}
+function normalizeBackup(input){
+ const candidate=input&&input.format==="SACH_TROI_BACKUP"&&input.data?input.data:input;
+ if(!validState(candidate))throw new Error("Tệp không đúng định dạng SÁCH TRỜI hoặc không có dữ liệu tiến trình.");
+ const clean={version:1,topics:{}};
+ for(const [id,value] of Object.entries(candidate.topics)){if(id&&value&&typeof value==="object"&&!Array.isArray(value))clean.topics[id]=value}
+ if(!Object.keys(clean.topics).length&&Object.keys(candidate.topics).length)throw new Error("Dữ liệu trong tệp sao lưu không hợp lệ.");
+ return clean;
+}
 function topicId(g,gr,t){return g.id+"."+gr.id+"."+t.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}
 function rec(id){return state.topics[id]||{level:0,studied:false,forgets:0,history:[]}}
 function setRec(id,r){state.topics[id]=r;save();renderMap();renderDetail();renderReviewQueue();renderJourney();if(activeTopic===id&&$("universeView").classList.contains("zoomed")){renderPlanetPanel(id);initPlanet3D(levelColor(Math.round(satelliteBrightness(Array.isArray(r.lessons)?r.lessons:[])/20)),Array.isArray(r.lessons)?r.lessons:[])}}
@@ -439,8 +469,27 @@ $("passed").addEventListener("click",()=>{if(!activeTopic)return;let r=rec(activ
 $("reviewGood").addEventListener("click",()=>{if(!activeTopic)return;let r=rec(activeTopic);if(!r.studied){alert("Hãy ghi nhận đã học trước khi ôn tập.");return}const evidence=prompt("Bạn vừa tự nhớ lại được những ý chính nào mà không nhìn tài liệu? Ghi ít nhất 20 ký tự.");if(!evidence||evidence.trim().length<20){alert("Cần bằng chứng nhớ lại cụ thể. Chưa cập nhật lịch.");return}if(!confirm("Xác nhận bạn đã tự nhớ lại và trả lời được nội dung?"))return;r.reviewStage=Math.min(4,(r.reviewStage||0)+1);const days=REVIEW_DAYS[r.reviewStage];scheduleReview(r,days);r.reviewHistory=r.reviewHistory||[];r.reviewHistory.push({date:new Date().toISOString(),result:"remembered",evidence:evidence.trim(),nextInDays:days});r.history.push("ôn nhớ tốt · hẹn lại "+days+" ngày");setRec(activeTopic,r)});
 $("reviewWeak").addEventListener("click",()=>{if(!activeTopic)return;let r=rec(activeTopic);const evidence=prompt("Bạn chưa nhớ vững phần nào? Ghi cụ thể để biết cần học lại.");if(!evidence||evidence.trim().length<10){alert("Hãy ghi rõ điểm chưa nhớ.");return}r.forgets=(r.forgets||0)+1;r.reviewStage=0;scheduleReview(r,1);r.reviewHistory=r.reviewHistory||[];r.reviewHistory.push({date:new Date().toISOString(),result:"needs_review",evidence:evidence.trim(),nextInDays:1});if(r.forgets>3){r.level=0;r.studied=false;r.history.push("ôn chưa đạt lần "+r.forgets+" → cần học lại từ đầu")}else{r.level=Math.max(0,r.level-1);r.history.push("ôn chưa vững lần "+r.forgets+" → cấp "+r.level+"; ôn lại sau 1 ngày")}setRec(activeTopic,r)});
 $("forgot").addEventListener("click",()=>{if(!activeTopic)return;let r=rec(activeTopic);r.forgets++;r.reviewStage=0;scheduleReview(r,1);if(r.forgets>3){r.level=0;r.studied=false;r.history.push("quên lần "+r.forgets+" → cần học lại")}else{r.level=Math.max(0,r.level-1);r.history.push("quên lần "+r.forgets+" → cấp "+r.level)}setRec(activeTopic,r)});
-$("export").addEventListener("click",()=>{let blob=new Blob([JSON.stringify(state,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="sach-troi-tien-trinh.json";a.click();URL.revokeObjectURL(url)});
-$("import").addEventListener("click",()=>$("file").click());$("file").addEventListener("change",async e=>{let f=e.target.files[0];if(!f)return;try{let v=JSON.parse(await f.text());if(v.version!==1||!v.topics)throw Error("Sai định dạng sao lưu");state=v;save();renderMap();renderBranches();renderDetail();alert("Đã khôi phục tiến trình trên thiết bị này.")}catch(err){alert("Không thể khôi phục: "+err.message)}e.target.value=""});
+$("export").addEventListener("click",()=>{
+ try{
+  const payload={format:"SACH_TROI_BACKUP",backupVersion:2,exportedAt:new Date().toISOString(),appVersion:1,data:state};
+  const blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");
+  a.href=url;a.download="sach-troi-backup-"+new Date().toISOString().slice(0,10)+".json";document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  setStorageStatus("Đã tạo tệp sao lưu · "+new Date().toLocaleTimeString("vi-VN",{hour:"2-digit",minute:"2-digit"}));
+ }catch(err){setStorageStatus("Không thể tạo bản sao lưu",true);alert("Sao lưu thất bại: "+err.message)}
+});
+$("import").addEventListener("click",()=>$("file").click());
+$("file").addEventListener("change",async e=>{
+ const file=e.target.files[0];if(!file)return;
+ try{
+  if(file.size>10*1024*1024)throw new Error("Tệp lớn hơn giới hạn 10 MB.");
+  const imported=normalizeBackup(JSON.parse(await file.text()));
+  if(JSON.stringify(state)!==JSON.stringify(imported)&&!confirm("Khôi phục sẽ thay thế tiến trình hiện tại trên thiết bị này. Bạn nên sao lưu tiến trình hiện tại trước. Tiếp tục?"))return;
+  state=imported;if(!save())throw new Error("Thiết bị không lưu được dữ liệu sau khi khôi phục.");
+  renderMap();renderBranches();renderDetail();renderReviewQueue();renderJourney();
+  alert("Đã khôi phục "+Object.keys(state.topics).length+" nhánh tiến trình trên thiết bị này.");
+ }catch(err){alert("Không thể khôi phục: "+err.message)}
+ finally{e.target.value=""}
+});
 const universeView=$("universeView"),fullscreenToggle=$("fullscreenToggle");
 function isUniverseFullscreen(){return document.fullscreenElement===universeView||universeView.classList.contains("pseudo-fullscreen")}
 function updateFullscreenButton(){const active=isUniverseFullscreen();fullscreenToggle.textContent=active?"✕ Thoát toàn màn hình":"⛶ Toàn màn hình";fullscreenToggle.setAttribute("aria-label",active?"Thoát chế độ toàn màn hình":"Mở bản đồ toàn màn hình");document.body.classList.toggle("fullscreen-open",active);document.documentElement.classList.toggle("fullscreen-open",active)}
