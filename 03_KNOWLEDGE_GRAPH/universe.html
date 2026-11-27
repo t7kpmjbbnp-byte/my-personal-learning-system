@@ -33,6 +33,18 @@
 .galaxy-view .mother-planet-node .mother-planet-hit{r:28}
 .galaxy-view .galaxy-anchor .gname{font-size:15px}
 .galaxy-view .galaxy-anchor .gmeta{font-size:10px}
+
+/* Reliable fullscreen fallback for iPhone/iPad and small screens */
+html.fullscreen-open,body.fullscreen-open{overflow:hidden!important;width:100%!important;height:100%!important}
+#universeView.pseudo-fullscreen{position:fixed!important;inset:0!important;z-index:2147483000!important;display:block!important;width:100vw!important;height:100vh!important;height:100dvh!important;max-width:none!important;max-height:none!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;overflow:hidden!important;background:#050b16!important;transform:none!important}
+#universeView.pseudo-fullscreen #space{display:block!important;position:absolute!important;left:0!important;top:0!important;width:100vw!important;height:100vh!important;height:100dvh!important;min-height:0!important;max-height:none!important;object-fit:contain!important}
+#universeView.pseudo-fullscreen .fullscreen-toggle{position:fixed!important;z-index:2147483647!important;top:max(12px,env(safe-area-inset-top))!important;right:max(12px,env(safe-area-inset-right))!important;pointer-events:auto!important}
+#universeView.pseudo-fullscreen .scene-nav{position:fixed!important;z-index:2147483646!important;top:max(12px,env(safe-area-inset-top))!important;left:max(12px,env(safe-area-inset-left))!important}
+#universeView.pseudo-fullscreen .legend{position:absolute;left:0;right:0;bottom:env(safe-area-inset-bottom);z-index:5}
+#universeView:fullscreen{width:100vw!important;height:100vh!important;height:100dvh!important;max-width:none!important;overflow:hidden!important}
+#universeView:fullscreen #space{width:100vw!important;height:100vh!important;height:100dvh!important;min-height:0!important}
+#universeView:not(.zoomed) #galaxies{opacity:1!important;visibility:visible!important}
+#universeView:not(.zoomed) .galaxy,#universeView:not(.zoomed) .map-planet{opacity:1!important;visibility:visible!important}
 </style></head><body>
 <header><div class="eyebrow">SÁCH TRỜI · Knowledge universe</div><h1>VŨ TRỤ TRI THỨC</h1><p>Học tới đâu, vũ trụ mở tới đó. Mỗi nhánh có hành trình riêng; ánh sáng chỉ tăng khi bạn học và vượt qua kiểm tra.</p></header>
 <main class="wrap">
@@ -248,10 +260,21 @@ $("export").addEventListener("click",()=>{let blob=new Blob([JSON.stringify(stat
 $("import").addEventListener("click",()=>$("file").click());$("file").addEventListener("change",async e=>{let f=e.target.files[0];if(!f)return;try{let v=JSON.parse(await f.text());if(v.version!==1||!v.topics)throw Error("Sai định dạng sao lưu");state=v;save();renderMap();renderBranches();renderDetail();alert("Đã khôi phục tiến trình trên thiết bị này.")}catch(err){alert("Không thể khôi phục: "+err.message)}e.target.value=""});
 const universeView=$("universeView"),fullscreenToggle=$("fullscreenToggle");
 function isUniverseFullscreen(){return document.fullscreenElement===universeView||universeView.classList.contains("pseudo-fullscreen")}
-function updateFullscreenButton(){const active=isUniverseFullscreen();fullscreenToggle.textContent=active?"✕ Thoát toàn màn hình":"⛶ Toàn màn hình";fullscreenToggle.setAttribute("aria-label",active?"Thoát chế độ toàn màn hình":"Mở bản đồ toàn màn hình");document.body.classList.toggle("fullscreen-open",active)}
-async function toggleUniverseFullscreen(){if(isUniverseFullscreen()){if(document.fullscreenElement===universeView&&document.exitFullscreen){try{await document.exitFullscreen()}catch(e){}}universeView.classList.remove("pseudo-fullscreen");updateFullscreenButton();return}const ios=/iPhone|iPad|iPod/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);if(!ios&&universeView.requestFullscreen){try{await universeView.requestFullscreen();updateFullscreenButton();return}catch(e){}}universeView.classList.add("pseudo-fullscreen");document.body.classList.add("fullscreen-open");updateFullscreenButton()}
-fullscreenToggle.addEventListener("click",toggleUniverseFullscreen);
+function updateFullscreenButton(){const active=isUniverseFullscreen();fullscreenToggle.textContent=active?"✕ Thoát toàn màn hình":"⛶ Toàn màn hình";fullscreenToggle.setAttribute("aria-label",active?"Thoát chế độ toàn màn hình":"Mở bản đồ toàn màn hình");document.body.classList.toggle("fullscreen-open",active);document.documentElement.classList.toggle("fullscreen-open",active)}
+async function toggleUniverseFullscreen(){
+ if(isUniverseFullscreen()){
+  if(document.fullscreenElement===universeView&&document.exitFullscreen){try{await document.exitFullscreen()}catch(e){}}
+  universeView.classList.remove("pseudo-fullscreen");updateFullscreenButton();return;
+ }
+ const ios=/iPhone|iPad|iPod/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
+ if(!ios&&universeView.requestFullscreen){try{await universeView.requestFullscreen();updateFullscreenButton();return}catch(e){console.warn("Native fullscreen unavailable; using page fallback",e)}}
+ universeView.classList.add("pseudo-fullscreen");
+ document.body.classList.add("fullscreen-open");document.documentElement.classList.add("fullscreen-open");
+ window.scrollTo(0,0);updateFullscreenButton();
+}
+fullscreenToggle.addEventListener("click",e=>{e.preventDefault();e.stopPropagation();toggleUniverseFullscreen()});
 document.addEventListener("fullscreenchange",updateFullscreenButton);
+document.addEventListener("webkitfullscreenchange",updateFullscreenButton);
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&universeView.classList.contains("pseudo-fullscreen")){universeView.classList.remove("pseudo-fullscreen");updateFullscreenButton()}});
 $("planetBack").addEventListener("click",returnToGalaxy);$("galaxyBack").addEventListener("click",returnToUniverse);
 $("planetOpenLesson").addEventListener("click",()=>{returnToGalaxy();$("detail").scrollIntoView({behavior:"smooth",block:"start"})});
