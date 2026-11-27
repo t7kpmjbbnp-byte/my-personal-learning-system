@@ -75,8 +75,74 @@ STATUS DEFINITIONS
 
 4. Topic Tracking
 
-Topic	Knowledge	Application	Clinical Reasoning	Assessment	Status
-Pending syllabus	0/5	0/5	0/5	Not started	Pending
+4. TOPIC TRACKING
+
+Purpose:
+Monitor learning progress and competency development for every topic.
+
+TOPIC PROGRESS TEMPLATE
+
+Topic: [Official Topic Name]
+
+1. Knowledge and Understanding
+
+* Status: Not started
+* Mastery level: 0/5
+
+2. Data Interpretation
+
+* Status: Not started
+* Mastery level: 0/5
+
+3. Clinical Reasoning
+
+* Status: Not started
+* Mastery level: 0/5
+
+4. Application
+
+* Status: Not started
+* Mastery level: 0/5
+
+5. Prioritization and Patient Safety
+
+* Status: Not started
+* Mastery level: 0/5
+
+6. Dentistry Integration
+
+* Status: Not started
+* Mastery level: 0/5
+
+7. Competency-Based Assessment
+
+* Questions attempted: 0
+* Correct answers: 0
+* Incorrect answers: 0
+* Independent performance: Not assessed
+
+8. Overall Progress
+
+* Status: Not started
+* Overall mastery: 0/5
+* Next review: Not scheduled
+
+MASTERY LEVEL
+
+0 - Not assessed.
+
+1 - Recognizes basic information.
+
+2 - Explains concepts with guidance.
+
+3 - Applies knowledge correctly.
+
+4 - Analyzes and solves unfamiliar problems independently.
+
+5 - Integrates knowledge and demonstrates consistent independent performance.
+
+IMPORTANT:
+A high score in knowledge recall alone does not mean the topic is mastered. The learner must demonstrate application and independent reasoning.
 
 5. Learning Priority
 
