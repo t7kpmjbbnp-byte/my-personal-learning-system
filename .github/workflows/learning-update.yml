@@ -59,7 +59,7 @@ jobs:
               changed.push(path);
             }
 
-                        function getSection(name) {
+                                    function getSection(name) {
               const lines = body.split(/\r?\n/);
               const heading = `## ${name}`;
               const start = lines.findIndex(
@@ -79,6 +79,19 @@ jobs:
 
               return lines.slice(start + 1, end).join('\n').trim();
             }
+
+            const routes = [
+              {
+                heading: 'CURRENT_STATE',
+                path: '02_PROGRESS/CURRENT_STATE.md',
+                title: `Cập nhật tiến độ — Issue #${id}`
+              },
+              {
+                heading: 'MISTAKES',
+                path: '02_PROGRESS/MISTAKES.md',
+                title: `Ghi nhận lỗi sai — Issue #${id}`
+              },
+              {
                 heading: 'REVIEW_HISTORY',
                 path: '02_PROGRESS/REVIEW_HISTORY.md',
                 title: `Lịch sử ôn tập — Issue #${id}`
@@ -89,7 +102,6 @@ jobs:
                 title: `Ca lâm sàng — Issue #${id}`
               }
             ];
-
             for (const route of routes) {
               const section = getSection(route.heading);
 
