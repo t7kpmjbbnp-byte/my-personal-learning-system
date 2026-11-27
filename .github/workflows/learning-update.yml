@@ -35,7 +35,89 @@ jobs:
             const issue = context.payload.issue;
             const id = issue.number;
             const body = issue.body || '';
+            // ==========================================
+// 1. READ LEARNING METADATA
+// ==========================================
 
+const metadata = {
+  subject: body.match(/^SUBJECT:\s*(.+)$/m)?.[1]?.trim() || '',
+
+  topic: body.match(/^TOPIC:\s*(.+)$/m)?.[1]?.trim() || '',
+
+  updateType: body.match(/^UPDATE_TYPE:\s*(.+)$/m)?.[1]?.trim().toUpperCase() || '',
+
+  competency: body.match(/^COMPETENCY:\s*(.+)$/m)?.[1]?.trim() || '',
+
+  masteryLevel: body.match(/^MASTERY_LEVEL:\s*(UNKNOWN|[0-5])$/m)?.[1] || ''
+};
+
+
+// ==========================================
+// 2. DEFINE ALLOWED VALUES
+// ==========================================
+
+const allowedTypes = [
+  'PROGRESS',
+  'MISTAKE',
+  'REVIEW',
+  'CLINICAL_CASE'
+];
+
+const validCompetencies = metadata.competency
+  .split(',')
+  .map(item => item.trim().toUpperCase())
+  .filter(item => /^C[1-6]$/.test(item));
+
+
+// ==========================================
+// 3. VALIDATE METADATA
+// ==========================================
+
+const metadataErrors = [];
+
+if (!metadata.subject) {
+  metadataErrors.push('Missing SUBJECT');
+}
+
+if (!metadata.topic) {
+  metadataErrors.push('Missing TOPIC');
+}
+
+if (!allowedTypes.includes(metadata.updateType)) {
+  metadataErrors.push('Invalid UPDATE_TYPE');
+}
+
+if (!metadata.masteryLevel) {
+  metadataErrors.push('MASTERY_LEVEL must be UNKNOWN or 0-5');
+}
+
+if (validCompetencies.length === 0) {
+  metadataErrors.push('COMPETENCY must contain at least one valid value from C1-C6');
+}
+
+
+// ==========================================
+// 4. STOP IF METADATA IS INVALID
+// ==========================================
+
+if (metadataErrors.length > 0) {
+
+  const errorMessage = [
+    'Learning metadata is invalid:',
+    ...metadataErrors.map(error => `- ${error}`)
+  ].join('\n');
+
+  await github.rest.issues.createComment({
+    owner: context.repo.owner,
+    repo: context.repo.repo,
+    issue_number: issue.number,
+    body: errorMessage
+  });
+
+  core.setFailed(errorMessage);
+
+  return;
+}
             const routes = [
               {
                 heading: 'CURRENT_STATE',
