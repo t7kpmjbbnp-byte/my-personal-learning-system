@@ -1,5 +1,5 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "updated_at": "2026-11-27",
   "subject": {
     "id": "cls_tieu_hoa",
@@ -197,15 +197,57 @@
     }
   ],
   "learning_protocol": [
-    "Đối chiếu từng mục với NotebookLM và tài liệu nguồn",
-    "Giữ nguyên nội dung bài giảng; đánh dấu riêng phần giải thích bổ sung",
-    "Bổ sung chỉ định, nguyên lý, cách đọc kết quả và liên hệ lâm sàng",
-    "Gắn nguồn/trang khi đã xác minh trực tiếp",
-    "Chuyển trạng thái introduced → reviewing → assessed chỉ dựa trên hoạt động học thực tế"
+    "Chọn một chủ đề bất kỳ trên bản đồ; ChatGPT dạy theo tài liệu nguồn và ghi rõ phần kiến thức bổ sung.",
+    "Chỉ ghi nhận hoàn tất buổi học sau khi người học đã được giảng dạy và thực hành truy hồi.",
+    "Chỉ tăng một cấp ánh sáng sau khi vượt qua bài kiểm tra do ChatGPT thực hiện; tối đa 5 cấp.",
+    "Mỗi lần người học quên khi được hỏi lại được ghi vào lịch sử và làm giảm một cấp ánh sáng (không thấp hơn 0).",
+    "Khi số lần quên được ghi nhận vượt quá 3, chủ đề chuyển về cấp 0 và bắt buộc học lại; chỉ phục hồi khi hoàn thành học lại và vượt qua kiểm tra.",
+    "Mỗi chủ đề có tiến trình độc lập; không bắt buộc học tuần tự. Cấp độ phản ánh bằng chứng học tập, không chỉ số lần mở bản đồ.",
+    "Tiến trình hiện lưu cục bộ trên trình duyệt/thiết bị. Chưa tự đồng bộ giữa thiết bị hoặc ghi ngược vào Notion; cần bổ sung cơ chế đồng bộ có kiểm soát.",
+    "Giữ nguyên liên kết SRC và vị trí trang đã xác minh; không đánh dấu thành thạo nội dung chưa được kiểm tra với tài liệu gốc."
   ],
   "caveats": [
     "Đây là bản đồ khung từ nội dung đã trích xuất và học trong hội thoại, chưa phải bản xác minh đủ 35/35 trang PDF.",
     "Không suy diễn số trang, ngưỡng xét nghiệm hoặc chi tiết chưa được xác nhận từ tài liệu gốc.",
     "Các mục con là cấu trúc để học và truy xuất, không phải khẳng định tất cả đều được trình bày đầy đủ trong PDF."
-  ]
+  ],
+  "mastery_model": {
+    "levels": [
+      {
+        "level": 1,
+        "label": "Khởi động",
+        "meaning": "Đã học và vượt qua kiểm tra cơ bản."
+      },
+      {
+        "level": 2,
+        "label": "Đang khai mở",
+        "meaning": "Truy hồi kiến thức và giải thích được ý chính."
+      },
+      {
+        "level": 3,
+        "label": "Kết nối",
+        "meaning": "So sánh, phân biệt và liên hệ được các phần."
+      },
+      {
+        "level": 4,
+        "label": "Làm chủ",
+        "meaning": "Vận dụng được vào tình huống hoặc ca lâm sàng học tập."
+      },
+      {
+        "level": 5,
+        "label": "Tinh thông",
+        "meaning": "Hiểu sâu, truy hồi ổn định và giải thích/vận dụng linh hoạt."
+      }
+    ],
+    "forget_rule": "Mỗi lần quên khi được hỏi lại giảm 1 cấp; khi số lần quên vượt 3, đặt cấp 0 và yêu cầu học lại.",
+    "initial_level": 0,
+    "max_level": 5,
+    "relearn_threshold": 4,
+    "assessment": "Do ChatGPT thực hiện trong buổi học; chỉ người học ghi nhận đạt sau khi thực sự vượt qua.",
+    "storage": "local_browser_v1"
+  },
+  "galaxy_model": {
+    "view": "Một bản đồ = một hệ sao/nhánh học; mỗi chủ đề = hành tinh/nút kiến thức; các liên kết chéo = tuyến liên sao.",
+    "future": "Galaxy overview kết nối nhiều bản đồ theo môn học, cơ chế chung, triệu chứng, xét nghiệm và ứng dụng lâm sàng; nhánh liên bản đồ chỉ mở khi có quan hệ nguồn hoặc quan hệ học tập được ghi rõ."
+  }
 }
