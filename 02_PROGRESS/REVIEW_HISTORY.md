@@ -59,3 +59,15 @@ Kết quả: Chưa thực hiện.
 **Ngày:** 16:39:07 27/11/2026
 
 Kiểm thử workflow ngày 27/11/2026.
+
+
+<!-- learning-update-issue-12 -->
+## Lịch sử ôn tập — Issue #12
+**Ngày:** 17:33:57 27/11/2026
+
+Ngày 27/11/2026:
+- Học và phân tích một ca dịch báng tổng hợp.
+- Kết quả: xác định đúng SAAG 1,8 g/dL và PMN 600 tế bào/mm³; trả lời đúng hai câu hỏi về cơ chế bệnh sinh và nguyên tắc xử trí SBP.
+- Đây là buổi học ban đầu được ghi nhận; chưa có bằng chứng về lần ôn lặp lại sau buổi học.
+
+Đề xuất lần ôn tiếp theo: kiểm tra lại sau 1 ngày bằng một ca mới, yêu cầu tự diễn giải SAAG, PMN và lựa chọn bước xử trí ưu tiên mà không gợi ý.

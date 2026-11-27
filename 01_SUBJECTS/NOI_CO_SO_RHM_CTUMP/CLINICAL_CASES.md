@@ -97,3 +97,17 @@ Nhận định: Nghi viêm phúc mạc tự phát.
 **Ngày:** 16:39:07 27/11/2026
 
 Dữ liệu kiểm thử בלבד; không phải ca lâm sàng thực tế.
+
+
+<!-- learning-update-issue-12 -->
+## Ca lâm sàng — Issue #12
+**Ngày:** 17:33:57 27/11/2026
+
+Ca lâm sàng tổng hợp dùng trong học tập, không phải hồ sơ bệnh nhân thật:
+
+- Dữ kiện nổi bật: SAAG = 1,8 g/dL; PMN dịch báng = 600 tế bào/mm³.
+- Diễn giải: SAAG ≥ 1,1 g/dL hướng đến cơ chế tăng áp lực tĩnh mạch cửa; PMN ≥ 250 tế bào/mm³ đạt ngưỡng chẩn đoán tế bào học của SBP trong bối cảnh thích hợp.
+- Lập luận: người học xác định được hai chỉ số; sau đó chọn đúng cơ chế tăng áp lực cửa và giảm tổng hợp protein của gan; đồng thời chọn nguyên tắc lấy cấy rồi điều trị kháng sinh sớm, không trì hoãn để chờ cấy.
+- Bài học: cần kết hợp dữ kiện dịch báng với tình trạng toàn thân, đánh giá chức năng thận và huyết động; cân nhắc albumin theo chỉ định. Cần tiếp tục luyện tập các tình huống khác để củng cố khả năng áp dụng độc lập.
+
+Lưu ý: MASTERY_LEVEL được để UNKNOWN vì bằng chứng hiện tại chỉ là một ca học; chưa đủ tiêu chí xác nhận thành thạo.

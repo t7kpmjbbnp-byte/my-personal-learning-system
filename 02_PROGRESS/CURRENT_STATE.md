@@ -64,3 +64,24 @@ Năng lực: Chưa xác nhận thành thạo độc lập.
 **Ngày:** 16:39:07 27/11/2026
 
 Kiểm thử workflow: đã hoàn thành phần cấu hình.
+
+
+<!-- learning-update-issue-12 -->
+## Cập nhật tiến độ — Issue #12
+**Ngày:** 17:33:57 27/11/2026
+
+Trong buổi học ngày 27/11/2026, người học đã thực hành một ca lâm sàng tổng hợp về dịch báng khó.
+
+Bằng chứng học tập đã ghi nhận:
+- Tính và xác định SAAG = 1,8 g/dL.
+- Xác định PMN dịch báng = 600 tế bào/mm³.
+- Trả lời đúng câu hỏi về cơ chế: tăng áp lực tĩnh mạch cửa làm SAAG tăng; giảm tổng hợp protein của gan góp phần làm protein dịch báng thấp.
+- Trả lời đúng câu hỏi xử trí: lấy bệnh phẩm cấy trước nếu có thể nhưng không trì hoãn kháng sinh kinh nghiệm khi đã nghi ngờ SBP.
+
+Kiến thức đã được thảo luận:
+- SAAG ≥ 1,1 g/dL gợi ý dịch báng liên quan tăng áp lực tĩnh mạch cửa.
+- PMN dịch báng ≥ 250 tế bào/mm³ đạt ngưỡng tế bào học gợi ý SBP trong bối cảnh phù hợp.
+- Khi nghi ngờ SBP: lấy dịch báng để xét nghiệm và cấy, sau đó khởi trị kháng sinh kinh nghiệm sớm; đánh giá chức năng thận, huyết động và tình trạng gan; cân nhắc albumin truyền tĩnh mạch theo chỉ định.
+- Có thể gặp dịch báng tăng bạch cầu đa nhân trung tính nhưng cấy âm tính (culture-negative neutrocytic ascites).
+
+Chưa đủ dữ liệu để kết luận người học đã thành thạo; cần đánh giá lại bằng tình huống khác và kiểm tra khả năng nhớ lại sau một khoảng thời gian.

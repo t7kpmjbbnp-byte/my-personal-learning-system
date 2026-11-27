@@ -56,3 +56,15 @@ Cần củng cố phân biệt dịch báng do nguyên nhân tim mạch và tăn
 **Ngày:** 16:39:07 27/11/2026
 
 Kiểm thử: chưa ghi nhận lỗi học tập thực tế.
+
+
+<!-- learning-update-issue-12 -->
+## Ghi nhận lỗi sai — Issue #12
+**Ngày:** 17:33:57 27/11/2026
+
+Chưa ghi nhận lỗi trả lời cụ thể trong ca học này: người học tính đúng SAAG 1,8 g/dL, PMN 600 tế bào/mm³ và chọn đúng đáp án ở hai câu hỏi tiếp theo.
+
+Điểm cần tiếp tục củng cố:
+- Phân biệt ngưỡng SAAG với ngưỡng PMN và ý nghĩa riêng của từng chỉ số.
+- Không chờ kết quả cấy mới bắt đầu điều trị khi đã có chỉ định điều trị SBP.
+- Đánh giá nguy cơ suy thận và chỉ định albumin trong SBP theo bối cảnh lâm sàng.
