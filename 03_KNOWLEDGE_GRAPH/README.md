@@ -8,7 +8,7 @@ Build a traceable map of concepts and their relationships across the learner's s
 
 - `nodes.json`: concepts (nodes), including definitions, subject, learning status, and evidence.
 - `relationships.json`: directed relationships (edges) between concepts.
-- `index.html`: planned browser-based visualization; add only after validating the data model.
+- `index.html`: responsive, read-only browser viewer with search, filters, node details, relationship navigation, and evidence links.
 
 ## Data principles
 
@@ -43,6 +43,19 @@ Build a traceable map of concepts and their relationships across the learner's s
 
 The first graph is seeded only from the educational ascites/SBP case recorded in Issue #12. It is intentionally small and will grow as new learning updates are recorded and reviewed.
 
-## Planned next step
+## Viewer
 
-Create a mobile-friendly, read-only graph viewer that loads these JSON files. The viewer should not modify learning records. A free GitHub Pages deployment can be configured after the data model is reviewed.
+Open `index.html` in a browser through GitHub Pages to use the read-only graph viewer. It loads `nodes.json` and `relationships.json` from the same folder. It includes search, type/status filters, node details, related concepts, and links to evidence files.
+
+The viewer uses plain HTML, CSS, and JavaScript with no external libraries, API keys, analytics, or write permissions. It does not edit repository data.
+
+## GitHub Pages deployment (manual)
+
+1. Open repository Settings on GitHub.
+2. Open Pages under Code and automation.
+3. Under Build and deployment, choose Deploy from a branch.
+4. Select branch `main` and folder `/ (root)` if publishing the repository root.
+5. Save, then wait for GitHub Pages to publish.
+6. Open `https://t7kpmjbbnp-byte.github.io/my-personal-learning-system/03_KNOWLEDGE_GRAPH/`.
+
+If Pages is already configured with a different source, do not change it without checking the existing site configuration first. Publishing is separate from committing the viewer files. Pages availability and private-repository eligibility depend on the repository's current GitHub plan and settings.
