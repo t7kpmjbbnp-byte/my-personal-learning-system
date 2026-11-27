@@ -160,7 +160,7 @@ function showMotherSystem3D(galaxyId){
  if(!window.THREE){cardSummary.textContent="Thiết bị chưa tải được thư viện 3D. Bạn vẫn có thể chọn chủ đề từ bản đồ.";$("universeView").classList.remove("mother-system-enter");return}
  try{
   disposeMotherSystem3D();
-  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:"low-power"});renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.65));renderer.setClearColor(0x000000,0);
+  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:"low-power"});renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2.25));renderer.setClearColor(0x000000,0);
   const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(48,1,.1,100);camera.position.set(0,10.2,22);camera.lookAt(0,0,0);
   scene.add(new THREE.AmbientLight(0x9fcfff,.9));const key=new THREE.PointLight(0xffd58a,38,28);key.position.set(0,0,0);scene.add(key);
   const fill=new THREE.DirectionalLight(0x83caff,1.2);fill.position.set(-5,7,8);scene.add(fill);
@@ -169,16 +169,16 @@ function showMotherSystem3D(galaxyId){
   system.add(new THREE.Mesh(new THREE.SphereGeometry(.76,20,20),new THREE.MeshBasicMaterial({color:0xffc66d,transparent:true,opacity:.09,side:THREE.BackSide})));
   const planets=[];
   topics.forEach((topic,i)=>{
-   const angle=i/topics.length*Math.PI*2,ring=2.05+Math.floor(i/7)*1.05+(i%3)*.08;
+   const angle=i*Math.PI*(3-Math.sqrt(5)),ring=2.55+Math.floor(i/8)*1.12;
    const orbit=new THREE.Mesh(new THREE.TorusGeometry(ring,.006,4,72),new THREE.MeshBasicMaterial({color:0x83bde8,transparent:true,opacity:.16}));orbit.rotation.x=Math.PI/2+(i%3-1)*.09;system.add(orbit);
    const group=new THREE.Group();group.rotation.y=angle;group.rotation.x=(i%3-1)*.08;system.add(group);
-   const lessonData=ensureSourceSatellites(topic.id).lessons||[],col=levelColor(Math.round(satelliteBrightness(lessonData)/20)),size=.19+(i%3)*.018,material=new THREE.MeshStandardMaterial({color:col,roughness:.72,metalness:.04,emissive:col,emissiveIntensity:.12+Math.round(satelliteBrightness(lessonData)/20)*.08});
+   const lessonData=ensureSourceSatellites(topic.id).lessons||[],col=levelColor(Math.round(satelliteBrightness(lessonData)/20)),size=.235+(i%3)*.022,material=new THREE.MeshStandardMaterial({color:col,roughness:.72,metalness:.04,emissive:col,emissiveIntensity:.12+Math.round(satelliteBrightness(lessonData)/20)*.08});
    const mesh=new THREE.Mesh(new THREE.SphereGeometry(size,20,20),material);mesh.position.set(ring,0,0);mesh.userData.topic=topic;group.add(mesh);
-   const labelCanvas=document.createElement("canvas");labelCanvas.width=768;labelCanvas.height=192;const ctx=labelCanvas.getContext("2d");ctx.font="900 62px -apple-system, BlinkMacSystemFont, sans-serif";ctx.textAlign="center";ctx.textBaseline="middle";ctx.lineJoin="round";ctx.lineWidth=17;ctx.strokeStyle="#020914";ctx.shadowColor="#000";ctx.shadowBlur=18;ctx.strokeText(topic.name,384,96,740);ctx.shadowBlur=0;ctx.fillStyle="#ffffff";ctx.fillText(topic.name,384,96,740);
-   const tex=new THREE.CanvasTexture(labelCanvas);tex.colorSpace=THREE.SRGBColorSpace;const label=new THREE.Sprite(new THREE.SpriteMaterial({map:tex,transparent:true,depthWrite:false}));label.scale.set(2.35,.59,1);label.position.set(ring,.34,0);group.add(label);
+   const labelCanvas=document.createElement("canvas");labelCanvas.width=1536;labelCanvas.height=384;const ctx=labelCanvas.getContext("2d");ctx.font="900 112px -apple-system, BlinkMacSystemFont, sans-serif";ctx.textAlign="center";ctx.textBaseline="middle";ctx.lineJoin="round";ctx.lineWidth=28;ctx.strokeStyle="#020914";ctx.shadowColor="#000";ctx.shadowBlur=24;ctx.strokeText(topic.name,768,192,1480);ctx.shadowBlur=0;ctx.fillStyle="#ffffff";ctx.fillText(topic.name,768,192,1480);
+   const tex=new THREE.CanvasTexture(labelCanvas);tex.colorSpace=THREE.SRGBColorSpace;tex.anisotropy=Math.min(renderer.capabilities.getMaxAnisotropy(),8);tex.minFilter=THREE.LinearMipmapLinearFilter;tex.magFilter=THREE.LinearFilter;tex.generateMipmaps=true;const label=new THREE.Sprite(new THREE.SpriteMaterial({map:tex,transparent:true,depthWrite:false,toneMapped:false}));label.scale.set(3.15,.79,1);label.position.set(ring,.48,0);group.add(label);
    mesh.add(new THREE.Mesh(new THREE.SphereGeometry(size*1.5,12,12),new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:.1,side:THREE.BackSide})));
    const hit=new THREE.Mesh(new THREE.SphereGeometry(size*2.6,10,10),new THREE.MeshBasicMaterial({transparent:true,opacity:0,depthWrite:false}));mesh.add(hit);
-   planets.push({topic,mesh,group,speed:.00135+(i%5)*.00022,hit});
+   planets.push({topic,mesh,group,speed:.00018+(i%5)*.000035,hit});
   });
   const starGeo=new THREE.BufferGeometry(),starPos=[];for(let i=0;i<240;i++){const r=10+Math.random()*14,a=Math.random()*Math.PI*2,b=Math.acos(2*Math.random()-1);starPos.push(r*Math.sin(b)*Math.cos(a),r*Math.cos(b),r*Math.sin(b)*Math.sin(a))}
   starGeo.setAttribute("position",new THREE.Float32BufferAttribute(starPos,3));scene.add(new THREE.Points(starGeo,new THREE.PointsMaterial({color:0xb7dfff,size:.045,transparent:true,opacity:.65})));
@@ -191,7 +191,7 @@ function showMotherSystem3D(galaxyId){
   const onWheel=e=>{e.preventDefault();distance+=e.deltaY*.018;applyCamera()};
   canvas.addEventListener("pointerdown",onPointerDown);canvas.addEventListener("pointermove",onPointerMove);canvas.addEventListener("pointerup",onPointerUp);canvas.addEventListener("pointercancel",onPointerCancel);canvas.addEventListener("wheel",onWheel,{passive:false});const onResize=()=>resize();window.addEventListener("resize",onResize);
   motherSystem3D={renderer,scene,camera,system,planets,canvas,galaxyId,raf:0,onResize,onPointerDown,onPointerMove,onPointerUp,onPointerCancel,onWheel,animate:null};$("universeView").classList.add("mother-3d-ready");
-  const animate=now=>{if(!motherSystem3D)return;motherSystem3D.raf=requestAnimationFrame(animate);if(document.hidden||$("motherSystem3D").style.display==="none")return;if(now-lastFrame<32)return;lastFrame=now;planets.forEach((p,i)=>{p.group.rotation.y+=p.speed;p.mesh.rotation.y+=.006;p.mesh.position.y=Math.sin(now*.00065+i*1.7)*.055});system.rotation.y+=.00028;renderer.render(scene,camera)};motherSystem3D.animate=animate;resumeMotherSystem3D();
+  const animate=now=>{if(!motherSystem3D)return;motherSystem3D.raf=requestAnimationFrame(animate);if(document.hidden||$("motherSystem3D").style.display==="none")return;if(now-lastFrame<32)return;lastFrame=now;planets.forEach((p,i)=>{p.group.rotation.y+=p.speed;p.mesh.rotation.y+=.0015;p.mesh.position.y=Math.sin(now*.00028+i*1.7)*.025});system.rotation.y+=.00006;renderer.render(scene,camera)};motherSystem3D.animate=animate;resumeMotherSystem3D();
   if(topics.length)selectMother(topics[0]);requestAnimationFrame(()=>$("universeView").classList.remove("mother-system-enter"));
  }catch(err){$("universeView").classList.remove("mother-3d-ready");$("universeView").classList.remove("mother-system-enter");console.error("mother system 3D:",err);cardSummary.textContent="Không khởi tạo được mô hình 3D trên thiết bị này. Bạn có thể chọn hành tinh từ bản đồ."}
 }
