@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-27",
+  "nodes": [
+    {
+      "id": "cirrhosis",
+      "label": "Xơ gan",
+      "subject": "Nội khoa – Nội cơ sở Răng Hàm Mặt",
+      "type": "condition",
+      "summary": "Bệnh gan mạn tính được dùng làm bối cảnh trong ca học dịch báng và SBP.",
+      "learning_status": "introduced",
+      "evidence": [
+        {
+          "source": "Issue #12",
+          "path": "01_SUBJECTS/NOI_CO_SO_RHM_CTUMP/CLINICAL_CASES.md"
+        }
+      ]
+    },
+    {
+      "id": "portal_hypertension",
+      "label": "Tăng áp lực tĩnh mạch cửa",
+      "subject": "Nội khoa – Nội cơ sở Răng Hàm Mặt",
+      "type": "concept",
+      "summary": "Cơ chế liên quan đến hình thành dịch báng; SAAG từ 1,1 g/dL trở lên gợi ý cơ chế tăng áp lực cửa trong bối cảnh phù hợp.",
+      "learning_status": "introduced",
+      "evidence": [
+        {
+          "source": "Issue #12",
+          "path": "02_PROGRESS/CURRENT_STATE.md"
+        }
+      ]
+    },
+    {
+      "id": "ascites",
+      "label": "Dịch báng",
+      "subject": "Nội khoa – Nội cơ sở Răng Hàm Mặt",
+      "type": "concept",
+      "summary": "Dịch trong khoang phúc mạc; ca học tập trung vào diễn giải SAAG và nhận diện SBP.",
+      "learning_status": "introduced",
+      "evidence": [
+        {
+          "source": "Issue #12",
+          "path": "01_SUBJECTS/NOI_CO_SO_RHM_CTUMP/CLINICAL_CASES.md"
+        }
+      ]
+    },
+    {
+      "id": "saag",
+      "label": "SAAG",
+      "subject": "Nội khoa – Nội cơ sở Răng Hàm Mặt",
+      "type": "investigation",
+      "summary": "Chênh lệch albumin huyết thanh – albumin dịch báng. Ngưỡng từ 1,1 g/dL trở lên gợi ý dịch báng liên quan tăng áp lực tĩnh mạch cửa.",
+      "learning_status": "introduced",
+      "evidence": [
+        {
+          "source": "Issue #12",
+          "path": "02_PROGRESS/CURRENT_STATE.md"
+        }
+      ]
+    },
+    {
+      "id": "saag_threshold",
+      "label": "SAAG ≥ 1,1 g/dL",
+      "subject": "Nội khoa – Nội cơ sở Răng Hàm Mặt",
+      "type": "threshold",
+      "summary": "Ngưỡng gợi ý cơ chế tăng áp lực tĩnh mạch cửa; cần diễn giải trong bối cảnh lâm sàng.",
+      "learning_status": "introduced",
+      "evidence": [
+        {
+          "source": "Issue #12",
+          "path": "02_PROGRESS/CURRENT_STATE.md"
+        }
+      ]
+    },
+    {
+      "id": "pmn",
+      "label": "PMN dịch báng",
+      "subject": "Nội khoa – Nội cơ sở Răng Hàm Mặt",
+      "type": "investigation",
+      "summary": "Số lượng bạch cầu đa nhân trung tính trong dịch báng, được dùng để đánh giá khả năng SBP.",
+      "learning_status": "introduced",
+      "evidence": [
+        {
+          "source": "Issue #12",
+          "path": "02_PROGRESS/CURRENT_STATE.md"
+        }
+      ]
+    },
+    {
+      "id": "pmn_threshold",
+      "label": "PMN ≥ 250 tế bào/mm³",
+      "subject": "Nội khoa – Nội cơ sở Răng Hàm Mặt",
+      "type": "threshold",
+      "summary": "Ngưỡng tế bào học hỗ trợ chẩn đoán SBP trong bối cảnh phù hợp; không thay thế đánh giá toàn diện.",
+      "learning_status": "introduced",
+      "evidence": [
+        {
+          "source": "Issue #12",
+          "path": "02_PROGRESS/CURRENT_STATE.md"
+        }
+      ]
+    },
+    {
+      "id": "sbp",
+      "label": "Viêm phúc mạc tự phát (SBP)",
+      "subject": "Nội khoa – Nội cơ sở Răng Hàm Mặt",
+      "type": "condition",
+      "summary": "Nhiễm trùng dịch báng; ca học tập ghi nhận nguyên tắc lấy bệnh phẩm cấy nếu có thể rồi khởi trị kháng sinh kinh nghiệm sớm khi có chỉ định, không trì hoãn chờ kết quả cấy.",
+      "learning_status": "introduced",
+      "evidence": [
+        {
+          "source": "Issue #12",
+          "path": "01_SUBJECTS/NOI_CO_SO_RHM_CTUMP/CLINICAL_CASES.md"
+        }
+      ]
+    },
+    {
+      "id": "prompt_antibiotics",
+      "label": "Kháng sinh kinh nghiệm sớm",
+      "subject": "Nội khoa – Nội cơ sở Răng Hàm Mặt",
+      "type": "action",
+      "summary": "Nguyên tắc xử trí được học: lấy bệnh phẩm cấy trước nếu có thể, nhưng không trì hoãn kháng sinh khi đã có chỉ định điều trị SBP.",
+      "learning_status": "introduced",
+      "evidence": [
+        {
+          "source": "Issue #12",
+          "path": "02_PROGRESS/CURRENT_STATE.md"
+        }
+      ]
+    },
+    {
+      "id": "renal_hemodynamic_assessment",
+      "label": "Đánh giá thận và huyết động",
+      "subject": "Nội khoa – Nội cơ sở Răng Hàm Mặt",
+      "type": "action",
+      "summary": "Đánh giá chức năng thận và tình trạng huyết động trong tiếp cận người bệnh nghi SBP.",
+      "learning_status": "introduced",
+      "evidence": [
+        {
+          "source": "Issue #12",
+          "path": "02_PROGRESS/CURRENT_STATE.md"
+        }
+      ]
+    }
+  ]
+}
