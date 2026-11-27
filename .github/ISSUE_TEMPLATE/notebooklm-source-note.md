@@ -1,33 +1,47 @@
 ---
-name: NotebookLM Source Note
-about: Chuyển một kết quả đã chọn từ NotebookLM vào kho học tập
+name: NotebookLM Source Note (legacy)
+about: Legacy template for a selected NotebookLM answer; use Source Archive Capture for full capture
 title: "[SOURCE NOTE] "
 ---
 
+> Legacy template retained so existing links and workflow are not broken. For new captures, use **NotebookLM Source Archive Capture**.
+
 ## NOTEBOOK
 Tên notebook: Nội cơ sở – RHM – CTUMP
+URL notebook (nếu có):
 
 ## SOURCE
 Tên tài liệu/nguồn:
 Loại nguồn: [PDF / slide / Google Docs / website / video / khác]
-Trang hoặc mục liên quan (nếu có):
+Tác giả/đơn vị xuất bản:
+Phiên bản/năm xuất bản:
+Trang hoặc mục liên quan:
+Link hoặc vị trí lưu tài liệu gốc:
 
 ## NOTEBOOKLM_PROMPT
 [Câu hỏi hoặc yêu cầu đã dùng trong NotebookLM]
 
 ## NOTEBOOKLM_ANSWER
-[Dán câu trả lời hoặc nội dung ghi chú đã chọn. Giữ nguyên trích dẫn và liên kết nguồn nếu có.]
+[Dán nội dung đã chọn. Giữ nguyên cấu trúc, trích dẫn và liên kết nguồn.]
+
+## SAVED_NOTES
+[Nội dung các ghi chú liên quan, nếu có. Ghi rõ tên từng ghi chú.]
+
+## CITATIONS
+[Giữ nguyên trích dẫn NotebookLM, số trang/mục và liên kết.]
 
 ## LEARNER_REFLECTION
-[Điều mình hiểu được, điểm còn chưa rõ, hoặc câu hỏi muốn ChatGPT kiểm tra. Nếu chưa có, ghi: Chưa có.]
+[Điều đã hiểu, điểm chưa rõ, câu hỏi muốn ChatGPT kiểm tra. Nếu chưa có, ghi: Chưa có.]
 
-## VERIFICATION
-[Thông tin cần kiểm tra lại hoặc giới hạn của câu trả lời. Nếu chưa biết, ghi: Chưa xác định.]
+## CAPTURE_STATUS
+[not_started / in_progress / captured_unverified / checked / partial_unavailable]
+
+## KNOWN_GAPS
+[Những nội dung chưa lấy được hoặc chưa kiểm tra. Nếu chưa biết, ghi: Chưa xác định.]
 
 ---
 Lưu ý:
-- Chỉ dùng tiêu đề bắt đầu bằng [SOURCE NOTE].
-- Không dán toàn bộ sách/slide có bản quyền; chỉ lưu phần ghi chú của bạn hoặc đoạn trích ngắn cần thiết.
+- Đây là ghi chú nguồn, chưa phải bằng chứng bạn đã thành thạo kiến thức.
+- Không đoán thông tin nguồn hoặc trích dẫn còn thiếu.
 - Không đưa thông tin nhận diện bệnh nhân hoặc dữ liệu cá nhân nhạy cảm vào issue.
-- Repository/Issues có thể công khai. Chỉ gửi nội dung bạn được phép chia sẻ.
-- Đây là ghi chú nguồn, chưa phải bằng chứng bạn đã thành thạo kiến thức. ChatGPT sẽ kiểm tra trước khi chuyển thành learning update.
+- Repository/Issues có thể công khai. Không tải lên toàn văn tài liệu có bản quyền nếu không có quyền chia sẻ.
