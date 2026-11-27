@@ -59,10 +59,3 @@ Kết quả: Chưa thực hiện.
 **Ngày:** 16:39:07 27/11/2026
 
 Kiểm thử workflow ngày 27/11/2026.
-
-
-<!-- learning-update-issue-11 -->
-## Lịch sử ôn tập — Issue #11
-**Ngày:** 16:55:37 27/11/2026
-
-ĐÂY LÀ DỮ LIỆU KIỂM THỬ. Chưa có lịch sử ôn tập thực tế.
