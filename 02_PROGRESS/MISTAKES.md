@@ -35,3 +35,10 @@ Review Priority
 Current Priority Mistakes
 
 No mistakes recorded yet.
+
+
+<!-- learning-update-issue-2 -->
+## Ghi nhận lỗi sai — Issue #2
+**Ngày:** 15:33:39 27/11/2026
+
+Chưa xác định lỗi sai cần ghi nhận trong buổi học này.

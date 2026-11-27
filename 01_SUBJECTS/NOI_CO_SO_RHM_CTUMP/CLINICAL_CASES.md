@@ -75,3 +75,10 @@ No.	Case	Main Topic	Difficulty	Status
 * Do not treat simulated cases as real clinical advice.
 * Follow official clinical guidelines and lecturer instructions.
 * Never recommend treatment without considering contraindications and patient safety.
+
+
+<!-- learning-update-issue-2 -->
+## Ca lâm sàng — Issue #2
+**Ngày:** 15:33:39 27/11/2026
+
+Ca mô phỏng: Bệnh nhân nam 56 tuổi, xơ gan, bụng chướng, sốt và đau bụng.

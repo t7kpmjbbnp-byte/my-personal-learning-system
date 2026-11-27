@@ -41,3 +41,10 @@ Choose the first subject and learning topic.
 Last Updated
 
 Not started.
+
+
+<!-- learning-update-issue-2 -->
+## Cập nhật tiến độ — Issue #2
+**Ngày:** 15:33:39 27/11/2026
+
+Môn: Nội cơ sở – Răng Hàm Mặt CTUMP

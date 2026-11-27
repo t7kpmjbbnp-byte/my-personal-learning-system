@@ -36,3 +36,10 @@ Review Rules
 Topics Requiring Review
 
 No topics scheduled yet.
+
+
+<!-- learning-update-issue-2 -->
+## Lịch sử ôn tập — Issue #2
+**Ngày:** 15:33:39 27/11/2026
+
+Ngày học: 27/11/2026
