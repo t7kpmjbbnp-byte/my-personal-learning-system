@@ -56,10 +56,3 @@ Cần củng cố phân biệt dịch báng do nguyên nhân tim mạch và tăn
 **Ngày:** 16:39:07 27/11/2026
 
 Kiểm thử: chưa ghi nhận lỗi học tập thực tế.
-
-
-<!-- learning-update-issue-11 -->
-## Ghi nhận lỗi sai — Issue #11
-**Ngày:** 16:55:37 27/11/2026
-
-ĐÂY LÀ DỮ LIỆU KIỂM THỬ. Không ghi nhận lỗi sai thực tế.
