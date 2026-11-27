@@ -154,7 +154,7 @@ jobs:
                 'commit', '-m',
                 `Save learning update from issue #${id}`
               ]);
-              execFileSync('git', ['pull', '--rebase', 'origin', 'main'])
+              execFileSync('git', ['pull', '--rebase', 'origin', 'main']);
               execFileSync('git', ['push']);
 
               await github.rest.issues.createComment({
