@@ -90,3 +90,10 @@ Ca mô phỏng: Bệnh nhân nam 56 tuổi, xơ gan, bụng chướng, sốt và
 
 Ca mô phỏng: Bệnh nhân xơ gan, SAAG 1,8 g/dL, PMN 600 tế bào/mm³.
 Nhận định: Nghi viêm phúc mạc tự phát.
+
+
+<!-- learning-update-issue-10 -->
+## Ca lâm sàng — Issue #10
+**Ngày:** 16:39:07 27/11/2026
+
+Dữ liệu kiểm thử בלבד; không phải ca lâm sàng thực tế.

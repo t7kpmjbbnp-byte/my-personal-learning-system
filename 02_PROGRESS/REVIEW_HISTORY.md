@@ -52,3 +52,10 @@ Ngày học: 27/11/2026
 Ngày học: 27/11/2026.
 Lịch ôn: 28/11 và 30/11.
 Kết quả: Chưa thực hiện.
+
+
+<!-- learning-update-issue-10 -->
+## Lịch sử ôn tập — Issue #10
+**Ngày:** 16:39:07 27/11/2026
+
+Kiểm thử workflow ngày 27/11/2026.

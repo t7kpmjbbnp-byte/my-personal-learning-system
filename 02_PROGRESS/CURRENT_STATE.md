@@ -57,3 +57,10 @@ Môn: Nội cơ sở – Răng Hàm Mặt CTUMP
 Chủ đề: Phân tích dịch báng.
 Tiến độ: Đã học có hướng dẫn.
 Năng lực: Chưa xác nhận thành thạo độc lập.
+
+
+<!-- learning-update-issue-10 -->
+## Cập nhật tiến độ — Issue #10
+**Ngày:** 16:39:07 27/11/2026
+
+Kiểm thử workflow: đã hoàn thành phần cấu hình.

@@ -49,3 +49,10 @@ Chưa xác định lỗi sai cần ghi nhận trong buổi học này.
 **Ngày:** 15:53:58 27/11/2026
 
 Cần củng cố phân biệt dịch báng do nguyên nhân tim mạch và tăng áp lực tĩnh mạch cửa.
+
+
+<!-- learning-update-issue-10 -->
+## Ghi nhận lỗi sai — Issue #10
+**Ngày:** 16:39:07 27/11/2026
+
+Kiểm thử: chưa ghi nhận lỗi học tập thực tế.
