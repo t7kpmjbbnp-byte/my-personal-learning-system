@@ -49,13 +49,20 @@ Open `index.html` in a browser through GitHub Pages to use the read-only graph v
 
 The viewer uses plain HTML, CSS, and JavaScript with no external libraries, API keys, analytics, or write permissions. It does not edit repository data.
 
-## GitHub Pages deployment (manual)
+## GitHub Pages deployment (least-privilege workflow)
 
-1. Open repository Settings on GitHub.
-2. Open Pages under Code and automation.
-3. Under Build and deployment, choose Deploy from a branch.
-4. Select branch `main` and folder `/ (root)` if publishing the repository root.
-5. Save, then wait for GitHub Pages to publish.
-6. Open `https://t7kpmjbbnp-byte.github.io/my-personal-learning-system/03_KNOWLEDGE_GRAPH/`.
+The workflow `.github/workflows/knowledge-graph-pages.yml` deploys **only** the `03_KNOWLEDGE_GRAPH/` folder. It does not publish the rest of the repository. It runs when this folder or the workflow changes on `main`, and can also be started manually.
 
-If Pages is already configured with a different source, do not change it without checking the existing site configuration first. Publishing is separate from committing the viewer files. Pages availability and private-repository eligibility depend on the repository's current GitHub plan and settings.
+One-time setup on GitHub:
+
+1. Open the repository on GitHub and tap **Settings**.
+2. Open **Pages** under **Code and automation**.
+3. Under **Build and deployment → Source**, choose **GitHub Actions** (not Deploy from a branch).
+4. Save if GitHub shows a Save button.
+5. Open the **Actions** tab and select **Deploy Knowledge Graph to GitHub Pages**.
+6. If a run is not already in progress, use **Run workflow** on branch `main`.
+7. Wait for the workflow to finish successfully. Open its deployment environment link, or visit `https://t7kpmjbbnp-byte.github.io/my-personal-learning-system/`.
+
+The site root is the graph viewer because the workflow uploads only this folder. Its JSON data and viewer are deployed together. The viewer is read-only and requires no API key, external JavaScript library, analytics, or write permission.
+
+**Privacy check:** GitHub Pages creates a published website. Confirm that the repository and the graph data are appropriate for public viewing before enabling it. The workflow deliberately excludes other repository folders, but the graph's own nodes, relationships, and evidence links will be visible to site visitors. Pages eligibility for private repositories depends on the current GitHub plan and organization settings.
