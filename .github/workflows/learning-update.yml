@@ -1,0 +1,57 @@
+
+name: Learning Update
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  update-learning-log:
+    if: startsWith(github.event.issue.title, '[LEARNING UPDATE]')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Save learning update
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const { execSync } = require('child_process');
+
+            const issue = context.payload.issue;
+            const date = new Date(issue.created_at).toLocaleString(
+              'vi-VN',
+              { timeZone: 'Asia/Ho_Chi_Minh' }
+            );
+
+            const path = '02_PROGRESS/LEARNING_LOG.md';
+            const body = issue.body || '(Issue không có nội dung)';
+
+            fs.mkdirSync('02_PROGRESS', { recursive: true });
+
+            const entry =
+              `\n\n## ${date}\n` +
+              `**Nguồn:** Issue #${issue.number} — ${issue.title}\n\n` +
+              `${body}\n`;
+
+            fs.appendFileSync(path, entry, 'utf8');
+
+            execSync('git config user.name "github-actions[bot]"');
+            execSync('git config user.email "41898282+github-actions[bot]@users.noreply.github.com"');
+            execSync(`git add "${path}"`);
+            execSync('git commit -m "Update learning progress from issue"');
+            execSync('git push');
+
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              body: 'Đã tự động lưu nội dung học tập vào `02_PROGRESS/LEARNING_LOG.md`.'
+            });
