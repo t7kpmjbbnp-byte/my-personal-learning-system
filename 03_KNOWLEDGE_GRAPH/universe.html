@@ -60,7 +60,7 @@ html.fullscreen-open,body.fullscreen-open{overflow:hidden!important;width:100%!i
 /* 3D mother-planet system: selectable orbiting worlds with an in-scene info card */
 .mother-system-3d{display:none;position:absolute;inset:0;z-index:3;overflow:hidden;pointer-events:none;background:radial-gradient(ellipse at 50% 42%,rgba(21,54,86,.08),rgba(3,10,22,.1) 70%)}
 .galaxy-view .mother-system-3d{display:block}
-.galaxy-view #galaxies .mother-planet-node{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+.galaxy-view.mother-3d-ready #galaxies .mother-planet-node{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
 #motherSystemCanvas{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:auto;touch-action:pan-y}
 .mother-system-hint{position:absolute;top:56px;left:50%;transform:translateX(-50%);max-width:90%;padding:7px 12px;border:1px solid #6ca8d455;border-radius:30px;background:#071629c9;color:#c9e7ff;font-size:11px;text-align:center;pointer-events:none;backdrop-filter:blur(8px)}
 .mother-system-card{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);width:min(440px,calc(100% - 22px));max-height:34%;overflow:auto;padding:13px 15px calc(13px + env(safe-area-inset-bottom));border:1px solid #73b9e7aa;border-radius:17px;background:linear-gradient(145deg,rgba(13,34,59,.96),rgba(4,13,27,.97));box-shadow:0 10px 34px #000a,0 0 22px #328fd044;backdrop-filter:blur(15px);pointer-events:auto}
@@ -107,7 +107,7 @@ function renderReviewQueue(){const now=Date.now(),items=allTopics().map(t=>({...
 function allTopics(){return curriculum.flatMap(g=>g.groups.flatMap(gr=>gr.topics.map(t=>({id:topicId(g,gr,t),name:t,g,gr}))))}
 
 let motherSystem3D=null,selectedMotherTopic=null;
-function disposeMotherSystem3D(){if(!motherSystem3D)return;cancelAnimationFrame(motherSystem3D.raf);window.removeEventListener("resize",motherSystem3D.onResize);motherSystem3D.renderer.dispose();motherSystem3D=null}
+function disposeMotherSystem3D(){if(!motherSystem3D)return;cancelAnimationFrame(motherSystem3D.raf);window.removeEventListener("resize",motherSystem3D.onResize);motherSystem3D.renderer.dispose();motherSystem3D=null;$("universeView").classList.remove("mother-3d-ready")}
 function motherTopicCore(topic){
  const lessons=ensureSourceSatellites(topic.id).lessons||[];
  const intro=lessons.slice(0,2).map(x=>x.description).filter(Boolean).join(" ");
@@ -161,9 +161,9 @@ function showMotherSystem3D(galaxyId){
   canvas.addEventListener("pointerup",e=>{if(!down||Math.hypot(e.clientX-down.x,e.clientY-down.y)>12){down=null;return}down=null;const rect=canvas.getBoundingClientRect();pointer.x=((e.clientX-rect.left)/rect.width)*2-1;pointer.y=-((e.clientY-rect.top)/rect.height)*2+1;ray.setFromCamera(pointer,camera);const hits=ray.intersectObjects(planets.flatMap(p=>[p.mesh,p.hit]),true);if(hits.length){let obj=hits[0].object;while(obj&&!obj.userData.topic)obj=obj.parent;if(obj?.userData.topic)selectMother(obj.userData.topic)}});
   const onResize=()=>resize();window.addEventListener("resize",onResize);
   const animate=()=>{if(!motherSystem3D)return;motherSystem3D.raf=requestAnimationFrame(animate);planets.forEach(p=>{p.group.rotation.y+=p.speed});system.rotation.y+=.00045;renderer.render(scene,camera)};
-  motherSystem3D={renderer,scene,camera,system,planets,raf:0,resize,onResize};animate();
+  motherSystem3D={renderer,scene,camera,system,planets,raf:0,resize,onResize};$("universeView").classList.add("mother-3d-ready");animate();
   if(topics.length)selectMother(topics[0]);
- }catch(err){console.error("mother system 3D:",err);cardSummary.textContent="Không khởi tạo được mô hình 3D trên thiết bị này. Bạn có thể chọn hành tinh từ danh sách chủ đề bên dưới."}
+ }catch(err){$("universeView").classList.remove("mother-3d-ready");console.error("mother system 3D:",err);cardSummary.textContent="Không khởi tạo được mô hình 3D trên thiết bị này. Bạn có thể chọn hành tinh từ danh sách chủ đề bên dưới."}
 }
 
 function renderStars(){let s="";for(let i=0;i<180;i++){let x=(i*137.51)%1000,y=(i*83.17)%560,r=(i%7===0)?1.8:.8,op=.25+(i%5)*.13;s+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r}" fill="#d9efff" opacity="${op}"/>`}$("stars").innerHTML=s}
