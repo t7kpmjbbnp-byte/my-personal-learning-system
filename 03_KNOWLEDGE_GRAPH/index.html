@@ -66,6 +66,40 @@ footer{color:#91a3bc}
 
 /* Cinematic touch response: node scan, bloom and contextual HUD */
 .curriculum-node{transition:opacity .28s ease,filter .28s ease}.curriculum-node.focus-dim{opacity:.16;filter:saturate(.45)}.curriculum-node.focus-active{opacity:1;filter:drop-shadow(0 0 8px rgba(106,190,255,.95)) drop-shadow(0 0 22px rgba(77,159,255,.55))}.curriculum-node.focus-active rect:first-child{stroke:#b9e5ff;stroke-width:3.4;animation:node-breathe 1.8s ease-in-out infinite}.curriculum-node.focus-active .curriculum-accent{filter:drop-shadow(0 0 7px #83d9ff)}.focus-hud{pointer-events:none}.hud-pulse{fill:none;stroke:#9de8ff;stroke-width:2.5;opacity:.9;animation:hud-pulse 1.7s ease-out infinite}.hud-ring{fill:none;stroke:#73caff;stroke-width:1.5;stroke-dasharray:4 6;filter:drop-shadow(0 0 6px #56caff);animation:hud-spin 12s linear infinite;transform-origin:center}.hud-core{fill:#dffaff;filter:drop-shadow(0 0 8px #5ad8ff)}.hud-beam{fill:none;stroke:#8bdfff;stroke-width:1.5;stroke-dasharray:5 5;filter:drop-shadow(0 0 5px #48bfff);animation:beam-flow 1.3s linear infinite}.hud-panel{fill:rgba(7,19,34,.96);stroke:#6dcfff;stroke-width:1.5;filter:drop-shadow(0 0 8px rgba(55,176,255,.65)) drop-shadow(0 8px 20px rgba(0,0,0,.4));animation:hud-enter .24s ease-out both}.hud-panel-top{fill:none;stroke:#b0edff;stroke-width:2;opacity:.8}.hud-kicker{fill:#69d6ff;font-size:8px;font-weight:800;letter-spacing:1.15px}.hud-heading{fill:#f1faff;font-size:14px;font-weight:850}.hud-line{fill:#d3eaff;font-size:10px}.hud-index{fill:#55d5ff;font-weight:900}.hud-foot{fill:#82b5d1;font-size:7px;letter-spacing:.45px}.detail-awake{animation:detail-awake .5s ease-out}@keyframes hud-pulse{0%{r:37;opacity:.95}100%{r:67;opacity:0}}@keyframes hud-spin{to{transform:rotate(360deg)}}@keyframes beam-flow{to{stroke-dashoffset:-20}}@keyframes node-breathe{0%,100%{stroke-opacity:.8}50%{stroke-opacity:1}}@keyframes hud-enter{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}@keyframes detail-awake{0%{box-shadow:0 0 0 0 rgba(82,194,255,0)}35%{box-shadow:0 0 0 3px rgba(82,194,255,.5),0 0 28px rgba(82,194,255,.22)}100%{box-shadow:0 0 0 0 rgba(82,194,255,0)}}@media(prefers-reduced-motion:reduce){.hud-pulse,.hud-ring,.hud-beam,.hud-panel,.curriculum-node.focus-active rect:first-child{animation:none!important;transition:none!important}}
+
+/* SÁCH TRỜI · vivid palette, readable hierarchy and interactive relationship network */
+.curriculum-node.group-morphology rect:first-child{fill:#163d62;stroke:#58b8ff}
+.curriculum-node.group-histopathology rect:first-child{fill:#38295d;stroke:#bd9aff}
+.curriculum-node.group-etiology rect:first-child{fill:#49351c;stroke:#ffc46c}
+.curriculum-node.group-function rect:first-child{fill:#153f3b;stroke:#69dfc0}
+.curriculum-node.topic-morphology rect:first-child{fill:#142e49;stroke:#4b9fe0}
+.curriculum-node.topic-histopathology rect:first-child{fill:#29213f;stroke:#9b7be0}
+.curriculum-node.topic-etiology rect:first-child{fill:#382a1b;stroke:#d6a04e}
+.curriculum-node.topic-function rect:first-child{fill:#15332f;stroke:#4bb99f}
+.curriculum-node .topic-glyph{font-size:22px;filter:drop-shadow(0 0 5px rgba(130,205,255,.35))}
+.curriculum-node.topic-node .curriculum-title{font-size:13px;font-weight:850}
+.curriculum-node.group-node .curriculum-title{font-size:16px;font-weight:900}
+.curriculum-node.focus-active{filter:drop-shadow(0 0 5px #fff) drop-shadow(0 0 15px #5ccfff) drop-shadow(0 0 30px rgba(69,173,255,.95))}
+.curriculum-node.focus-active rect:first-child{stroke:#effbff;stroke-width:4;animation:node-breathe 1.2s ease-in-out infinite}
+.curriculum-node.focus-related{opacity:1!important;filter:drop-shadow(0 0 11px rgba(102,208,255,.62))}
+.curriculum-node.focus-related rect:first-child{stroke:#9ce8ff;stroke-width:2.8}
+.cross-link-wrap{cursor:pointer;outline:none}
+.cross-link{stroke:#ffd27d;stroke-width:3.2;stroke-dasharray:8 6;opacity:.68;filter:drop-shadow(0 0 4px rgba(255,190,93,.4));transition:opacity .2s,stroke-width .2s}
+.cross-link-hit{fill:none;stroke:transparent;stroke-width:22;pointer-events:stroke}
+.cross-link-label{fill:#fff0c9;font-size:11px;font-weight:900;paint-order:stroke;stroke:#1b2434;stroke-width:4px;stroke-linejoin:round;opacity:0;pointer-events:none}
+.cross-link-wrap.focus-link .cross-link{stroke:#8ceaff;stroke-width:5;opacity:1;filter:drop-shadow(0 0 8px #57dfff) drop-shadow(0 0 17px #369dff);animation:link-flow 1s linear infinite}
+.cross-link-wrap.focus-link .cross-link-label{opacity:1;fill:#e6fbff}
+.cross-link-wrap.link-dim{opacity:.12}
+.cross-link-wrap:focus .cross-link{stroke:#fff;stroke-width:5}
+@keyframes link-flow{to{stroke-dashoffset:-28}}
+.detail-visual{display:flex;align-items:center;gap:13px;margin:12px 0 15px;padding:12px;border:1px solid #3c5875;border-radius:14px;background:linear-gradient(110deg,#142a40,#1b2840 60%,#282342)}
+.detail-visual-icon{width:66px;height:66px;flex:0 0 66px;display:grid;place-items:center;border-radius:14px;background:radial-gradient(circle at 35% 30%,rgba(133,218,255,.35),rgba(76,125,180,.08) 70%);border:1px solid #6c9ec8;font-size:34px;filter:drop-shadow(0 0 10px rgba(96,191,255,.3))}
+.detail-visual strong{display:block;color:#f4f9ff;font-size:13px;font-weight:900}
+.detail-visual small{display:block;color:#b7cce2;font-size:11px;margin-top:3px}
+.detail h3{font-weight:900;color:#e8f4ff;letter-spacing:.02em}
+.detail li strong,.detail .key-point{color:#ffe09a;font-weight:900}
+.detail .relationship-note{padding:10px 12px;border-left:3px solid #75dfff;background:#142d43;border-radius:8px;color:#d8efff;font-size:12px;margin:10px 0}
+@media(max-width:700px){.detail-visual{padding:10px}.detail-visual-icon{width:56px;height:56px;flex-basis:56px;font-size:29px}.cross-link-label{font-size:13px}}
 </style>
 </head>
 <body>
@@ -92,6 +126,9 @@ footer{color:#91a3bc}
 const $=id=>document.getElementById(id),repo="https://github.com/t7kpmjbbnp-byte/my-personal-learning-system/blob/main/";
 const typeName={condition:"Bệnh lý",concept:"Khái niệm",investigation:"Xét nghiệm",threshold:"Ngưỡng",action:"Hành động"},statusName={introduced:"Đã giới thiệu",reviewing:"Đang ôn tập",assessed:"Đã đánh giá"};
 const colors={condition:"#299b72",concept:"#3478cf",investigation:"#c18a2e",threshold:"#c18a2e",action:"#7655c7"};
+const curriculumCrossLinks=[["endoscopy","biopsy","Nội soi hỗ trợ lấy mẫu mô"],["eus","biopsy","EUS định vị sinh thiết"],["ultrasound","ascitic_fluid","Siêu âm phát hiện dịch báng"],["ascitic_fluid","liver_function","Đối chiếu dịch báng với chức năng gan"],["biliary_imaging","liver_function","Khảo sát đường mật và xét nghiệm gan mật"],["ct_abdomen","tumor_markers","Hình ảnh học bổ trợ đánh giá dấu ấn u"]];
+const groupVisual={morphology:["🔬","HÌNH ẢNH HỌC","Quan sát cấu trúc và hình thái"],histopathology:["🧫","MÔ BỆNH HỌC","Đánh giá mô và tế bào"],etiology:["🦠","TÌM NGUYÊN NHÂN","Vi sinh, miễn dịch và dịch cơ thể"],function:["🧪","CHỨC NĂNG – SINH HÓA","Đánh giá hoạt động cơ quan và xét nghiệm máu"]};
+const topicGlyph={plain_abdominal_xray:"🩻",contrast_radiography:"🩻",biliary_imaging:"🟡",endoscopy:"📷",ultrasound:"〰️",eus:"🔎",ct_abdomen:"🧠",biopsy:"🧫",cytology:"🔬",microbiology:"🦠",ascitic_fluid:"💧",immunology:"🧬",gastric_function:"🫃",small_bowel:"〰️",colon_function:"🌀",liver_function:"🧪",tumor_markers:"🎯"};
 const positions={cirrhosis:[55,260],portal_hypertension:[365,90],ascites:[365,430],saag:[690,90],pmn:[690,430],saag_threshold:[1000,90],pmn_threshold:[1000,430],sbp:[1310,430],prompt_antibiotics:[1615,250],renal_hemodynamic_assessment:[1615,475]};
 const W=220,H=112,BASE_WIDTH=1840,BASE_HEIGHT=650;
 let nodes=[],edges=[],curriculum=null,selected=null,mode="overview",zoom=.8;
@@ -146,16 +183,16 @@ filtered.forEach(g=>{
   const words=t.label.split(" ");let lines=[],line="";
   words.forEach(w=>{if((line+" "+w).trim().length>23&&line){lines.push(line);line=w;}else line=(line+" "+w).trim();});if(line)lines.push(line);
   const label=lines.slice(0,2).map((v,i)=>"<tspan x='14' dy='"+(i?17:0)+"'>"+esc(v)+"</tspan>").join("");
-  nodes+="<g class='curriculum-node topic-node radial-topic' data-curriculum-node='"+esc(g.id+"|"+t.id)+"' tabindex='0' role='button' aria-label='Mở "+esc(t.label)+"' transform='translate("+tx+" "+ty+")'><rect width='"+NW+"' height='"+NH+"' rx='13'/><rect class='curriculum-accent' width='5' height='"+NH+"' rx='3' fill='"+p.c+"'/><text class='curriculum-title' x='14' y='"+(lines.length>1?24:31)+"'>"+label+"</text><text class='curriculum-meta' x='14' y='55'>"+t.topics.length+" nhánh · Chạm để khám phá</text></g>";
+  nodes+="<g class='curriculum-node topic-node radial-topic topic-"+esc(g.id)+"' data-curriculum-node='"+esc(g.id+"|"+t.id)+"' tabindex='0' role='button' aria-label='Mở "+esc(t.label)+"' transform='translate("+tx+" "+ty+")'><rect width='"+NW+"' height='"+NH+"' rx='13'/><rect class='curriculum-accent' width='5' height='"+NH+"' rx='3' fill='"+p.c+"'/><text class='topic-glyph' x='14' y='42'>"+(topicGlyph[t.id]||"✧")+"</text><text class='curriculum-title' x='43' y='"+(lines.length>1?24:31)+"'>"+label+"</text><text class='curriculum-meta' x='43' y='55'>"+t.topics.length+" nhánh · Chạm để khám phá</text></g>";
  });
  const groupLabel=g.label.replace(/^\d+\.\s*/,"");
- nodes+="<g class='curriculum-node group-node radial-group' data-curriculum-node='"+esc(g.id+"|")+"' tabindex='0' role='button' aria-label='Mở nhóm "+esc(groupLabel)+"' transform='translate("+gx+" "+gy+")'><rect width='200' height='66' rx='16'/><rect class='curriculum-accent' width='6' height='66' rx='3' fill='"+p.c+"'/><text class='curriculum-title' x='16' y='28'>"+esc(groupLabel)+"</text><text class='curriculum-meta' x='16' y='49'>"+visible.length+" chủ đề · Nhánh chính</text></g>";
+ nodes+="<g class='curriculum-node group-node radial-group group-"+esc(g.id)+"' data-curriculum-node='"+esc(g.id+"|")+"' tabindex='0' role='button' aria-label='Mở nhóm "+esc(groupLabel)+"' transform='translate("+gx+" "+gy+")'><rect width='200' height='66' rx='16'/><rect class='curriculum-accent' width='6' height='66' rx='3' fill='"+p.c+"'/><text class='curriculum-title' x='16' y='28'>"+esc(groupLabel)+"</text><text class='curriculum-meta' x='16' y='49'>"+visible.length+" chủ đề · Nhánh chính</text></g>";
 });
 /* Các liên kết chéo là đường truy xuất học tập, không thay thế quan hệ nhân quả y khoa. */
 const coords={};
 filtered.forEach(g=>g.topics.forEach(t=>{const p=groupPos[g.id],i=g.topics.findIndex(v=>v.id===t.id),xy=p.topics[i];coords[t.id]={x:xy[0]+NW/2,y:xy[1]+NH/2};}));
-const cross=[["endoscopy","biopsy"],["eus","biopsy"],["ultrasound","ascitic_fluid"],["ascitic_fluid","liver_function"],["biliary_imaging","liver_function"],["ct_abdomen","tumor_markers"]];
-cross.forEach(([a,b])=>{if(coords[a]&&coords[b])edges+="<path class='cross-link' d='M "+coords[a].x+" "+coords[a].y+" Q "+CX+" "+(CY+30)+" "+coords[b].x+" "+coords[b].y+"'/>";});
+curriculumCrossLinks.forEach(([a,b,label])=>{if(coords[a]&&coords[b]){const mx=(coords[a].x+coords[b].x)/2,my=(coords[a].y+coords[b].y)/2;const d="M "+coords[a].x+" "+coords[a].y+" Q "+CX+" "+(CY+30)+" "+coords[b].x+" "+coords[b].y;edges+="<g class='cross-link-wrap' data-link-from='"+a+"' data-link-to='"+b+"' tabindex='0' role='button' aria-label='Mở liên hệ: "+esc(label)+"'><path class='cross-link' d='"+d+"'/><path class='cross-link-hit' d='"+d+"'/><text class='cross-link-label' x='"+mx+"' y='"+(my-8)+"' text-anchor='middle'>"+esc(label)+"</text></g>";}});
+
 nodes+="<g class='center-node'><circle cx='"+CX+"' cy='"+CY+"' r='67'/><circle class='center-ring' cx='"+CX+"' cy='"+CY+"' r='78'/><text x='"+CX+"' y='"+(CY-7)+"' text-anchor='middle' class='center-title'>CLS</text><text x='"+CX+"' y='"+(CY+18)+"' text-anchor='middle' class='center-subtitle'>TIÊU HÓA</text></g>";
 svg.setAttribute("viewBox","0 0 "+W+" "+H);svg.setAttribute("preserveAspectRatio","xMidYMid meet");svg.style.width="100%";svg.style.maxWidth="100%";svg.style.minWidth="0";
 $("curriculumEdges").innerHTML=edges;$("curriculumNodes").innerHTML=nodes;
@@ -163,31 +200,41 @@ $("curriculumNodes").querySelectorAll("[data-curriculum-node]").forEach(el=>{
  const open=()=>{const parts=el.dataset.curriculumNode.split("|"),g=groupById[parts[0]],t=g?.topics.find(v=>v.id===parts[1]);showCurriculumDetail(g,t);$("curriculumNodes").querySelectorAll(".curriculum-node").forEach(n=>n.classList.toggle("selected",n===el));};
  const activate=()=>{open();showCurriculumFocus(el);};el.addEventListener("click",activate);el.addEventListener("keydown",ev=>{if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();activate();}});
 });
-$("curriculumCaveat").innerHTML="<strong>Trạng thái xác minh nguồn:</strong> "+curriculum.caveats.map(esc).join(" ")+" <span>· Các đường nối chéo giúp điều hướng giữa chủ đề liên quan.</span>";
+$("curriculumEdges").querySelectorAll("[data-link-from]").forEach(link=>{const activate=()=>{const target=link.dataset.linkTo,g=groups.find(v=>v.topics.some(t=>t.id===target)),t=g?.topics.find(v=>v.id===target),el=$("curriculumNodes").querySelector("[data-curriculum-node='"+g.id+"|"+target+"']");if(g&&t&&el){showCurriculumDetail(g,t,link.querySelector(".cross-link-label")?.textContent);$("curriculumNodes").querySelectorAll(".curriculum-node").forEach(n=>n.classList.toggle("selected",n===el));showCurriculumFocus(el);}};link.addEventListener("click",activate);link.addEventListener("keydown",ev=>{if(ev.key==="Enter"||ev.key===" "){ev.preventDefault();activate();}});});
+$("curriculumCaveat").innerHTML="<strong>Trạng thái xác minh nguồn:</strong> "+curriculum.caveats.map(esc).join(" ")+" <span>· Chạm vào đường nối vàng để mở chủ đề liên quan; đường sáng xanh là liên hệ đang được truy xuất.</span>";
 }function showCurriculumFocus(el){
- const layer=$("curriculumNodes");
- layer.querySelectorAll(".curriculum-node").forEach(n=>{n.classList.toggle("focus-dim",n!==el);n.classList.toggle("focus-active",n===el);});
+ const layer=$("curriculumNodes"),parts=el.dataset.curriculumNode.split("|"),picked=parts[1];
+ const related=new Set(picked?[picked]:[]);
+ if(picked)curriculumCrossLinks.forEach(([a,b])=>{if(a===picked)related.add(b);if(b===picked)related.add(a);});
+ layer.querySelectorAll(".curriculum-node").forEach(n=>{const p=n.dataset.curriculumNode.split("|"),sameGroup=p[0]===parts[0]&&!p[1],isRelated=related.has(p[1])||sameGroup;n.classList.toggle("focus-dim",n!==el&&!isRelated);n.classList.toggle("focus-active",n===el);n.classList.toggle("focus-related",n!==el&&isRelated);});
+ $("curriculumEdges").querySelectorAll(".cross-link-wrap").forEach(link=>{const a=link.dataset.linkFrom,b=link.dataset.linkTo,hit=picked?(a===picked||b===picked):false;link.classList.toggle("focus-link",hit);link.classList.toggle("link-dim",!!picked&&!hit);});
  layer.querySelector(".focus-hud")?.remove();
- const parts=el.dataset.curriculumNode.split("|"),g=curriculum.groups.find(v=>v.id===parts[0]),t=g?.topics.find(v=>v.id===parts[1]);
- const tr=el.getAttribute("transform")||"translate(350 500)",m=tr.match(/translate\\(([-\\d.]+)[ ,]+([-\\d.]+)\\)/);
+ const g=curriculum.groups.find(v=>v.id===parts[0]),t=g?.topics.find(v=>v.id===picked);
+ const tr=el.getAttribute("transform")||"translate(350 500)",m=tr.match(/translate\(([-\d.]+)[ ,]+([-\d.]+)\)/);
  if(!m||!g)return;
- const x=Number(m[1]),y=Number(m[2]),isGroup=!t;
- const cx=x+(isGroup?100:95),cy=y+33;
- let px=x+205,py=y-35;
- if(px+250>890)px=x-260;
- if(px<8)px=8;
- if(py<8)py=8;
- if(py+158>1070)py=900;
- const title=isGroup?g.label.replace(/^\\d+\\.\\s*/,""):t.label;
+ const x=Number(m[1]),y=Number(m[2]),isGroup=!t,cx=x+(isGroup?100:95),cy=y+33;
+ let px=x+205,py=y-35;if(px+250>890)px=x-260;if(px<8)px=8;if(py<8)py=8;if(py+158>1070)py=900;
+ const title=isGroup?g.label.replace(/^\d+\.\s*/,""):t.label;
  const lines=isGroup?g.topics.slice(0,4).map(v=>v.label):t.topics.slice(0,4);
  const rows=lines.map((v,i)=>"<text class='hud-line' x='16' y='"+(76+i*19)+"'><tspan class='hud-index'>0"+(i+1)+"</tspan><tspan dx='9'>"+esc(v.length>29?v.slice(0,27)+"…":v)+"</tspan></text>").join("");
  const extra=lines.length>4?"+"+(lines.length-4)+" mục khác":(isGroup?g.topics.length+" chủ đề":t.topics.length+" nhánh nội dung");
  const pathEndX=px>cx?px:px+244,pathEndY=py+30;
- const markup="<g class='focus-hud'><circle class='hud-pulse' cx='"+cx+"' cy='"+cy+"' r='43'/><circle class='hud-ring' cx='"+cx+"' cy='"+cy+"' r='55'/><circle class='hud-core' cx='"+cx+"' cy='"+cy+"' r='5'/><path class='hud-beam' d='M "+cx+" "+cy+" L "+pathEndX+" "+pathEndY+" L "+(px>cx?px:px+244)+" "+pathEndY+"'/><rect class='hud-panel' x='"+px+"' y='"+py+"' width='244' height='151' rx='13'/><path class='hud-panel-top' d='M "+(px+13)+" "+(py+1)+" H "+(px+231)+"'/><text class='hud-kicker' x='"+(px+15)+"' y='"+(py+22)+"'>SÁCH TRỜI  /  ĐANG TRUY XUẤT</text><text class='hud-heading' x='"+(px+15)+"' y='"+(py+48)+"'>"+esc(title.length>26?title.slice(0,24)+"…":title)+"</text>"+rows+"<text class='hud-foot' x='"+(px+15)+"' y='"+(py+139)+"'>"+esc(extra)+" · CHẠM NÚT ĐỂ MỞ SÂU</text></g>";
+ const markup="<g class='focus-hud'><circle class='hud-pulse' cx='"+cx+"' cy='"+cy+"' r='43'/><circle class='hud-ring' cx='"+cx+"' cy='"+cy+"' r='55'/><circle class='hud-core' cx='"+cx+"' cy='"+cy+"' r='5'/><path class='hud-beam' d='M "+cx+" "+cy+" L "+pathEndX+" "+pathEndY+"'/><rect class='hud-panel' x='"+px+"' y='"+py+"' width='244' height='151' rx='13'/><path class='hud-panel-top' d='M "+(px+13)+" "+(py+1)+" H "+(px+231)+"'/><text class='hud-kicker' x='"+(px+15)+"' y='"+(py+22)+"'>SÁCH TRỜI / ĐANG TRUY XUẤT</text><text class='hud-heading' x='"+(px+15)+"' y='"+(py+48)+"'>"+esc(title.length>26?title.slice(0,24)+"…":title)+"</text>"+rows+"<text class='hud-foot' x='"+(px+15)+"' y='"+(py+139)+"'>"+esc(extra)+" · CHẠM NÚT ĐỂ MỞ SÂU</text></g>";
  layer.insertAdjacentHTML("beforeend",markup);
  const detail=$("detail");detail.classList.remove("detail-awake");void detail.offsetWidth;detail.classList.add("detail-awake");
 }
-function showCurriculumDetail(g,t){if(!g)return;let d=$("detail");if(!t){d.innerHTML="<span class='tag'>Nhóm kiến thức</span><div class='detail-title'>"+esc(g.label)+"</div><p>"+g.topics.length+" chủ đề trong nhóm này.</p><h3>Các chủ đề</h3><div class='related'>"+g.topics.map(v=>"<button type='button' data-topic='"+esc(g.id+"|"+v.id)+"'>"+esc(v.label)+"</button>").join("")+"</div>";}else{d.innerHTML="<span class='tag'>"+esc(g.label)+"</span><span class='tag'>CLS Tiêu hóa · SRC-001</span><div class='detail-title'>"+esc(t.label)+"</div><p>Các nội dung cần học và đối chiếu trong chủ đề này:</p><ul>"+t.topics.map(v=>"<li>"+esc(v)+"</li>").join("")+"</ul><h3>Nguồn học tập</h3><p>Hồ sơ nguồn: SRC-001 · CLS Tiêu hóa, 35 trang. Các chi tiết và số trang cần được xác minh trực tiếp với PDF/NotebookLM trước khi xem là đã đối chiếu hoàn tất.</p><p><a href='https://www.notion.so/4255a63d7bde816297caef1586c8b4a9' target='_blank' rel='noopener noreferrer'>Mở ghi chú học tập trong Notion ↗</a></p>";}d.querySelectorAll("[data-topic]").forEach(b=>b.addEventListener("click",()=>{let [gid,tid]=b.dataset.topic.split("|"),gg=curriculum.groups.find(v=>v.id===gid);showCurriculumDetail(gg,gg.topics.find(v=>v.id===tid));}));d.scrollIntoView({behavior:"smooth",block:"nearest"});}
+function showCurriculumDetail(g,t,relationLabel){
+ if(!g)return;
+ let d=$("detail"),visual=groupVisual[g.id]||["✧","CHỦ ĐỀ HỌC TẬP",""];
+ const visualHtml="<div class='detail-visual'><div class='detail-visual-icon'>"+(t?(topicGlyph[t.id]||visual[0]):visual[0])+"</div><div><strong>"+(t?esc(t.label):esc(visual[1]))+"</strong><small>"+(t?esc(visual[1]+" · "+visual[2]):esc(visual[2]))+"</small></div></div>";
+ if(!t){
+  d.innerHTML="<span class='tag'>Nhóm kiến thức</span>"+visualHtml+"<div class='detail-title'>"+esc(g.label)+"</div><p><strong>"+g.topics.length+" chủ đề</strong> trong nhóm này.</p><h3>Các chủ đề</h3><div class='related'>"+g.topics.map(v=>"<button type='button' data-topic='"+esc(g.id+"|"+v.id)+"'>"+(topicGlyph[v.id]||"✧")+" "+esc(v.label)+"</button>").join("")+"</div>";
+ }else{
+  d.innerHTML="<span class='tag'>"+esc(g.label)+"</span><span class='tag'>CLS Tiêu hóa · SRC-001</span>"+visualHtml+"<div class='detail-title'>"+esc(t.label)+"</div>"+(relationLabel?"<div class='relationship-note'><strong>Đường liên hệ đang mở:</strong> "+esc(relationLabel)+"<br>Đây là liên hệ học tập để đối chiếu hai phương pháp/chủ đề, không tự khẳng định quan hệ nhân quả.</div>":"")+"<p><strong>Các ý cần nắm và đối chiếu:</strong></p><ul>"+t.topics.map(v=>"<li><strong>"+esc(v)+"</strong></li>").join("")+"</ul><h3>Nguồn học tập</h3><p>Hồ sơ nguồn: <strong>SRC-001 · CLS Tiêu hóa, 35 trang.</strong> Các chi tiết và số trang cần được xác minh trực tiếp với PDF/NotebookLM trước khi xem là đã đối chiếu hoàn tất.</p><p><a href='https://www.notion.so/4255a63d7bde816297caef1586c8b4a9' target='_blank' rel='noopener noreferrer'>Mở ghi chú học tập trong Notion ↗</a></p>";
+ }
+ d.querySelectorAll("[data-topic]").forEach(b=>b.addEventListener("click",()=>{let [gid,tid]=b.dataset.topic.split("|"),gg=curriculum.groups.find(v=>v.id===gid);showCurriculumDetail(gg,gg.topics.find(v=>v.id===tid));}));
+ d.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
 
 function isVisible(n){return matches(n);}
 function activeIds(){if(mode!=="explore"||!selected)return null;let ids=new Set([selected]);edges.filter(e=>e.source===selected||e.target===selected).forEach(e=>{ids.add(e.source);ids.add(e.target);});return ids;}
