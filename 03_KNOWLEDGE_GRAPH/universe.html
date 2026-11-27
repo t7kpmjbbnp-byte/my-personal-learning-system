@@ -56,11 +56,31 @@ html.fullscreen-open,body.fullscreen-open{overflow:hidden!important;width:100%!i
 #universeView.zoomed #space{min-height:360px!important}
 #universeView.zoomed .planet-visual{visibility:visible!important}
 #universeView.zoomed .planet-visual.active{opacity:1!important}
+
+/* 3D mother-planet system: selectable orbiting worlds with an in-scene info card */
+.mother-system-3d{display:none;position:absolute;inset:0;z-index:3;overflow:hidden;pointer-events:none;background:radial-gradient(ellipse at 50% 42%,rgba(21,54,86,.08),rgba(3,10,22,.1) 70%)}
+.galaxy-view .mother-system-3d{display:block}
+.galaxy-view #galaxies .mother-planet-node{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+#motherSystemCanvas{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:auto;touch-action:pan-y}
+.mother-system-hint{position:absolute;top:56px;left:50%;transform:translateX(-50%);max-width:90%;padding:7px 12px;border:1px solid #6ca8d455;border-radius:30px;background:#071629c9;color:#c9e7ff;font-size:11px;text-align:center;pointer-events:none;backdrop-filter:blur(8px)}
+.mother-system-card{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);width:min(440px,calc(100% - 22px));max-height:34%;overflow:auto;padding:13px 15px calc(13px + env(safe-area-inset-bottom));border:1px solid #73b9e7aa;border-radius:17px;background:linear-gradient(145deg,rgba(13,34,59,.96),rgba(4,13,27,.97));box-shadow:0 10px 34px #000a,0 0 22px #328fd044;backdrop-filter:blur(15px);pointer-events:auto}
+.mother-system-card h2{font-size:17px;margin:3px 0}.mother-system-card p{font-size:11px;color:#c0d5e9;margin:4px 0;line-height:1.4}
+.mother-system-card .eyebrow{font-size:9px}.mother-system-card button{width:100%;margin-top:8px;border:1px solid #49bca9;border-radius:10px;padding:9px;background:#174b51;color:#f0ffff;font-size:12px;font-weight:800}
+.mother-system-card button:disabled{opacity:.42;cursor:default}
+.mother-system-level{display:flex;align-items:center;gap:7px;font-size:10px;color:#c9dced;margin-top:7px}
+.mother-system-level .mastery{flex:1;margin:0;max-width:145px}
+.universe:fullscreen .mother-system-hint,.universe.pseudo-fullscreen .mother-system-hint{top:max(56px,calc(env(safe-area-inset-top) + 48px))}
+.universe:fullscreen .mother-system-card,.universe.pseudo-fullscreen .mother-system-card{bottom:max(10px,env(safe-area-inset-bottom))}
+@media(max-width:720px){.mother-system-hint{top:52px;font-size:10px}.mother-system-card{max-height:31%;padding:10px 12px calc(10px + env(safe-area-inset-bottom))}.mother-system-card h2{font-size:15px}.mother-system-card p{font-size:10px}}
+/* Bigger, legible lesson satellites and generous touch targets */
+.orbit-mission{width:27px!important;height:27px!important;min-width:27px!important;min-height:27px!important;font-size:10px!important;line-height:1!important;border-width:2px!important;box-shadow:0 0 0 5px #64bfff22,0 0 12px #62bfff88!important}
+.orbit-mission.selected{width:34px!important;height:34px!important;min-width:34px!important;min-height:34px!important;font-size:12px!important;box-shadow:0 0 0 7px #ffe18a22,0 0 18px #ffe18aaa!important}
+.orbit-mission:after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px solid #b9e8ff35;pointer-events:none}
 </style></head><body>
 <header><div class="eyebrow">SÁCH TRỜI · Knowledge universe</div><h1>VŨ TRỤ TRI THỨC</h1><p>Học tới đâu, vũ trụ mở tới đó. Mỗi nhánh có hành trình riêng; ánh sáng chỉ tăng khi bạn học và vượt qua kiểm tra.</p></header>
 <main class="wrap">
 <div class="toolbar"><a class="btn" href="./index.html">← Bản đồ CLS / sơ đồ kiến thức</a><button class="btn" id="export">Sao lưu tiến trình</button><button class="btn" id="import">Khôi phục</button><input id="file" type="file" accept="application/json" hidden></div>
-<section class="universe" id="universeView" aria-label="Bản đồ vũ trụ tương tác"><button class="btn scene-nav" id="galaxyBack" type="button" hidden>← Toàn cảnh vũ trụ</button><button class="btn fullscreen-toggle" id="fullscreenToggle" type="button" aria-label="Mở bản đồ toàn màn hình">⛶ Toàn màn hình</button><svg id="space" viewBox="0 0 1000 560" role="img" aria-label="Các thiên hà tri thức"><defs><radialGradient id="nebula"><stop stop-color="#285b85" stop-opacity=".55"/><stop offset="1" stop-color="#14243a" stop-opacity="0"/></radialGradient><filter id="glow"><feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><ellipse cx="500" cy="275" rx="390" ry="220" fill="url(#nebula)"/><g id="stars" class="starfield"></g><g id="orbits" fill="none" stroke="#567da2" stroke-dasharray="3 10" opacity=".24"><ellipse cx="500" cy="275" rx="440" ry="235"/><ellipse cx="500" cy="275" rx="330" ry="170"/><ellipse cx="500" cy="275" rx="210" ry="110"/></g><g id="connections"></g><g id="galaxies"></g></svg><div class="planet-visual" id="planetVisual"><canvas id="planet3d" aria-label="Mô hình hành tinh 3D"></canvas><div class="planet-sphere" id="planetSphere"></div><div class="mission-orbits" id="missionOrbits" aria-label="Các điểm nhiệm vụ"></div><div class="planet-caption" id="planetCaption"></div></div><aside class="planet-panel" id="planetPanel" aria-live="polite"><button class="btn planet-back" id="planetBack">← Bản đồ CLS Tiêu hóa</button><div class="eyebrow">PLANET EXPLORATION</div><h2 id="planetName">Hành tinh tri thức</h2><p class="muted" id="planetMeta">Tiến độ khám phá</p><div class="mastery" id="planetMastery"></div><div class="muted" id="planetLevel">0/5 · Chưa khai mở</div><div class="progressbar"><i id="planetProgress"></i></div><h3 style="font-size:13px;margin:14px 0 4px">Nhiệm vụ tại hành tinh</h3><div id="planetMissions"></div><section id="satelliteDetail" class="satellite-detail" hidden></section><div class="actions"><button class="good" id="planetOpenLesson">Mở bảng học tập & đánh giá</button></div></aside><div class="legend"><span><i class="swatch" style="background:#33445a"></i>Chưa khai mở</span><span><i class="swatch" style="background:#5b9dcc"></i>Cấp 1</span><span><i class="swatch" style="background:#319dff"></i>Cấp 2</span><span><i class="swatch" style="background:#a77bff"></i>Cấp 3</span><span><i class="swatch" style="background:#49d6b7"></i>Cấp 4</span><span><i class="swatch" style="background:#ffe18a"></i>Cấp 5</span></div></section>
+<section class="universe" id="universeView" aria-label="Bản đồ vũ trụ tương tác"><button class="btn scene-nav" id="galaxyBack" type="button" hidden>← Toàn cảnh vũ trụ</button><button class="btn fullscreen-toggle" id="fullscreenToggle" type="button" aria-label="Mở bản đồ toàn màn hình">⛶ Toàn màn hình</button><svg id="space" viewBox="0 0 1000 560" role="img" aria-label="Các thiên hà tri thức"><defs><radialGradient id="nebula"><stop stop-color="#285b85" stop-opacity=".55"/><stop offset="1" stop-color="#14243a" stop-opacity="0"/></radialGradient><filter id="glow"><feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><ellipse cx="500" cy="275" rx="390" ry="220" fill="url(#nebula)"/><g id="stars" class="starfield"></g><g id="orbits" fill="none" stroke="#567da2" stroke-dasharray="3 10" opacity=".24"><ellipse cx="500" cy="275" rx="440" ry="235"/><ellipse cx="500" cy="275" rx="330" ry="170"/><ellipse cx="500" cy="275" rx="210" ry="110"/></g><g id="connections"></g><g id="galaxies"></g></svg><div id="motherSystem3D" class="mother-system-3d" aria-label="Hệ hành tinh mẹ 3D"><canvas id="motherSystemCanvas"></canvas><div class="mother-system-hint">Chạm một hành tinh để xem nội dung · Kéo để xoay hệ</div><aside class="mother-system-card" id="motherSystemCard"><div class="eyebrow">HỆ HÀNH TINH MẸ</div><h2 id="motherSystemTitle">Chọn một hành tinh</h2><p id="motherSystemGroup">Các chủ đề trong CLS Tiêu hóa</p><p id="motherSystemSummary">Chạm vào một hành tinh đang quay để xem nội dung cốt lõi và độ sáng.</p><div class="mother-system-level" id="motherSystemLevel"></div><button type="button" class="good" id="motherSystemExplore" disabled>Khám phá hành tinh →</button></aside></div><div class="planet-visual" id="planetVisual"><canvas id="planet3d" aria-label="Mô hình hành tinh 3D"></canvas><div class="planet-sphere" id="planetSphere"></div><div class="mission-orbits" id="missionOrbits" aria-label="Các điểm nhiệm vụ"></div><div class="planet-caption" id="planetCaption"></div></div><aside class="planet-panel" id="planetPanel" aria-live="polite"><button class="btn planet-back" id="planetBack">← Bản đồ CLS Tiêu hóa</button><div class="eyebrow">PLANET EXPLORATION</div><h2 id="planetName">Hành tinh tri thức</h2><p class="muted" id="planetMeta">Tiến độ khám phá</p><div class="mastery" id="planetMastery"></div><div class="muted" id="planetLevel">0/5 · Chưa khai mở</div><div class="progressbar"><i id="planetProgress"></i></div><h3 style="font-size:13px;margin:14px 0 4px">Nhiệm vụ tại hành tinh</h3><div id="planetMissions"></div><section id="satelliteDetail" class="satellite-detail" hidden></section><div class="actions"><button class="good" id="planetOpenLesson">Mở bảng học tập & đánh giá</button></div></aside><div class="legend"><span><i class="swatch" style="background:#33445a"></i>Chưa khai mở</span><span><i class="swatch" style="background:#5b9dcc"></i>Cấp 1</span><span><i class="swatch" style="background:#319dff"></i>Cấp 2</span><span><i class="swatch" style="background:#a77bff"></i>Cấp 3</span><span><i class="swatch" style="background:#49d6b7"></i>Cấp 4</span><span><i class="swatch" style="background:#ffe18a"></i>Cấp 5</span></div></section>
 <section class="panel" id="reviewPanel" style="margin:14px 0"><h2>🧭 Trạm ôn tập</h2><p class="muted" id="reviewSummary">Ôn tập sẽ xuất hiện sau khi bạn ghi nhận đã học một chủ đề.</p><div id="reviewQueue"></div><p class="muted">Lịch gợi ý: 1 → 3 → 7 → 14 → 30 ngày khi nhớ tốt. Nếu chưa nhớ vững, lịch quay về 1 ngày. Bỏ lỡ lịch không tự động làm giảm cấp ánh sáng.</p></section><section class="panel" id="journeyPanel" style="margin:14px 0"><h2>🎯 Nhiệm vụ & thành tựu</h2><p class="muted" id="questSummary">Nhiệm vụ được tính từ hoạt động học tập thực tế.</p><div id="questList"></div><h3 style="margin:16px 0 6px">🏅 Bộ sưu tập thành tựu</h3><div class="achievement-grid" id="achievementGrid"></div></section><div class="lower"><section class="panel"><h2 id="galaxyHeading">Chọn một thiên hà</h2><p class="muted" id="galaxyDesc">Chạm vào thiên hà trên bản đồ để xem các nhánh kiến thức.</p><div id="branches" class="branch-list"></div><div class="notice">Các vùng tối là nhánh đã được định vị trong cấu trúc nhưng chưa có bằng chứng học tập/kiểm tra để phát sáng. Không tự động xem việc mở bản đồ là đã học.</div></section>
 <section class="panel" id="detail"><div class="muted">BẢNG ĐIỀU KHIỂN KIẾN THỨC</div><h2 class="selected-title" id="topicTitle">Chưa chọn chủ đề</h2><div id="topicTags"></div><p class="muted" id="topicDesc">Chọn một nhánh để xem nội dung và cập nhật tiến trình sau buổi học.</p><div class="mastery" id="mastery"></div><div class="muted" id="levelText">0/5 · Chưa khai mở</div><div class="actions"><button class="good" id="studied">Đánh dấu đã học</button><button id="passed">Ghi nhận đánh giá đạt</button><button id="reviewGood">Ôn tập · Nhớ tốt</button><button id="reviewWeak" class="warn">Ôn tập · Chưa vững</button><button class="warn" id="forgot">Ghi nhận quên · −1 cấp</button></div><p class="muted" id="history"></p><div class="notice">Mỗi lần quên làm giảm 1 cấp. Từ lần quên thứ 4, chủ đề trở về cấp 0 và cần học lại. Ghi nhận đánh giá yêu cầu lưu hình thức, người đánh giá và bằng chứng cụ thể. Ứng dụng không tự đọc hoặc xác minh cuộc trò chuyện.</div></section></div>
 <footer>SÁCH TRỜI · Bản đồ vũ trụ giai đoạn đầu · Tiến trình được lưu trên trình duyệt/thiết bị này.</footer></main>
@@ -85,6 +105,66 @@ const REVIEW_DAYS=[1,3,7,14,30];
 function scheduleReview(r,days){r.nextReviewAt=new Date(Date.now()+days*86400000).toISOString()}
 function renderReviewQueue(){const now=Date.now(),items=allTopics().map(t=>({...t,r:rec(t.id)})).filter(x=>x.r.studied&&x.r.nextReviewAt).sort((a,b)=>new Date(a.r.nextReviewAt)-new Date(b.r.nextReviewAt));const due=items.filter(x=>new Date(x.r.nextReviewAt).getTime()<=now);$("reviewSummary").textContent=due.length?due.length+" chủ đề đến hạn ôn tập.":items.length?"Chưa có chủ đề đến hạn. Chủ đề gần nhất: "+items[0].name+" · "+new Date(items[0].r.nextReviewAt).toLocaleString("vi-VN"):"Chưa có lịch ôn. Hãy đánh dấu đã học một chủ đề để bắt đầu.";const show=due.length?due:items.slice(0,3);$("reviewQueue").innerHTML=show.length?show.map(x=>`<div class="review-item"><span><strong>${x.name}</strong><br><small class="muted">${x.g.name} · ${new Date(x.r.nextReviewAt).toLocaleString("vi-VN")}</small></span><button data-review="${x.id}">${new Date(x.r.nextReviewAt).getTime()<=now?"Ôn ngay":"Xem chủ đề"}</button></div>`).join(""):"";$("reviewQueue").querySelectorAll("[data-review]").forEach(b=>b.addEventListener("click",()=>{selectTopic(b.dataset.review);$("detail").scrollIntoView({behavior:"smooth",block:"start"})}))}
 function allTopics(){return curriculum.flatMap(g=>g.groups.flatMap(gr=>gr.topics.map(t=>({id:topicId(g,gr,t),name:t,g,gr}))))}
+
+let motherSystem3D=null,selectedMotherTopic=null;
+function disposeMotherSystem3D(){if(!motherSystem3D)return;cancelAnimationFrame(motherSystem3D.raf);motherSystem3D.renderer.dispose();motherSystem3D=null}
+function motherTopicCore(topic){
+ const lessons=ensureSourceSatellites(topic.id).lessons||[];
+ const intro=lessons.slice(0,2).map(x=>x.description).filter(Boolean).join(" ");
+ return intro||("Chủ đề thuộc nhóm "+topic.gr.name+". Nội dung cốt lõi sẽ được triển khai theo tài liệu nguồn khi mở hành tinh.");
+}
+function showMotherSystem3D(galaxyId){
+ const g=curriculum.find(x=>x.id===galaxyId),host=$("motherSystem3D"),canvas=$("motherSystemCanvas");
+ if(!g||!host||!canvas)return;
+ host.style.display="block";
+ const topics=allTopics().filter(t=>t.g.id===galaxyId);
+ const cardTitle=$("motherSystemTitle"),cardGroup=$("motherSystemGroup"),cardSummary=$("motherSystemSummary"),levelBox=$("motherSystemLevel"),explore=$("motherSystemExplore");
+ function selectMother(topic){
+  selectedMotherTopic=topic.id;
+  const state=rec(topic.id),lessons=ensureSourceSatellites(topic.id).lessons||[],pct=satelliteBrightness(lessons),level=Math.round(pct/20);
+  cardTitle.textContent=topic.name;cardGroup.textContent=topic.gr.name+" · "+lessons.length+" vệ tinh bài học";
+  cardSummary.textContent=motherTopicCore(topic);
+  levelBox.innerHTML='<span>Độ sáng '+level+'/5</span><span class="mastery">'+Array.from({length:5},(_,i)=>'<i class="level '+(i<level?'on':'')+'"></i>').join("")+'</span><span>'+pct+'%</span>';
+  explore.disabled=false;explore.onclick=()=>selectTopic(topic.id);
+  if(motherSystem3D){motherSystem3D.planets.forEach(p=>{p.mesh.scale.setScalar(p.topic.id===topic.id?1.34:1);p.mesh.material.emissiveIntensity=p.topic.id===topic.id?.8:.22})}
+ }
+ if(!window.THREE){cardSummary.textContent="Thiết bị chưa tải được thư viện 3D. Bạn vẫn có thể chọn chủ đề ở danh sách bên dưới.";return}
+ try{
+  disposeMotherSystem3D();
+  const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true});renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.8));renderer.setClearColor(0x000000,0);
+  const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(42,1,.1,100);camera.position.set(0,7.4,13.5);camera.lookAt(0,0,0);
+  scene.add(new THREE.AmbientLight(0x9fcfff,1.1));
+  const key=new THREE.PointLight(0xffd58a,55,30);key.position.set(0,0,0);scene.add(key);
+  const fill=new THREE.DirectionalLight(0x83caff,1.7);fill.position.set(-5,7,8);scene.add(fill);
+  const system=new THREE.Group();scene.add(system);
+  const sun=new THREE.Mesh(new THREE.SphereGeometry(.72,48,48),new THREE.MeshStandardMaterial({color:0xffc66d,emissive:0xff8b32,emissiveIntensity:1.5,roughness:.6}));system.add(sun);
+  const corona=new THREE.Mesh(new THREE.SphereGeometry(.94,40,40),new THREE.MeshBasicMaterial({color:0xffc66d,transparent:true,opacity:.1,side:THREE.BackSide}));system.add(corona);
+  const planets=[];
+  topics.forEach((topic,i)=>{
+   const angle=i/topics.length*Math.PI*2,ring=2.25+Math.floor(i/7)*1.35+(i%3)*.12;
+   const orbit=new THREE.Mesh(new THREE.TorusGeometry(ring,.008,6,160),new THREE.MeshBasicMaterial({color:0x83bde8,transparent:true,opacity:.2}));orbit.rotation.x=Math.PI/2+(i%3-1)*.09;system.add(orbit);
+   const group=new THREE.Group();group.rotation.y=angle;group.rotation.x=(i%3-1)*.08;system.add(group);
+   const state=rec(topic.id),col=levelColor(state.level),size=.23+(i%3)*.035;
+   const material=new THREE.MeshStandardMaterial({color:col,roughness:.68,metalness:.08,emissive:col,emissiveIntensity:.22});
+   const mesh=new THREE.Mesh(new THREE.SphereGeometry(size,32,32),material);mesh.position.set(ring,0,0);mesh.userData.topic=topic;group.add(mesh);
+   const aura=new THREE.Mesh(new THREE.SphereGeometry(size*1.42,24,24),new THREE.MeshBasicMaterial({color:col,transparent:true,opacity:.12,side:THREE.BackSide}));mesh.add(aura);
+   const hit=new THREE.Mesh(new THREE.SphereGeometry(size*1.9,16,16),new THREE.MeshBasicMaterial({transparent:true,opacity:0,depthWrite:false}));mesh.add(hit);
+   planets.push({topic,mesh,group,ring,speed:.0012+(i%5)*.00023,hit});
+  });
+  const starGeo=new THREE.BufferGeometry(),starPos=[];for(let i=0;i<700;i++){const r=9+Math.random()*16,a=Math.random()*Math.PI*2,b=Math.acos(2*Math.random()-1);starPos.push(r*Math.sin(b)*Math.cos(a),r*Math.cos(b),r*Math.sin(b)*Math.sin(a))}
+  starGeo.setAttribute("position",new THREE.Float32BufferAttribute(starPos,3));scene.add(new THREE.Points(starGeo,new THREE.PointsMaterial({color:0xb7dfff,size:.035,transparent:true,opacity:.7})));
+  const ray=new THREE.Raycaster(),pointer=new THREE.Vector2();let down=null,raf=0;
+  function resize(){const w=Math.max(1,host.clientWidth),h=Math.max(1,host.clientHeight);renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix()}
+  resize();
+  canvas.addEventListener("pointerdown",e=>{down={x:e.clientX,y:e.clientY}});
+  canvas.addEventListener("pointerup",e=>{if(!down||Math.hypot(e.clientX-down.x,e.clientY-down.y)>12){down=null;return}down=null;const rect=canvas.getBoundingClientRect();pointer.x=((e.clientX-rect.left)/rect.width)*2-1;pointer.y=-((e.clientY-rect.top)/rect.height)*2+1;ray.setFromCamera(pointer,camera);const hits=ray.intersectObjects(planets.flatMap(p=>[p.mesh,p.hit]),true);if(hits.length){let obj=hits[0].object;while(obj&&!obj.userData.topic)obj=obj.parent;if(obj?.userData.topic)selectMother(obj.userData.topic)}});
+  const onResize=()=>resize();window.addEventListener("resize",onResize);
+  const animate=()=>{raf=requestAnimationFrame(animate);planets.forEach(p=>{p.group.rotation.y+=p.speed});system.rotation.y+=.00045;renderer.render(scene,camera)};
+  motherSystem3D={renderer,scene,camera,system,planets,raf:0,resize,onResize};animate();motherSystem3D.raf=raf;
+  if(topics.length)selectMother(topics[0]);
+ }catch(err){console.error("mother system 3D:",err);cardSummary.textContent="Không khởi tạo được mô hình 3D trên thiết bị này. Bạn có thể chọn hành tinh từ danh sách chủ đề bên dưới."}
+}
+
 function renderStars(){let s="";for(let i=0;i<180;i++){let x=(i*137.51)%1000,y=(i*83.17)%560,r=(i%7===0)?1.8:.8,op=.25+(i%5)*.13;s+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r}" fill="#d9efff" opacity="${op}"/>`}$("stars").innerHTML=s}
 function renderMap(){
  let con="",gal="";
@@ -132,9 +212,9 @@ function selectGalaxy(id){
  mapScene="galaxy";activeGalaxy=id;activeTopic=null;
  $("universeView").classList.remove("zoomed");$("planetPanel").classList.remove("open");$("planetVisual").classList.remove("active");$("missionOrbits").innerHTML="";
  $("galaxyBack").hidden=false;$("planetBack").textContent="← Bản đồ "+g.name;renderMap();renderBranches();renderDetail();
- $("galaxyHeading").textContent=g.name+" · Các hành tinh mẹ";
- $("galaxyDesc").textContent="Chạm vào một hành tinh mẹ để đi sâu vào chủ đề. Các vệ tinh bài học chỉ xuất hiện ở cảnh tiếp theo.";
- animateCamera([g.x-320,g.y-180,640,360]);
+ $("galaxyHeading").textContent=g.name+" · Hệ hành tinh mẹ 3D";
+ $("galaxyDesc").textContent="Các hành tinh mẹ đang quay quanh tâm. Chạm vào một hành tinh để xem nội dung cốt lõi, nhóm kiến thức và độ sáng; chọn Khám phá để mở vệ tinh bài học.";
+ animateCamera([g.x-320,g.y-180,640,360]);showMotherSystem3D(id);
 }
 function renderBranches(){let g=curriculum.find(x=>x.id===activeGalaxy);$("galaxyHeading").textContent=g?g.name:"Chọn một thiên hà";$("galaxyDesc").textContent=g?g.sub:"Chạm vào thiên hà trên bản đồ để xem các nhánh kiến thức.";$("branches").innerHTML=g?g.groups.map(gr=>{let topics=gr.topics.map(t=>rec(topicId(g,gr,t))),lit=topics.filter(r=>r.level>0).length;return `<button class="branch" data-group="${gr.id}"><strong>${gr.name}</strong><small>${lit}/${topics.length} chủ đề đã sáng</small><div class="progressbar"><i style="width:${100*lit/topics.length}%"></i></div></button>`}).join(""):"";$("branches").querySelectorAll("[data-group]").forEach(b=>b.addEventListener("click",()=>{let gr=g.groups.find(x=>x.id===b.dataset.group);$("branches").querySelectorAll(".branch").forEach(x=>x.classList.toggle("active",x===b));$("topicDesc").textContent="Chọn một hành tinh kiến thức bên dưới để học. Các chủ đề được giữ độc lập, không bắt buộc theo thứ tự.";let list=document.createElement("div");list.className="topic-list";list.innerHTML=gr.topics.map(t=>{let id=topicId(g,gr,t),r=rec(id);return `<button class="topic-row" data-topic="${id}"><span>${t}</span><small>Cấp ${r.level}/5</small></button>`}).join("");$("branches").querySelectorAll(".topic-list").forEach(x=>x.remove());b.after(list);list.querySelectorAll("[data-topic]").forEach(x=>x.addEventListener("click",()=>selectTopic(x.dataset.topic))) }))}
 function planetPosition(id){
@@ -204,8 +284,8 @@ function zoomToPlanet(id){
  requestAnimationFrame(()=>{visual.classList.add("active");visual.style.visibility="visible"});
  renderPlanetPanel(id);
 }
-function returnToGalaxy(){const g=curriculum.find(x=>x.id===activeGalaxy);if(!g)return returnToUniverse();mapScene="galaxy";activeTopic=null;$("universeView").classList.remove("zoomed");$("planetPanel").classList.remove("open");$("planetVisual").classList.remove("active");$("missionOrbits").innerHTML="";$("satelliteDetail").hidden=true;$("galaxyBack").hidden=false;$("planetBack").textContent="← Bản đồ "+g.name;renderMap();renderBranches();renderDetail();$("galaxyHeading").textContent=g.name+" · Các hành tinh mẹ";$("galaxyDesc").textContent="Chạm vào một hành tinh mẹ để đi sâu vào chủ đề. Các vệ tinh bài học chỉ xuất hiện ở cảnh tiếp theo.";animateCamera([g.x-320,g.y-180,640,360])}
-function returnToUniverse(){mapScene="universe";activeGalaxy=null;activeTopic=null;animateCamera([0,0,1000,560]);$("universeView").classList.remove("zoomed");$("planetPanel").classList.remove("open");$("planetVisual").classList.remove("active");$("missionOrbits").innerHTML="";$("satelliteDetail").hidden=true;$("galaxyBack").hidden=true;renderMap();renderBranches();renderDetail()}
+function returnToGalaxy(){const g=curriculum.find(x=>x.id===activeGalaxy);if(!g)return returnToUniverse();mapScene="galaxy";activeTopic=null;$("universeView").classList.remove("zoomed");$("planetPanel").classList.remove("open");$("planetVisual").classList.remove("active");$("missionOrbits").innerHTML="";$("satelliteDetail").hidden=true;$("galaxyBack").hidden=false;$("planetBack").textContent="← Bản đồ "+g.name;renderMap();renderBranches();renderDetail();$("galaxyHeading").textContent=g.name+" · Hệ hành tinh mẹ 3D";$("galaxyDesc").textContent="Chạm vào một hành tinh để xem nội dung cốt lõi và độ sáng.";animateCamera([g.x-320,g.y-180,640,360]);showMotherSystem3D(g.id)}
+function returnToUniverse(){disposeMotherSystem3D();$("motherSystem3D").style.display="none";selectedMotherTopic=null;mapScene="universe";activeGalaxy=null;activeTopic=null;animateCamera([0,0,1000,560]);$("universeView").classList.remove("zoomed");$("planetPanel").classList.remove("open");$("planetVisual").classList.remove("active");$("missionOrbits").innerHTML="";$("satelliteDetail").hidden=true;$("galaxyBack").hidden=true;renderMap();renderBranches();renderDetail()}
 
 const CLS_SOURCE_SATELLITES={
 "X-quang bụng không chuẩn bị":[
