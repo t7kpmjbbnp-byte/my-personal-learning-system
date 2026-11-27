@@ -2,7 +2,6 @@
 name: NotebookLM Source Note
 about: Chuyển một kết quả đã chọn từ NotebookLM vào kho học tập
 title: "[SOURCE NOTE] "
-labels: ["source-note"]
 ---
 
 ## NOTEBOOK
