@@ -182,7 +182,7 @@ filtered.forEach(g=>{
   edges+="<path class='topic-spoke' d='M "+gcx+" "+gcy+" Q "+((gcx+tcx)/2)+" "+((gcy+tcy)/2)+" "+tcx+" "+tcy+"'/>";
   const words=t.label.split(" ");let lines=[],line="";
   words.forEach(w=>{if((line+" "+w).trim().length>23&&line){lines.push(line);line=w;}else line=(line+" "+w).trim();});if(line)lines.push(line);
-  const label=lines.slice(0,2).map((v,i)=>"<tspan x='14' dy='"+(i?17:0)+"'>"+esc(v)+"</tspan>").join("");
+  const label=lines.slice(0,2).map((v,i)=>"<tspan x='43' dy='"+(i?17:0)+"'>"+esc(v)+"</tspan>").join("");
   nodes+="<g class='curriculum-node topic-node radial-topic topic-"+esc(g.id)+"' data-curriculum-node='"+esc(g.id+"|"+t.id)+"' tabindex='0' role='button' aria-label='Mở "+esc(t.label)+"' transform='translate("+tx+" "+ty+")'><rect width='"+NW+"' height='"+NH+"' rx='13'/><rect class='curriculum-accent' width='5' height='"+NH+"' rx='3' fill='"+p.c+"'/><text class='topic-glyph' x='14' y='42'>"+(topicGlyph[t.id]||"✧")+"</text><text class='curriculum-title' x='43' y='"+(lines.length>1?24:31)+"'>"+label+"</text><text class='curriculum-meta' x='43' y='55'>"+t.topics.length+" nhánh · Chạm để khám phá</text></g>";
  });
  const groupLabel=g.label.replace(/^\d+\.\s*/,"");
@@ -206,7 +206,7 @@ $("curriculumCaveat").innerHTML="<strong>Trạng thái xác minh nguồn:</stron
  const layer=$("curriculumNodes"),parts=el.dataset.curriculumNode.split("|"),picked=parts[1];
  const related=new Set(picked?[picked]:[]);
  if(picked)curriculumCrossLinks.forEach(([a,b])=>{if(a===picked)related.add(b);if(b===picked)related.add(a);});
- layer.querySelectorAll(".curriculum-node").forEach(n=>{const p=n.dataset.curriculumNode.split("|"),sameGroup=p[0]===parts[0]&&!p[1],isRelated=related.has(p[1])||sameGroup;n.classList.toggle("focus-dim",n!==el&&!isRelated);n.classList.toggle("focus-active",n===el);n.classList.toggle("focus-related",n!==el&&isRelated);});
+ layer.querySelectorAll(".curriculum-node").forEach(n=>{const p=n.dataset.curriculumNode.split("|"),sameGroup=p[0]===parts[0]&&(!picked||!p[1]),isRelated=related.has(p[1])||sameGroup;n.classList.toggle("focus-dim",n!==el&&!isRelated);n.classList.toggle("focus-active",n===el);n.classList.toggle("focus-related",n!==el&&isRelated);});
  $("curriculumEdges").querySelectorAll(".cross-link-wrap").forEach(link=>{const a=link.dataset.linkFrom,b=link.dataset.linkTo,hit=picked?(a===picked||b===picked):false;link.classList.toggle("focus-link",hit);link.classList.toggle("link-dim",!!picked&&!hit);});
  layer.querySelector(".focus-hud")?.remove();
  const g=curriculum.groups.find(v=>v.id===parts[0]),t=g?.topics.find(v=>v.id===picked);
@@ -216,7 +216,7 @@ $("curriculumCaveat").innerHTML="<strong>Trạng thái xác minh nguồn:</stron
  let px=x+205,py=y-35;if(px+250>890)px=x-260;if(px<8)px=8;if(py<8)py=8;if(py+158>1070)py=900;
  const title=isGroup?g.label.replace(/^\d+\.\s*/,""):t.label;
  const lines=isGroup?g.topics.slice(0,4).map(v=>v.label):t.topics.slice(0,4);
- const rows=lines.map((v,i)=>"<text class='hud-line' x='16' y='"+(76+i*19)+"'><tspan class='hud-index'>0"+(i+1)+"</tspan><tspan dx='9'>"+esc(v.length>29?v.slice(0,27)+"…":v)+"</tspan></text>").join("");
+ const rows=lines.map((v,i)=>"<text class='hud-line' x='"+(px+16)+"' y='"+(py+76+i*19)+"'><tspan class='hud-index'>0"+(i+1)+"</tspan><tspan dx='9'>"+esc(v.length>29?v.slice(0,27)+"…":v)+"</tspan></text>").join("");
  const extra=lines.length>4?"+"+(lines.length-4)+" mục khác":(isGroup?g.topics.length+" chủ đề":t.topics.length+" nhánh nội dung");
  const pathEndX=px>cx?px:px+244,pathEndY=py+30;
  const markup="<g class='focus-hud'><circle class='hud-pulse' cx='"+cx+"' cy='"+cy+"' r='43'/><circle class='hud-ring' cx='"+cx+"' cy='"+cy+"' r='55'/><circle class='hud-core' cx='"+cx+"' cy='"+cy+"' r='5'/><path class='hud-beam' d='M "+cx+" "+cy+" L "+pathEndX+" "+pathEndY+"'/><rect class='hud-panel' x='"+px+"' y='"+py+"' width='244' height='151' rx='13'/><path class='hud-panel-top' d='M "+(px+13)+" "+(py+1)+" H "+(px+231)+"'/><text class='hud-kicker' x='"+(px+15)+"' y='"+(py+22)+"'>SÁCH TRỜI / ĐANG TRUY XUẤT</text><text class='hud-heading' x='"+(px+15)+"' y='"+(py+48)+"'>"+esc(title.length>26?title.slice(0,24)+"…":title)+"</text>"+rows+"<text class='hud-foot' x='"+(px+15)+"' y='"+(py+139)+"'>"+esc(extra)+" · CHẠM NÚT ĐỂ MỞ SÂU</text></g>";
