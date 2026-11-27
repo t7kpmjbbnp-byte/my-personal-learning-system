@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-11-27",
+  "subject": {
+    "id": "cls_tieu_hoa",
+    "label": "Cận lâm sàng Tiêu hóa – Gan mật",
+    "source_id": "SRC-001",
+    "source_title": "CLS Tiêu hóa",
+    "source_pages": 35,
+    "source_verification": "text_extraction_reviewed_visual_35_pages_not_yet_verified",
+    "notion_note": "https://www.notion.so/4255a63d7bde816297caef1586c8b4a9"
+  },
+  "groups": [
+    {
+      "id": "morphology",
+      "label": "1. Thăm dò hình thái",
+      "status": "framework_introduced",
+      "topics": [
+        {
+          "id": "plain_abdominal_xray",
+          "label": "X-quang bụng không chuẩn bị",
+          "topics": [
+            "Nguyên lý",
+            "Dấu hiệu cấp cứu",
+            "Chỉ định và giới hạn"
+          ]
+        },
+        {
+          "id": "contrast_radiography",
+          "label": "X-quang ống tiêu hóa có cản quang",
+          "topics": [
+            "Baryte",
+            "Khảo sát lòng ống tiêu hóa",
+            "Chỉ định và chống chỉ định cần lưu ý"
+          ]
+        },
+        {
+          "id": "biliary_imaging",
+          "label": "Chụp đường mật",
+          "topics": [
+            "ERCP",
+            "PTC",
+            "Vai trò chẩn đoán và can thiệp"
+          ]
+        },
+        {
+          "id": "endoscopy",
+          "label": "Nội soi tiêu hóa",
+          "topics": [
+            "Quan sát trực tiếp",
+            "Sinh thiết và test urease",
+            "Can thiệp nội soi"
+          ]
+        },
+        {
+          "id": "ultrasound",
+          "label": "Siêu âm bụng",
+          "topics": [
+            "Gan mật và dịch ổ bụng",
+            "Ưu điểm và giới hạn"
+          ]
+        },
+        {
+          "id": "eus",
+          "label": "Siêu âm nội soi (EUS)",
+          "topics": [
+            "Thành ống tiêu hóa",
+            "Tụy và đường mật",
+            "Chọc hút/sinh thiết dưới hướng dẫn"
+          ]
+        },
+        {
+          "id": "ct_abdomen",
+          "label": "CT-scan ổ bụng",
+          "topics": [
+            "Lát cắt và cản quang",
+            "Đánh giá tạng và mức độ lan rộng"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "histopathology",
+      "label": "2. Thăm dò mô bệnh học",
+      "status": "framework_introduced",
+      "topics": [
+        {
+          "id": "biopsy",
+          "label": "Sinh thiết",
+          "topics": [
+            "Lấy mảnh mô",
+            "Mô bệnh học",
+            "Chỉ định và giới hạn"
+          ]
+        },
+        {
+          "id": "cytology",
+          "label": "Tế bào học",
+          "topics": [
+            "Chải tế bào/chọc hút",
+            "Đặc điểm tế bào",
+            "Phân biệt với sinh thiết"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "etiology",
+      "label": "3. Thăm dò nguyên nhân",
+      "status": "framework_introduced",
+      "topics": [
+        {
+          "id": "microbiology",
+          "label": "Xét nghiệm vi sinh",
+          "topics": [
+            "Nhuộm Gram",
+            "Soi tươi",
+            "Nuôi cấy",
+            "Kháng sinh đồ"
+          ]
+        },
+        {
+          "id": "ascitic_fluid",
+          "label": "Xét nghiệm dịch màng bụng",
+          "topics": [
+            "Tế bào và PMN",
+            "Albumin và SAAG",
+            "Protein toàn phần",
+            "Gram/nuôi cấy và xét nghiệm bổ sung"
+          ]
+        },
+        {
+          "id": "immunology",
+          "label": "Xét nghiệm miễn dịch",
+          "topics": [
+            "Kháng nguyên/kháng thể",
+            "HBV và HCV",
+            "H. pylori",
+            "Một số ký sinh trùng"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "function",
+      "label": "4. Thăm dò chức năng và xét nghiệm máu",
+      "status": "framework_introduced",
+      "topics": [
+        {
+          "id": "gastric_function",
+          "label": "Chức năng dạ dày",
+          "topics": [
+            "pH",
+            "Gastrin",
+            "Pepsinogen"
+          ]
+        },
+        {
+          "id": "small_bowel",
+          "label": "Chức năng ruột non",
+          "topics": [
+            "Xét nghiệm phân",
+            "D-xylose",
+            "Schilling"
+          ]
+        },
+        {
+          "id": "colon_function",
+          "label": "Chức năng ruột già",
+          "topics": [
+            "Hấp thu nước và điện giải",
+            "Vận động đại tràng"
+          ]
+        },
+        {
+          "id": "liver_function",
+          "label": "Xét nghiệm gan – mật",
+          "topics": [
+            "Bilirubin",
+            "Albumin và PT/INR",
+            "AST/ALT",
+            "GGT/ALP",
+            "Ammoniac"
+          ]
+        },
+        {
+          "id": "tumor_markers",
+          "label": "Dấu ấn u",
+          "topics": [
+            "AFP",
+            "CEA",
+            "CA 19-9",
+            "Vai trò và giới hạn"
+          ]
+        }
+      ]
+    }
+  ],
+  "learning_protocol": [
+    "Đối chiếu từng mục với NotebookLM và tài liệu nguồn",
+    "Giữ nguyên nội dung bài giảng; đánh dấu riêng phần giải thích bổ sung",
+    "Bổ sung chỉ định, nguyên lý, cách đọc kết quả và liên hệ lâm sàng",
+    "Gắn nguồn/trang khi đã xác minh trực tiếp",
+    "Chuyển trạng thái introduced → reviewing → assessed chỉ dựa trên hoạt động học thực tế"
+  ],
+  "caveats": [
+    "Đây là bản đồ khung từ nội dung đã trích xuất và học trong hội thoại, chưa phải bản xác minh đủ 35/35 trang PDF.",
+    "Không suy diễn số trang, ngưỡng xét nghiệm hoặc chi tiết chưa được xác nhận từ tài liệu gốc.",
+    "Các mục con là cấu trúc để học và truy xuất, không phải khẳng định tất cả đều được trình bày đầy đủ trong PDF."
+  ]
+}
