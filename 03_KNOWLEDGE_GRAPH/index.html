@@ -175,8 +175,15 @@ function decorateMasteryNodes(){
  });
 }
 function masteryMarkup(id){
- const m=getMastery(id),level=Math.max(0,Math.min(5,m.level)),colors=["#50627a","#55a7e8","#3b9fff","#aa83ff","#48d7bd","#ffdf78"],glow=colors[level];
- return "<section class='mastery-panel' style='--glow:"+glow+"'><div class='mastery-head'><strong>✦ TIẾN TRÌNH LÀM CHỦ</strong><span class='mastery-level'>"+level+"/5</span></div><div class='mastery-track'>"+[1,2,3,4,5].map(n=>"<i class='mastery-step "+(n<=level?"on":"")+"' style='--glow:"+colors[n]+"'></i>").join("")+"</div><div class='mastery-meta'>"+(m.needsRetrain?"⚠ Cần học lại: đã có "+m.forgetCount+" lần quên được ghi nhận.":("Lần quên đã ghi nhận: "+m.forgetCount+" · "+(m.taught?"Đã hoàn tất buổi học, chờ kiểm tra.":"Chưa ghi nhận buổi học gần nhất."))+"<br>Ánh sáng chỉ tăng sau khi đã học và vượt qua kiểm tra cùng gia sư. Mức 0 là vùng chưa khai mở.</div><div class='mastery-actions'><button class='primary' type='button' data-mastery='taught'>✓ Đã học xong buổi này</button><button type='button' data-mastery='pass' "+(!m.taught?"disabled":"")+">✦ Ghi nhận kiểm tra đạt</button><button class='warn' type='button' data-mastery='forget'>↓ Mình đã quên khi được hỏi</button></div><div class='mastery-status'>"+(m.needsRetrain?"Nhánh này tạm khóa tăng cấp. Hãy học lại từ đầu, sau đó mới kiểm tra.":(m.level===5?"Đã đạt cấp Tinh thông. Tiếp tục ôn tập định kỳ để duy trì.":"Hoàn thành buổi dạy → kiểm tra đạt → tăng 1 cấp ánh sáng."))+"</div></section>";
+ const m=getMastery(id),level=Math.max(0,Math.min(5,m.level));
+ const colors=["#50627a","#55a7e8","#3b9fff","#aa83ff","#48d7bd","#ffdf78"];
+ const statusText=m.needsRetrain
+  ?"⚠ Cần học lại: đã có "+m.forgetCount+" lần quên được ghi nhận."
+  :"Lần quên đã ghi nhận: "+m.forgetCount+" · "+(m.taught?"Đã hoàn tất buổi học, chờ kiểm tra.":"Chưa ghi nhận buổi học gần nhất.");
+ const masteryText=m.needsRetrain
+  ?"Nhánh này tạm khóa tăng cấp. Hãy học lại từ đầu, sau đó mới kiểm tra."
+  :(m.level===5?"Đã đạt cấp Tinh thông. Tiếp tục ôn tập định kỳ để duy trì.":"Hoàn thành buổi dạy → kiểm tra đạt → tăng 1 cấp ánh sáng.");
+ return "<section class='mastery-panel' style='--glow:"+colors[level]+"'><div class='mastery-head'><strong>✦ TIẾN TRÌNH LÀM CHỦ</strong><span class='mastery-level'>"+level+"/5</span></div><div class='mastery-track'>"+[1,2,3,4,5].map(n=>"<i class='mastery-step "+(n<=level?"on":"")+"' style='--glow:"+colors[n]+"'></i>").join("")+"</div><div class='mastery-meta'>"+statusText+"<br>Ánh sáng chỉ tăng sau khi đã học và vượt qua kiểm tra cùng gia sư. Mức 0 là vùng chưa khai mở.</div><div class='mastery-actions'><button class='primary' type='button' data-mastery='taught'>✓ Đã học xong buổi này</button><button type='button' data-mastery='pass' "+(!m.taught?"disabled":"")+">✦ Ghi nhận kiểm tra đạt</button><button class='warn' type='button' data-mastery='forget'>↓ Mình đã quên khi được hỏi</button></div><div class='mastery-status'>"+masteryText+"</div></section>";
 }
 function bindMastery(id){
  $("detail").querySelectorAll("[data-mastery]").forEach(btn=>btn.addEventListener("click",()=>{
