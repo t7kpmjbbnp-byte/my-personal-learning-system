@@ -97,10 +97,3 @@ Nhận định: Nghi viêm phúc mạc tự phát.
 **Ngày:** 16:39:07 27/11/2026
 
 Dữ liệu kiểm thử בלבד; không phải ca lâm sàng thực tế.
-
-
-<!-- learning-update-issue-11 -->
-## Ca lâm sàng — Issue #11
-**Ngày:** 16:55:37 27/11/2026
-
-ĐÂY LÀ DỮ LIỆU KIỂM THỬ. Không phải ca lâm sàng thực tế.
