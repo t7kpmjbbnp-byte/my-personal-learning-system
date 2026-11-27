@@ -45,6 +45,10 @@ A record is **complete for the captured session** only when all applicable items
 7. If useful, ask ChatGPT to teach from the verified record. Create a separate `[LEARNING UPDATE]` only for actual learner progress, mistakes, review, or clinical-case evidence.
 8. Update the Knowledge Graph only when a concept or relationship is supported by traceable evidence.
 
+## Document Integrity Checker
+
+Use DOCUMENT_INTEGRITY_TEMPLATE.md for reusable page-level checks and integrity/SRC-001-CLS-Tieu-hoa.md for the known 35-page PDF. The ledger tracks text extraction, visual review (including tables, figures, captions and labels), comparison against the original, and unresolved issues for every page. A pasted excerpt without a confirmed PDF page number does not count as a verified page. Mark a page verified only after both text and relevant visual content have been checked. Overall source status must remain in_progress until all pages and applicable NotebookLM materials have been checked; use partial_unavailable when exact gaps remain.
+
 ## Record status vocabulary
 
 - `not_started`: source identified but no capture attempted.
