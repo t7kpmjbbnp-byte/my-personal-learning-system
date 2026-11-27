@@ -107,7 +107,7 @@ function renderReviewQueue(){const now=Date.now(),items=allTopics().map(t=>({...
 function allTopics(){return curriculum.flatMap(g=>g.groups.flatMap(gr=>gr.topics.map(t=>({id:topicId(g,gr,t),name:t,g,gr}))))}
 
 let motherSystem3D=null,selectedMotherTopic=null;
-function disposeMotherSystem3D(){if(!motherSystem3D)return;cancelAnimationFrame(motherSystem3D.raf);motherSystem3D.renderer.dispose();motherSystem3D=null}
+function disposeMotherSystem3D(){if(!motherSystem3D)return;cancelAnimationFrame(motherSystem3D.raf);window.removeEventListener("resize",motherSystem3D.onResize);motherSystem3D.renderer.dispose();motherSystem3D=null}
 function motherTopicCore(topic){
  const lessons=ensureSourceSatellites(topic.id).lessons||[];
  const intro=lessons.slice(0,2).map(x=>x.description).filter(Boolean).join(" ");
@@ -126,7 +126,7 @@ function showMotherSystem3D(galaxyId){
   cardSummary.textContent=motherTopicCore(topic);
   levelBox.innerHTML='<span>Độ sáng '+level+'/5</span><span class="mastery">'+Array.from({length:5},(_,i)=>'<i class="level '+(i<level?'on':'')+'"></i>').join("")+'</span><span>'+pct+'%</span>';
   explore.disabled=false;explore.onclick=()=>selectTopic(topic.id);
-  if(motherSystem3D){motherSystem3D.planets.forEach(p=>{p.mesh.scale.setScalar(p.topic.id===topic.id?1.34:1);p.mesh.material.emissiveIntensity=p.topic.id===topic.id?.8:.22})}
+  if(motherSystem3D){motherSystem3D.planets.forEach(p=>{p.mesh.scale.setScalar(p.topic.id===topic.id?1.34:1);p.mesh.material.emissiveIntensity=p.topic.id===topic.id ? .8 : .22})}
  }
  if(!window.THREE){cardSummary.textContent="Thiết bị chưa tải được thư viện 3D. Bạn vẫn có thể chọn chủ đề ở danh sách bên dưới.";return}
  try{
@@ -159,8 +159,8 @@ function showMotherSystem3D(galaxyId){
   canvas.addEventListener("pointerdown",e=>{down={x:e.clientX,y:e.clientY}});
   canvas.addEventListener("pointerup",e=>{if(!down||Math.hypot(e.clientX-down.x,e.clientY-down.y)>12){down=null;return}down=null;const rect=canvas.getBoundingClientRect();pointer.x=((e.clientX-rect.left)/rect.width)*2-1;pointer.y=-((e.clientY-rect.top)/rect.height)*2+1;ray.setFromCamera(pointer,camera);const hits=ray.intersectObjects(planets.flatMap(p=>[p.mesh,p.hit]),true);if(hits.length){let obj=hits[0].object;while(obj&&!obj.userData.topic)obj=obj.parent;if(obj?.userData.topic)selectMother(obj.userData.topic)}});
   const onResize=()=>resize();window.addEventListener("resize",onResize);
-  const animate=()=>{raf=requestAnimationFrame(animate);planets.forEach(p=>{p.group.rotation.y+=p.speed});system.rotation.y+=.00045;renderer.render(scene,camera)};
-  motherSystem3D={renderer,scene,camera,system,planets,raf:0,resize,onResize};animate();motherSystem3D.raf=raf;
+  const animate=()=>{if(!motherSystem3D)return;motherSystem3D.raf=requestAnimationFrame(animate);planets.forEach(p=>{p.group.rotation.y+=p.speed});system.rotation.y+=.00045;renderer.render(scene,camera)};
+  motherSystem3D={renderer,scene,camera,system,planets,raf:0,resize,onResize};animate();
   if(topics.length)selectMother(topics[0]);
  }catch(err){console.error("mother system 3D:",err);cardSummary.textContent="Không khởi tạo được mô hình 3D trên thiết bị này. Bạn có thể chọn hành tinh từ danh sách chủ đề bên dưới."}
 }
