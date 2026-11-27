@@ -144,7 +144,7 @@ function showMotherSystem3D(galaxyId){
    const angle=i/topics.length*Math.PI*2,ring=2.25+Math.floor(i/7)*1.35+(i%3)*.12;
    const orbit=new THREE.Mesh(new THREE.TorusGeometry(ring,.008,6,160),new THREE.MeshBasicMaterial({color:0x83bde8,transparent:true,opacity:.2}));orbit.rotation.x=Math.PI/2+(i%3-1)*.09;system.add(orbit);
    const group=new THREE.Group();group.rotation.y=angle;group.rotation.x=(i%3-1)*.08;system.add(group);
-   const state=rec(topic.id),col=levelColor(state.level),size=.23+(i%3)*.035;
+   const state=rec(topic.id),col=levelColor(state.level),size=.31+(i%3)*.045;
    const material=new THREE.MeshStandardMaterial({color:col,roughness:.68,metalness:.08,emissive:col,emissiveIntensity:.22});
    const mesh=new THREE.Mesh(new THREE.SphereGeometry(size,32,32),material);mesh.position.set(ring,0,0);mesh.userData.topic=topic;group.add(mesh);
    const labelCanvas=document.createElement("canvas");labelCanvas.width=512;labelCanvas.height=128;const labelCtx=labelCanvas.getContext("2d");labelCtx.font="bold 38px -apple-system, sans-serif";labelCtx.textAlign="center";labelCtx.textBaseline="middle";labelCtx.lineWidth=8;labelCtx.strokeStyle="#061323";labelCtx.strokeText(topic.name,256,64,490);labelCtx.fillStyle="#eaf6ff";labelCtx.fillText(topic.name,256,64,490);const labelTexture=new THREE.CanvasTexture(labelCanvas);labelTexture.colorSpace=THREE.SRGBColorSpace;const label=new THREE.Sprite(new THREE.SpriteMaterial({map:labelTexture,transparent:true,depthWrite:false}));label.scale.set(2.1,.48,1);label.position.set(ring,.42,0);group.add(label);
