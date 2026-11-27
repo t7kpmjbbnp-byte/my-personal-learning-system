@@ -136,7 +136,7 @@ function showMotherSystem3D(galaxyId){
   explore.disabled=false;explore.onclick=()=>selectTopic(topic.id);
   if(motherSystem3D)motherSystem3D.planets.forEach(p=>{p.mesh.scale.setScalar(p.topic.id===topic.id?1.2:1);p.mesh.material.emissiveIntensity=p.topic.id===topic.id ? .48 : .16});
  }
- if(!window.THREE){cardSummary.textContent="Thiết bị chưa tải được thư viện 3D. Bạn vẫn có thể chọn chủ đề từ bản đồ.";host.classList.remove("mother-system-enter");return}
+ if(!window.THREE){cardSummary.textContent="Thiết bị chưa tải được thư viện 3D. Bạn vẫn có thể chọn chủ đề từ bản đồ.";$("universeView").classList.remove("mother-system-enter");return}
  try{
   disposeMotherSystem3D();
   const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:false,powerPreference:"low-power"});renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,1.2));renderer.setClearColor(0x000000,0);
@@ -168,8 +168,8 @@ function showMotherSystem3D(galaxyId){
   canvas.addEventListener("pointerdown",onPointerDown);canvas.addEventListener("pointerup",onPointerUp);const onResize=()=>resize();window.addEventListener("resize",onResize);
   motherSystem3D={renderer,scene,camera,system,planets,canvas,raf:0,onResize,onPointerDown,onPointerUp};$("universeView").classList.add("mother-3d-ready");
   const animate=now=>{if(!motherSystem3D)return;motherSystem3D.raf=requestAnimationFrame(animate);if(now-lastFrame<32)return;lastFrame=now;planets.forEach((p,i)=>{p.group.rotation.y+=p.speed;p.mesh.rotation.y+=.006;p.mesh.position.y=Math.sin(now*.00065+i*1.7)*.055});system.rotation.y+=.00028;renderer.render(scene,camera)};animate(0);
-  if(topics.length)selectMother(topics[0]);requestAnimationFrame(()=>host.classList.remove("mother-system-enter"));
- }catch(err){$("universeView").classList.remove("mother-3d-ready");host.classList.remove("mother-system-enter");console.error("mother system 3D:",err);cardSummary.textContent="Không khởi tạo được mô hình 3D trên thiết bị này. Bạn có thể chọn hành tinh từ bản đồ."}
+  if(topics.length)selectMother(topics[0]);requestAnimationFrame(()=>$("universeView").classList.remove("mother-system-enter"));
+ }catch(err){$("universeView").classList.remove("mother-3d-ready");$("universeView").classList.remove("mother-system-enter");console.error("mother system 3D:",err);cardSummary.textContent="Không khởi tạo được mô hình 3D trên thiết bị này. Bạn có thể chọn hành tinh từ bản đồ."}
 }
 function renderStars(){let s="";for(let i=0;i<180;i++){let x=(i*137.51)%1000,y=(i*83.17)%560,r=(i%7===0)?1.8:.8,op=.25+(i%5)*.13;s+=`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r}" fill="#d9efff" opacity="${op}"/>`}$("stars").innerHTML=s}
 function renderMap(){
