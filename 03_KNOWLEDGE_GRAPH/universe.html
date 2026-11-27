@@ -67,9 +67,115 @@ function satellitePrompt(id,index,task){const t=allTopics().find(x=>x.id===id),l
 async function startSatelliteTask(id,index,taskIndex){const lesson=(rec(id).lessons||[])[index];if(!lesson)return;const defaults=["Giảng kiến thức nền tảng và kiểm tra hiểu từng phần","Yêu cầu tôi tự giải thích cơ chế không nhìn tài liệu","Kiểm tra ghi nhớ bằng câu hỏi mới","Đưa tình huống vận dụng phù hợp với nội dung nguồn"],tasks=Array.isArray(lesson.tasks)?lesson.tasks:[],task=tasks[taskIndex]?(typeof tasks[taskIndex]==="string"?tasks[taskIndex]:tasks[taskIndex].title||tasks[taskIndex].name||defaults[taskIndex]):defaults[taskIndex]||"Dạy và đánh giá bài học";const prompt=satellitePrompt(id,index,task),status=$("satellitePromptStatus");try{await navigator.clipboard.writeText(prompt);status.textContent="Đã sao chép prompt. Quay lại cuộc trò chuyện ChatGPT hiện tại và dán để bắt đầu học."; }catch(e){const area=$("satellitePromptText");area.value=prompt;area.hidden=false;area.focus();area.select();status.textContent="Không thể tự sao chép trên trình duyệt này. Prompt đã hiện bên dưới; nhấn giữ để sao chép rồi dán vào ChatGPT.";}}
 function recordSatelliteAssessment(id,index,passed){const r=rec(id),lesson=(r.lessons||[])[index];if(!lesson)return;const area=$("satelliteEvidence"),evidence=area.value.trim();if(evidence.length<20){alert("Hãy ghi ít nhất 20 ký tự về câu trả lời/bằng chứng đánh giá của ChatGPT trước khi ghi nhận.");area.focus();return;}const p=lesson.progress||{},level=Math.max(0,Math.min(5,Number(p.level)||0)),next=passed?Math.min(5,level+1):Math.max(0,level-1),entry={date:new Date().toISOString(),result:passed?"passed":"not_passed",from:level,to:next,evidence,task:$("satelliteTaskTitle").textContent};lesson.progress={...p,level:next,completed:next===5,evidence,history:[...(Array.isArray(p.history)?p.history:[]),entry]};r.lessons[index]=lesson;setRec(id,r);openSatellite(id,index);}
 function openSatellite(id,index){const r=rec(id),lesson=(r.lessons||[])[index];if(!lesson)return;initPlanet3D(levelColor(Math.round(satelliteBrightness(r.lessons||[])/20)),r.lessons||[],index);$("missionOrbits").querySelectorAll("[data-lesson]").forEach(x=>x.classList.toggle("selected",Number(x.dataset.lesson)===index));$("planetName").textContent=lesson.title||("Bài học "+(index+1));$("planetMeta").textContent="Vệ tinh đang được khám phá · "+(allTopics().find(x=>x.id===id)?.name||"Hành tinh mẹ");const p=lesson.progress||{},level=Math.max(0,Math.min(5,Number(p.level)||0)),detail=$("satelliteDetail"),tasks=Array.isArray(lesson.tasks)?lesson.tasks:[],history=Array.isArray(p.history)?p.history:[];detail.hidden=false;const taskNames=tasks.length?tasks.map(x=>typeof x==="string"?x:x.title||x.name||"Nhiệm vụ"):["Học kiến thức nền tảng","Tự giải thích cơ chế","Kiểm tra ghi nhớ","Vận dụng tình huống"];detail.innerHTML=`<button type="button" class="btn" id="satelliteBackToOrbit" style="width:100%;margin-bottom:8px">← Trở lại toàn bộ vệ tinh</button><h3>${escapeHTML(lesson.title||("Bài học "+(index+1)))}</h3><p>Vệ tinh bài học · Mức sáng ${level}/5 · ${p.completed?"Đã hoàn thành":"Đang học"}</p><p>${escapeHTML(lesson.description||"Chưa có mô tả được trích xuất từ tài liệu nguồn.")}</p>${lesson.sourceRef?`<p><b>Nguồn:</b> ${escapeHTML(lesson.sourceRef)}</p>`:""}<div class="progressbar"><i style="width:${level*20}%;background:${levelColor(level)}"></i></div><p><b>Chọn nhiệm vụ để bắt đầu học</b></p><div class="satellite-task-list">${taskNames.map((name,i)=>`<button type="button" class="btn satellite-task" data-task="${i}">${i+1}. ${escapeHTML(name)}</button>`).join("")}</div><p id="satelliteTaskTitle" class="muted">Chưa chọn nhiệm vụ</p><p id="satellitePromptStatus" class="muted">Chọn một nhiệm vụ để tạo prompt giảng dạy và khảo thí cho ChatGPT.</p><textarea id="satellitePromptText" hidden rows="8" style="width:100%;margin:8px 0;background:#07101f;color:#eaf4ff;border:1px solid #456487;border-radius:8px;padding:10px"></textarea><label for="satelliteEvidence"><b>Bằng chứng sau khi học và kiểm tra</b></label><textarea id="satelliteEvidence" rows="3" placeholder="Dán tóm tắt nhận xét/kết quả và câu trả lời thể hiện bạn đã hiểu..." style="width:100%;margin:6px 0;background:#07101f;color:#eaf4ff;border:1px solid #456487;border-radius:8px;padding:10px">${escapeHTML(p.evidence||"")}</textarea><p class="muted">Ứng dụng không tự đọc được kết quả trong cuộc trò chuyện ChatGPT. Bạn ghi lại bằng chứng sau khi được kiểm tra; chỉ ghi nhận đúng với kết quả thực tế.</p><div class="satellite-assess"><button type="button" class="good" id="satellitePass">Đạt · Tăng 1 mức sáng</button><button type="button" class="btn" id="satelliteFail">Chưa đạt · Giảm 1 mức sáng</button></div><p><b>Lịch sử đánh giá:</b> ${history.length?history.slice(-4).map(x=>escapeHTML(typeof x==="string"?x:(x.date||"")+" · "+(x.result||"") +" · "+(x.from??"")+"→"+(x.to??""))).join(" · "):"Chưa có lịch sử riêng."}</p>`;$("satelliteBackToOrbit").addEventListener("click",()=>{detail.hidden=true;$("missionOrbits").querySelectorAll("[data-lesson]").forEach(x=>x.classList.remove("selected"));const topic=allTopics().find(x=>x.id===id),all=rec(id).lessons||[];initPlanet3D(levelColor(Math.round(satelliteBrightness(all)/20)),all,-1);$("planetName").textContent=topic?.name||"Hành tinh tri thức";$("planetMeta").textContent=(topic?.g?.name||"")+" · "+(topic?.gr?.name||"")+" · Toàn bộ vệ tinh";});detail.querySelectorAll("[data-task]").forEach(b=>b.addEventListener("click",()=>{const taskIndex=Number(b.dataset.task),name=taskNames[taskIndex];$("satelliteTaskTitle").textContent=name;startSatelliteTask(id,index,taskIndex)}));$("satellitePass").addEventListener("click",()=>recordSatelliteAssessment(id,index,true));$("satelliteFail").addEventListener("click",()=>recordSatelliteAssessment(id,index,false));}
-function zoomToPlanet(id){const pos=planetPosition(id);if(!pos)return;animateCamera([pos.x-280,pos.y-157.5,560,315]);$("universeView").classList.add("zoomed");$("planetPanel").classList.add("open");const t=allTopics().find(x=>x.id===id),r=rec(id),lessons=Array.isArray(r.lessons)?r.lessons:[],brightness=satelliteBrightness(lessons),planetColor=levelColor(Math.round(brightness/20));$("planetVisual").classList.remove("active");initPlanet3D(planetColor,lessons);$("planetSphere").style.setProperty("--planet-color",planetColor);$("planetSphere").style.setProperty("--planet-glow",planetColor+"99");$("planetCaption").textContent=t?.name||"Hành tinh tri thức";requestAnimationFrame(()=>$("planetVisual").classList.add("active"));renderPlanetPanel(id)}
+function zoomToPlanet(id){const pos=planetPosition(id);if(!pos)return;animateCamera([pos.x-280,pos.y-157.5,560,315]);$("universeView").classList.add("zoomed");$("planetPanel").classList.add("open");const t=allTopics().find(x=>x.id===id),r=ensureSourceSatellites(id),lessons=Array.isArray(r.lessons)?r.lessons:[],brightness=satelliteBrightness(lessons),planetColor=levelColor(Math.round(brightness/20));$("planetVisual").classList.remove("active");initPlanet3D(planetColor,lessons);$("planetSphere").style.setProperty("--planet-color",planetColor);$("planetSphere").style.setProperty("--planet-glow",planetColor+"99");$("planetCaption").textContent=t?.name||"Hành tinh tri thức";requestAnimationFrame(()=>$("planetVisual").classList.add("active"));renderPlanetPanel(id)}
 function returnToUniverse(){animateCamera([0,0,1000,560]);$("universeView").classList.remove("zoomed");$("planetPanel").classList.remove("open");$("planetVisual").classList.remove("active")}
-function renderPlanetPanel(id){const t=allTopics().find(x=>x.id===id);if(!t)return;const r=rec(id);$("planetMissions").innerHTML="";$("planetMissions").hidden=true;$("planetPanel").querySelector("h3").textContent="Vệ tinh bài học";$("planetPanel").querySelectorAll(".panel-progress-label").forEach(x=>x.remove());$("planetName").textContent=t.name;$("planetMeta").textContent=t.g.name+" · "+t.gr.name;const lessonsForGlow=Array.isArray(r.lessons)?r.lessons:[],brightnessPct=satelliteBrightness(lessonsForGlow),motherLevel=Math.round(brightnessPct/20);$("planetMastery").innerHTML=Array.from({length:5},(_,i)=>`<i class="level ${i<motherLevel?"on":""}"></i>`).join("");$("planetLevel").textContent="Độ sáng hành tinh mẹ · "+brightnessPct+"% · "+motherLevel+"/5"+(lessonsForGlow.length?" (tổng hợp "+lessonsForGlow.length+" vệ tinh)":" (chưa có dữ liệu vệ tinh)");$("planetProgress").style.width="0%";const lessons=Array.isArray(r.lessons)?r.lessons:[];$("satelliteDetail").hidden=true;const orbit=$("missionOrbits");orbit.innerHTML=lessons.map((lesson,i)=>{const lr=lesson.progress||{},lv=Math.max(0,Math.min(5,Number(lr.level)||0)),angle=(i/Math.max(1,lessons.length))*Math.PI*2-Math.PI/2,rx=50+Math.cos(angle)*49,ry=50+Math.sin(angle)*49;return `<button type="button" class="orbit-mission lesson-satellite level-${lv} ${lr.completed?"complete":""}" style="left:${rx}%;top:${ry}%" data-lesson="${i}" aria-label="Mở bài học ${escapeHTML(lesson.title||i+1)}" title="${escapeHTML(lesson.title||("Bài học "+(i+1)))}">${lr.completed?"✓":i+1}</button>`}).join("");let empty=$("lessonEmpty");if(!empty){empty=document.createElement("p");empty.id="lessonEmpty";empty.className="muted";orbit.after(empty)}empty.textContent=lessons.length?"Chạm vào một vệ tinh để mở mô hình chi tiết và nhiệm vụ riêng của bài học đó.":"Hành tinh mẹ chưa có vệ tinh bài học được nhập từ tài liệu nguồn. Chưa tạo điểm giả hoặc tự đặt tên bài học.";empty.hidden=!!lessons.length;orbit.querySelectorAll("[data-lesson]").forEach(b=>b.addEventListener("click",e=>{e.preventDefault();e.stopPropagation();openSatellite(id,Number(b.dataset.lesson))}))}
+
+const CLS_SOURCE_SATELLITES={
+"X-quang bụng không chuẩn bị":[
+["Liềm hơi dưới cơ hoành","Nhận diện dấu hiệu liềm hơi dưới cơ hoành và liên hệ thủng tạng rỗng như dạ dày hoặc ruột."],
+["Mức nước – hơi trong ruột","Nhận diện mức nước – hơi trên phim bụng và liên hệ tình huống nghi tắc ruột."],
+["Sỏi mật và sỏi tụy trên X-quang","Tìm hiểu khả năng phát hiện sỏi mật, sỏi tụy trên phim bụng không chuẩn bị và giới hạn của phương pháp."]
+],
+"X-quang ống tiêu hóa có cản quang":[
+["Khảo sát thực quản có cản quang","Tìm hiểu cách thuốc cản quang baryte khảo sát lòng thực quản và nhận diện hẹp thực quản."],
+["Khảo sát dạ dày – hành tá tràng","Tìm hiểu dấu hiệu X-quang có thể gợi ý viêm, loét hoặc khối bất thường dạ dày – hành tá tràng."],
+["Khảo sát đại tràng có cản quang","Tìm hiểu khảo sát đại tràng và các bất thường như hẹp, túi thừa hoặc polyp."],
+["Giới hạn và tổn thương tạng rỗng","Phân biệt thông tin gián tiếp của X-quang cản quang với quan sát trực tiếp bằng nội soi."]
+],
+"Chụp đường mật":[
+["Chụp đường mật đường uống và tĩnh mạch","Tìm hiểu nguyên lý các phương pháp chụp đường mật dùng thuốc cản quang qua đường uống hoặc tiêm tĩnh mạch."],
+["ERCP – chụp mật tụy ngược dòng","Nắm nguyên lý tiếp cận đường mật qua nội soi và vai trò chẩn đoán – can thiệp."],
+["PTC – chụp đường mật xuyên gan qua da","Tìm hiểu đường tiếp cận xuyên gan qua da và thông tin hình ảnh thu được."],
+["Phát hiện tắc nghẽn đường mật","Liên hệ hình ảnh đường mật với nguyên nhân tắc nghẽn như sỏi hoặc u."]
+],
+"Nội soi tiêu hóa":[
+["Quan sát trực tiếp niêm mạc tiêu hóa","Nhận diện vai trò nội soi trong phát hiện viêm, loét, xuất huyết, polyp và u."],
+["Nội soi trong xuất huyết tiêu hóa","Tìm hiểu vai trò chẩn đoán và cầm máu qua nội soi trong xuất huyết tiêu hóa."],
+["Can thiệp qua nội soi","Phân biệt gắp dị vật, cắt polyp và cắt niêm mạc trong điều trị tổn thương sớm."],
+["Kỹ thuật nội soi tăng cường hình ảnh","Làm quen nội soi siêu âm, nhuộm màu, phóng đại và ánh sáng chọn lọc theo nội dung bài giảng."]
+],
+"Siêu âm bụng":[
+["Khảo sát gan – mật – tụy – lách","Tìm hiểu vai trò siêu âm trong khảo sát các tạng đặc vùng bụng."],
+["Đánh giá khối trong ổ bụng","Tìm hiểu cách siêu âm mô tả vị trí, kích thước và tính chất dịch hay mô của khối."],
+["Ưu điểm và giới hạn của siêu âm","Phân biệt khả năng khảo sát của siêu âm và tình huống cần phương tiện hình ảnh khác."]
+],
+"Siêu âm nội soi (EUS)":[
+["Năm lớp thành dạ dày","Nhận diện năm lớp thành dạ dày trên siêu âm nội soi và ý nghĩa xác định độ sâu tổn thương."],
+["Hạch và cơ quan lân cận","Tìm hiểu cách EUS khảo sát hạch, tụy và đường mật ở vị trí gần đầu dò."],
+["EUS hỗ trợ can thiệp","Tìm hiểu các ví dụ can thiệp dưới hướng dẫn siêu âm nội soi được nêu trong bài."]
+],
+"CT-scan ổ bụng":[
+["Khảo sát tạng đặc","Tìm hiểu vai trò CT trong đánh giá gan, mật, tụy và các tạng đặc."],
+["Phát hiện tổn thương nhỏ","Phân tích khi nào CT có thể phát hiện tổn thương khó thấy trên siêu âm."],
+["Khối ổ bụng chưa rõ nguồn gốc","Tìm hiểu vai trò CT trong định vị và đánh giá khối bất thường trong ổ bụng."]
+],
+"Sinh thiết":[
+["Sinh thiết qua nội soi tiêu hóa","Tìm hiểu lấy mẫu mô qua nội soi và các tình huống như tổn thương nghi ung thư, loét hoặc polyp."],
+["Sinh thiết qua nội soi ổ bụng","Tìm hiểu lấy mẫu các khối/u trong ổ bụng qua nội soi ổ bụng."],
+["Sinh thiết gan xuyên da","Nắm đường tiếp cận xuyên gan qua da và mục tiêu khảo sát mô gan."]
+],
+"Tế bào học":[
+["Chải tế bào","Tìm hiểu cách dùng bàn chải lấy tế bào bong từ bề mặt tổn thương."],
+["Chọc hút tế bào","Tìm hiểu cách dùng kim hút dịch hoặc tế bào để phết lam khảo sát."],
+["Phân biệt tế bào học và sinh thiết","So sánh khảo sát tế bào rời với khảo sát cấu trúc mô."]
+],
+"Xét nghiệm vi sinh":[
+["Nhuộm Gram và soi tươi","Tìm hiểu cách khảo sát nhanh bệnh phẩm để tìm vi khuẩn hoặc tác nhân có thể quan sát trực tiếp."],
+["Nuôi cấy và kháng sinh đồ","Phân biệt mục tiêu định danh tác nhân với đánh giá độ nhạy kháng sinh."],
+["Lựa chọn bệnh phẩm","Nhận diện các loại bệnh phẩm được nêu trong bài như phân, máu, mủ và mô."]
+],
+"Xét nghiệm dịch màng bụng":[
+["Đếm tế bào và bạch cầu đa nhân","Tìm hiểu vai trò đếm tế bào, đặc biệt PMN, khi đánh giá dịch cổ trướng."],
+["Albumin, protein và SAAG","Tính SAAG từ albumin huyết thanh trừ albumin dịch báng và giải thích ý nghĩa phân nhóm tăng áp cửa."],
+["Nhuộm Gram và nuôi cấy dịch báng","Tìm hiểu cách khảo sát vi sinh khi nghi nhiễm trùng dịch báng."],
+["Xét nghiệm bổ sung dịch báng","Phân tích glucose, LDH, amylase, bilirubin, creatinin hoặc tế bào học theo câu hỏi lâm sàng."]
+],
+"Xét nghiệm miễn dịch":[
+["Dấu ấn huyết thanh viêm gan B","Phân biệt HBsAg, anti-HBs, HBeAg, anti-HBe và anti-HBc theo nội dung bài."],
+["Kháng thể viêm gan C","Hiểu ý nghĩa anti-HCV và vì sao cần xét nghiệm phù hợp để xác định nhiễm hiện tại."],
+["H. pylori và ký sinh trùng","Tìm hiểu các xét nghiệm huyết thanh được liệt kê trong bài giảng và giới hạn diễn giải."]
+],
+"Chức năng dạ dày":[
+["Đo pH thực quản và dạ dày","Tìm hiểu mục tiêu đo độ acid ở thực quản hoặc dịch dạ dày."],
+["Gastrin máu","Nắm vai trò gastrin trong điều hòa tiết acid và các tình huống có thể tăng."],
+["Pepsinogen máu","Tìm hiểu pepsinogen liên quan hoạt động niêm mạc vùng thân vị theo nội dung bài."]
+],
+"Chức năng ruột non":[
+["Khảo sát phân","Tìm hiểu các phép thử Lugol, soi sợi thịt và Sudan III được nêu trong bài giảng."],
+["Nghiệm pháp D-xylose","Giải thích D-xylose đánh giá hấp thu ở đoạn đầu ruột non và ý nghĩa khi giảm."],
+["Nghiệm pháp Schilling","Nắm mục tiêu lịch sử của nghiệm pháp trong đánh giá hấp thu vitamin B12 và yếu tố nội tại."]
+],
+"Chức năng ruột già":[
+["Hấp thu nước và tạo khuôn phân","Giải thích vai trò hấp thu nước của đại tràng và liên hệ tính chất phân."],
+["Vận động đại tràng","Tìm hiểu chức năng vận động đại tràng và mối liên hệ với táo bón hoặc tiêu chảy."]
+],
+"Xét nghiệm gan – mật":[
+["Bilirubin toàn phần và phân suất","Phân biệt bilirubin trực tiếp, gián tiếp và các nhóm nguyên nhân làm tăng."],
+["Albumin và protein huyết tương","Tìm hiểu vai trò tổng hợp albumin của gan và các yếu tố ngoài gan ảnh hưởng nồng độ."],
+["Tỷ lệ prothrombin và đông máu","Giải thích PT/tỷ lệ prothrombin phản ánh một phần chức năng tổng hợp và các yếu tố gây nhiễu."],
+["AST và ALT","Phân biệt hai men gan và ý nghĩa khi tăng trong tổn thương tế bào gan."],
+["GGT và phosphatase kiềm","Nhận diện kiểu tăng men gợi ý ứ mật và vai trò phối hợp GGT với ALP."],
+["Ammoniac máu","Tìm hiểu chuyển hóa ammoniac và giới hạn của xét nghiệm khi đánh giá bệnh não gan."]
+],
+"Dấu ấn u":[
+["CEA","Nắm vai trò và giới hạn của CEA trong hỗ trợ theo dõi một số ung thư tiêu hóa."],
+["CA 19-9","Tìm hiểu ý nghĩa CA 19-9 và các nguyên nhân lành tính có thể làm tăng."],
+["AFP","Tìm hiểu vai trò AFP trong bối cảnh đánh giá ung thư biểu mô tế bào gan và giới hạn khi dùng đơn độc."]
+]
+};
+function ensureSourceSatellites(id){
+ const topic=allTopics().find(x=>x.id===id);
+ if(!topic||topic.g.id!=="cls")return rec(id);
+ const r=rec(id);
+ if(Array.isArray(r.lessons)&&r.lessons.length)return r;
+ const sourceItems=CLS_SOURCE_SATELLITES[topic.name];
+ if(!sourceItems||!sourceItems.length)return r;
+ r.lessons=sourceItems.map((item,index)=>({id:"SRC-001-"+topicId(topic.g,topic.gr,topic.name)+"-"+(index+1),title:item[0],description:item[1],sourceRef:"SRC-001 · văn bản trích xuất tự động; trang chưa đối chiếu trực quan",progress:{level:0,completed:false,history:[]}}));
+ state.topics[id]=r;save();
+ return r;
+}
+
+function renderPlanetPanel(id){const t=allTopics().find(x=>x.id===id);if(!t)return;const r=ensureSourceSatellites(id);$("planetMissions").innerHTML="";$("planetMissions").hidden=true;$("planetPanel").querySelector("h3").textContent="Vệ tinh bài học";$("planetPanel").querySelectorAll(".panel-progress-label").forEach(x=>x.remove());$("planetName").textContent=t.name;$("planetMeta").textContent=t.g.name+" · "+t.gr.name;const lessonsForGlow=Array.isArray(r.lessons)?r.lessons:[],brightnessPct=satelliteBrightness(lessonsForGlow),motherLevel=Math.round(brightnessPct/20);$("planetMastery").innerHTML=Array.from({length:5},(_,i)=>`<i class="level ${i<motherLevel?"on":""}"></i>`).join("");$("planetLevel").textContent="Độ sáng hành tinh mẹ · "+brightnessPct+"% · "+motherLevel+"/5"+(lessonsForGlow.length?" (tổng hợp "+lessonsForGlow.length+" vệ tinh)":" (chưa có dữ liệu vệ tinh)");$("planetProgress").style.width="0%";const lessons=Array.isArray(r.lessons)?r.lessons:[];$("satelliteDetail").hidden=true;const orbit=$("missionOrbits");orbit.innerHTML=lessons.map((lesson,i)=>{const lr=lesson.progress||{},lv=Math.max(0,Math.min(5,Number(lr.level)||0)),angle=(i/Math.max(1,lessons.length))*Math.PI*2-Math.PI/2,rx=50+Math.cos(angle)*49,ry=50+Math.sin(angle)*49;return `<button type="button" class="orbit-mission lesson-satellite level-${lv} ${lr.completed?"complete":""}" style="left:${rx}%;top:${ry}%" data-lesson="${i}" aria-label="Mở bài học ${escapeHTML(lesson.title||i+1)}" title="${escapeHTML(lesson.title||("Bài học "+(i+1)))}">${lr.completed?"✓":i+1}</button>`}).join("");let empty=$("lessonEmpty");if(!empty){empty=document.createElement("p");empty.id="lessonEmpty";empty.className="muted";orbit.after(empty)}empty.textContent=lessons.length?"Chạm vào một vệ tinh để mở mô hình chi tiết và nhiệm vụ riêng của bài học đó.":"Hành tinh mẹ chưa có vệ tinh bài học được nhập từ tài liệu nguồn. Chưa tạo điểm giả hoặc tự đặt tên bài học.";empty.hidden=!!lessons.length;orbit.querySelectorAll("[data-lesson]").forEach(b=>b.addEventListener("click",e=>{e.preventDefault();e.stopPropagation();openSatellite(id,Number(b.dataset.lesson))}))}
 function selectTopic(id){activeTopic=id;activeGalaxy=id.split(".")[0];renderMap();renderBranches();renderDetail();$("galaxies").querySelectorAll(".galaxy").forEach(el=>el.classList.toggle("selected",el.dataset.galaxy===activeGalaxy));zoomToPlanet(id)}
 function renderDetail(){let t=allTopics().find(x=>x.id===activeTopic);if(!t){$("topicTitle").textContent="Chưa chọn chủ đề";$("topicTags").innerHTML="";$("topicDesc").textContent="Chọn một nhánh để xem nội dung và cập nhật tiến trình sau buổi học.";$("mastery").innerHTML="";$("levelText").textContent="0/5 · Chưa khai mở";$("history").textContent="";return}let r=rec(t.id);$("topicTitle").textContent=t.name;$("topicTags").innerHTML=`<span class="pill">${t.g.name}</span><span class="pill">${t.gr.name}</span><span class="pill">${r.studied?"Đã ghi nhận học":"Chưa ghi nhận học"}</span>`;$("topicDesc").textContent="Chủ đề thuộc "+t.gr.name+". Học theo tài liệu nguồn và kiểm tra cùng ChatGPT trước khi nâng cấp ánh sáng.";$("mastery").innerHTML=Array.from({length:5},(_,i)=>`<i class="level ${i<r.level?"on":""}"></i>`).join("");$("levelText").textContent=r.level+"/5 · "+(["Chưa khai mở","Khởi động","Đang khai mở","Kết nối","Làm chủ","Tinh thông"][r.level]);$("history").textContent="Số lần quên: "+r.forgets+" · Lịch sử: "+(r.history||[]).slice(-5).join(" · ");$("studied").disabled=r.studied;$("passed").disabled=r.level>=5}
 $("studied").addEventListener("click",()=>{if(!activeTopic)return;let r=rec(activeTopic);r.studied=true;r.studiedAt=new Date().toISOString();r.reviewStage=0;scheduleReview(r,1);r.history.push("đã học · ôn lại sau 1 ngày");setRec(activeTopic,r)});
