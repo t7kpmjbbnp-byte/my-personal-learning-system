@@ -66,3 +66,12 @@ One-time setup on GitHub:
 The site root is the graph viewer because the workflow uploads only this folder. Its JSON data and viewer are deployed together. The viewer is read-only and requires no API key, external JavaScript library, analytics, or write permission.
 
 **Privacy check:** GitHub Pages creates a published website. Confirm that the repository and the graph data are appropriate for public viewing before enabling it. The workflow deliberately excludes other repository folders, but the graph's own nodes, relationships, and evidence links will be visible to site visitors. Pages eligibility for private repositories depends on the current GitHub plan and organization settings.
+
+
+## CLS Tiêu hóa curriculum expansion
+
+- `cls_tieu_hoa_curriculum.json` stores the four-group curriculum outline for the 35-page CLS Tiêu hóa source.
+- It is an additive, structured outline; the existing interactive case graph remains preserved.
+- The outline records the source verification limitation explicitly: text extraction has been reviewed, but all 35 original pages have not yet been visually verified.
+- The next viewer phase is to render the curriculum hierarchy (subject → four groups → topics → subtopics) while retaining the existing case graph and evidence navigation.
+- Do not mark topics as mastered based only on their presence in this outline.
