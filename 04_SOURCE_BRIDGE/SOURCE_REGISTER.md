@@ -12,7 +12,7 @@ This register tracks notebook/source provenance and archive completeness. Update
 
 | Source ID | Notebook | Exact source title | Type | Original location/link | Version/date | Capture status | Archive record(s) | Known gaps |
 |---|---|---|---|---|---|---|---|---|
-| SRC-001 | Nội cơ sở – RHM – CTUMP | CLS Tiêu hóa | Not confirmed | Remains in NotebookLM; original link/location not recorded | Not recorded | not_started | None yet | Verify exact title, type, source details, and whether other sources exist |
+| SRC-001 | Nội cơ sở – RHM – CTUMP | CLS Tiêu hóa | PDF (learner-confirmed) | Original PDF retained on learner's device; exact path/link not recorded | 35 pages; date/version not recorded | in_progress | integrity/SRC-001-CLS-Tieu-hoa.md (tracking ledger only; no source pages archived yet) | Verify bibliographic details, permission to redistribute, all 35 pages, figures/tables, NotebookLM note, prompts, answers and citations |
 
 ## Status definitions
 
