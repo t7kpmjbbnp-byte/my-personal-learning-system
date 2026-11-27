@@ -64,10 +64,3 @@ Năng lực: Chưa xác nhận thành thạo độc lập.
 **Ngày:** 16:39:07 27/11/2026
 
 Kiểm thử workflow: đã hoàn thành phần cấu hình.
-
-
-<!-- learning-update-issue-11 -->
-## Cập nhật tiến độ — Issue #11
-**Ngày:** 16:55:37 27/11/2026
-
-ĐÂY LÀ DỮ LIỆU KIỂM THỬ WORKFLOW. Không ghi nhận tiến độ học tập thực tế.
