@@ -10,7 +10,7 @@ permissions:
   issues: write
 
 jobs:
-  update-learning-log:
+  update-learning-records:
     if: startsWith(github.event.issue.title, '[LEARNING UPDATE]')
     runs-on: ubuntu-latest
 
@@ -18,40 +18,119 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Save learning update
+      - name: Classify and save learning update
         uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
-            const { execSync } = require('child_process');
+            const { execFileSync } = require('child_process');
 
             const issue = context.payload.issue;
+            const id = issue.number;
+            const body = issue.body || '(Không có nội dung)';
             const date = new Date(issue.created_at).toLocaleString(
               'vi-VN',
               { timeZone: 'Asia/Ho_Chi_Minh' }
             );
 
-            const path = '02_PROGRESS/LEARNING_LOG.md';
-            const body = issue.body || '(Issue không có nội dung)';
+            const marker = `<!-- learning-update-issue-${id} -->`;
+            const changed = [];
 
-            fs.mkdirSync('02_PROGRESS', { recursive: true });
+            function appendOnce(path, content) {
+              let old = fs.existsSync(path)
+                ? fs.readFileSync(path, 'utf8')
+                : '';
 
-            const entry =
-              `\n\n## ${date}\n` +
-              `**Nguồn:** Issue #${issue.number} — ${issue.title}\n\n` +
-              `${body}\n`;
+              if (old.includes(marker)) {
+                core.info(`Issue #${id} already saved in ${path}`);
+                return;
+              }
 
-            fs.appendFileSync(path, entry, 'utf8');
+              fs.mkdirSync(require('path').dirname(path), {
+                recursive: true
+              });
 
-            execSync('git config user.name "github-actions[bot]"');
-            execSync('git config user.email "41898282+github-actions[bot]@users.noreply.github.com"');
-            execSync(`git add "${path}"`);
-            execSync('git commit -m "Update learning progress from issue"');
-            execSync('git push');
+              fs.appendFileSync(
+                path,
+                `\n\n${marker}\n${content}\n`,
+                'utf8'
+              );
+
+              changed.push(path);
+            }
+
+            function getSection(name) {
+              const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+              const regex = new RegExp(
+                '^##\\s+' + escaped + '\\s*\\n([\\s\\S]*?)(?=^##\\s+|$)',
+                'm'
+              );
+              const match = body.match(regex);
+              return match ? match[1].trim() : '';
+            }
+
+            // Always keep a complete chronological learning log.
+            appendOnce(
+              '02_PROGRESS/LEARNING_LOG.md',
+              `## ${date}\n**Issue:** #${id} — ${issue.title}\n\n${body}`
+            );
+
+            const routes = [
+              {
+                heading: 'CURRENT_STATE',
+                path: '02_PROGRESS/CURRENT_STATE.md',
+                title: `Cập nhật tiến độ — Issue #${id}`
+              },
+              {
+                heading: 'MISTAKES',
+                path: '02_PROGRESS/MISTAKES.md',
+                title: `Ghi nhận lỗi sai — Issue #${id}`
+              },
+              {
+                heading: 'REVIEW_HISTORY',
+                path: '02_PROGRESS/REVIEW_HISTORY.md',
+                title: `Lịch sử ôn tập — Issue #${id}`
+              },
+              {
+                heading: 'CLINICAL_CASES',
+                path: '01_SUBJECTS/NOI_CO_SO_RHM_CTUMP/CLINICAL_CASES.md',
+                title: `Ca lâm sàng — Issue #${id}`
+              }
+            ];
+
+            for (const route of routes) {
+              const section = getSection(route.heading);
+
+              if (section) {
+                appendOnce(
+                  route.path,
+                  `## ${route.title}\n**Ngày:** ${date}\n\n${section}`
+                );
+              }
+            }
+
+            if (changed.length > 0) {
+              execFileSync('git', [
+                'config', 'user.name', 'github-actions[bot]'
+              ]);
+              execFileSync('git', [
+                'config', 'user.email',
+                '41898282+github-actions[bot]@users.noreply.github.com'
+              ]);
+
+              execFileSync('git', ['add', '--', ...changed]);
+              execFileSync('git', [
+                'commit', '-m',
+                `Save learning update from issue #${id}`
+              ]);
+              execFileSync('git', ['push']);
+            }
 
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              issue_number: issue.number,
-              body: 'Đã tự động lưu nội dung học tập vào `02_PROGRESS/LEARNING_LOG.md`.'
+              issue_number: id,
+              body: changed.length
+                ? `Đã lưu nội dung vào: ${changed.join(', ')}.`
+                : 'Nội dung Issue này đã được lưu trước đó; không tạo bản ghi trùng.'
             });
