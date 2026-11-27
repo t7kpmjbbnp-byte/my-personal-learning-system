@@ -18,67 +18,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Classify and save learning update
+      - name: Validate and save learning update
         uses: actions/github-script@v7
         with:
           script: |
             const fs = require('fs');
+            const path = require('path');
             const { execFileSync } = require('child_process');
 
             const issue = context.payload.issue;
             const id = issue.number;
-            const body = issue.body || '(Không có nội dung)';
-            const date = new Date(issue.created_at).toLocaleString(
-              'vi-VN',
-              { timeZone: 'Asia/Ho_Chi_Minh' }
-            );
-
-            const marker = `<!-- learning-update-issue-${id} -->`;
-            const changed = [];
-
-            function appendOnce(path, content) {
-              let old = fs.existsSync(path)
-                ? fs.readFileSync(path, 'utf8')
-                : '';
-
-              if (old.includes(marker)) {
-                core.info(`Issue #${id} already saved in ${path}`);
-                return;
-              }
-
-              fs.mkdirSync(require('path').dirname(path), {
-                recursive: true
-              });
-
-              fs.appendFileSync(
-                path,
-                `\n\n${marker}\n${content}\n`,
-                'utf8'
-              );
-
-              changed.push(path);
-            }
-
-                                    function getSection(name) {
-              const lines = body.split(/\r?\n/);
-              const heading = `## ${name}`;
-              const start = lines.findIndex(
-                line => line.trim() === heading
-              );
-
-              if (start === -1) return '';
-
-              let end = lines.length;
-
-              for (let i = start + 1; i < lines.length; i++) {
-                if (/^##\s+/.test(lines[i])) {
-                  end = i;
-                  break;
-                }
-              }
-
-              return lines.slice(start + 1, end).join('\n').trim();
-            }
+            const body = issue.body || '';
 
             const routes = [
               {
@@ -102,39 +52,117 @@ jobs:
                 title: `Ca lâm sàng — Issue #${id}`
               }
             ];
-            for (const route of routes) {
-              const section = getSection(route.heading);
 
-              if (section) {
-                appendOnce(
-                  route.path,
-                  `## ${route.title}\n**Ngày:** ${date}\n\n${section}`
-                );
+            const lines = body.split(/\r?\n/);
+
+            function getSection(name) {
+              const heading = `## ${name}`;
+              const start = lines.findIndex(
+                line => line.trim() === heading
+              );
+
+              if (start === -1) return '';
+
+              let end = lines.length;
+
+              for (let i = start + 1; i < lines.length; i++) {
+                if (/^##\s+/.test(lines[i].trim())) {
+                  end = i;
+                  break;
+                }
               }
+
+              return lines.slice(start + 1, end).join('\n').trim();
+            }
+
+            const sections = routes.map(route => ({
+              ...route,
+              content: getSection(route.heading)
+            }));
+
+            const invalid = sections
+              .filter(section => !section.content)
+              .map(section => section.heading);
+
+            if (invalid.length > 0) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: id,
+                body:
+                  '⚠️ Chưa lưu dữ liệu vì Issue thiếu mục hoặc mục đang để trống: ' +
+                  invalid.join(', ') +
+                  '. Hãy bổ sung đủ bốn mục rồi tạo Issue mới với tiêu đề bắt đầu bằng [LEARNING UPDATE].'
+              });
+
+              core.setFailed('Learning update validation failed.');
+              return;
+            }
+
+            const date = new Date(issue.created_at).toLocaleString(
+              'vi-VN',
+              { timeZone: 'Asia/Ho_Chi_Minh' }
+            );
+
+            const marker = `<!-- learning-update-issue-${id} -->`;
+            const changed = [];
+
+            for (const section of sections) {
+              const file = section.path;
+              const old = fs.existsSync(file)
+                ? fs.readFileSync(file, 'utf8')
+                : '';
+
+              if (old.includes(marker)) {
+                core.info(`Issue #${id} already saved in ${file}`);
+                continue;
+              }
+
+              fs.mkdirSync(path.dirname(file), {
+                recursive: true
+              });
+
+              const entry =
+                `\n\n${marker}\n` +
+                `## ${section.title}\n` +
+                `**Ngày:** ${date}\n\n` +
+                `${section.content}\n`;
+
+              fs.appendFileSync(file, entry, 'utf8');
+              changed.push(file);
             }
 
             if (changed.length > 0) {
               execFileSync('git', [
                 'config', 'user.name', 'github-actions[bot]'
               ]);
+
               execFileSync('git', [
                 'config', 'user.email',
                 '41898282+github-actions[bot]@users.noreply.github.com'
               ]);
 
               execFileSync('git', ['add', '--', ...changed]);
+
               execFileSync('git', [
                 'commit', '-m',
                 `Save learning update from issue #${id}`
               ]);
-              execFileSync('git', ['push']);
-            }
 
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: id,
-              body: changed.length
-                ? `Đã lưu nội dung vào: ${changed.join(', ')}.`
-                : 'Nội dung Issue này đã được lưu trước đó; không tạo bản ghi trùng.'
-            });
+              execFileSync('git', ['push']);
+
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: id,
+                body: '✅ Đã kiểm tra đủ bốn mục và lưu thành công vào:\n' +
+                  changed.map(file => `- ${file}`).join('\n')
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: id,
+                body: 'ℹ️ Bốn mục đã hợp lệ nhưng dữ liệu của Issue này đã được lưu trước đó. Không tạo bản ghi trùng.'
+              });
+            }
