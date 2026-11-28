@@ -101,3 +101,12 @@ The site root is the graph viewer because the workflow uploads only this folder.
 - Các cờ QA được giữ nguyên: lỗi OCR p.18 đã đối chiếu; câu ngưỡng prothrombin p.27 cần giảng viên xác minh; giá trị xét nghiệm p.25–34 chỉ được đối chiếu với slide, chưa thẩm định y khoa độc lập.
 - Bộ trích xuất tự động nhận diện 0 bảng; không được diễn giải thành kết luận tài liệu không có bảng.
 - Audit là kiểm tra độ phủ và truy xuất nguồn, không phải thẩm định chuyên môn hay xác nhận mastery.
+
+
+## Cập nhật khắc phục audit – 28/11/2026
+
+- Đã tạo ghi chú mục tiêu học tập N38 từ PDF trang 2 (ba mục tiêu: thăm dò hình thái, chức năng và nguyên nhân), giữ trạng thái `Đang đối chiếu`.
+- Đã nối N11 vào đủ ba vệ tinh sinh thiết; N17 vào vệ tinh nhuộm Gram/nuôi cấy dịch báng.
+- **Số liệu mới nhất thay thế snapshot cũ:** 57/57 vệ tinh có ít nhất một nguồn trực tiếp; 62 liên kết ghi chú–vệ tinh; 38 ghi chú nguồn N01–N38. Không thay đổi trạng thái kiểm chứng y khoa.
+- Báo cáo audit JSON đã cập nhật: trang 2 có N38; các lỗ hổng mapping trang 15 và 20 đã đóng.
+- Các ghi chú hình N33–N36 đã được rà soát nội dung mô tả hiện có; tiếp tục chuẩn hóa caption/đối tượng từng ảnh mà không suy diễn dấu hiệu ngoài slide.
