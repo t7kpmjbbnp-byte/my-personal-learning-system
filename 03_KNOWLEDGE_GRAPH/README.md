@@ -83,6 +83,8 @@ The site root is the graph viewer because the workflow uploads only this folder.
 - The source map contains **37 source-backed Notion note records** (N01–N37), with stable note IDs, direct Notion URLs, PDF page locators, evidence type, and verification state.
 - **32 notes** are mapped to the existing 17 CLS mother-planet topics; **5 group-summary notes** are attached at their existing parent learning branches. The current four visual learning branches are preserved; the source taxonomy's fifth group (G05, lab values/tumor markers) is nested within the existing function/lab branch.
 - Selecting a mother planet shows its related Notion source notes. Opening a lesson satellite also shows the same traceable references and page locators.
+- Lesson-level provenance is now curated separately: **32 of 37 notes** are mapped to **59 satellite-to-note links** using stable satellite IDs. A satellite shows only notes explicitly assigned to that lesson; group summaries remain at branch level, and an unmapped lesson is not given a misleading source link.
+- The satellite-specific references are also included in the generated teaching prompt, so the prompt no longer passes every note from the parent planet to every lesson.
 - The mapping does not create new mastery progress, overwrite existing local progress, or claim that opening a source equals learning it.
 - All source notes remain marked **in progress / đang đối chiếu**. The links provide provenance, not independent medical validation.
 - GitHub Pages workflow run [46114885820](https://github.com/t7kpmjbbnp-byte/my-personal-learning-system/actions/runs/46114885820) completed successfully on 2026-11-28 after the Universe integration changes.
