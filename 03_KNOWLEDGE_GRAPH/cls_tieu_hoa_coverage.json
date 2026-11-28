@@ -1,0 +1,1174 @@
+{
+  "schema_version": "1.0.0",
+  "source_id": "SRC-CLS-TIEUHOA-20261128",
+  "generated_from": "cls_tieu_hoa_source_map.json + CLS_SOURCE_SATELLITES in universe.html",
+  "generated_at": "2026-11-28",
+  "coverage_semantics": {
+    "linked": "Có ít nhất một ghi chú Notion gắn trực tiếp; không đồng nghĩa đã kiểm chứng nội dung.",
+    "no_direct_source": "Chưa có ghi chú nguồn được gắn trực tiếp; cần rà soát, không kết luận tài liệu hoàn toàn thiếu.",
+    "in_progress": "Ghi chú đang đối chiếu với PDF; chưa thẩm định y khoa độc lập.",
+    "not_assessed": "Chưa đánh giá mức độ bằng chứng."
+  },
+  "summary": {
+    "topic_count": 17,
+    "satellite_count": 57,
+    "linked_satellites": 54,
+    "unlinked_satellites": 3,
+    "source_link_count": 59,
+    "notes_in_progress": 37
+  },
+  "topics": [
+    {
+      "topic_id": "cls.morphology.x-quang-bung-khong-chuan-bi",
+      "topic_name": "X-quang bụng không chuẩn bị",
+      "branch_id": "morphology",
+      "satellite_count": 3,
+      "linked_satellites": 3,
+      "unlinked_satellites": 0,
+      "satellites": [
+        {
+          "satellite_id": "SRC-001-cls.morphology.x-quang-bung-khong-chuan-bi-1",
+          "title": "Liềm hơi dưới cơ hoành",
+          "description": "Nhận diện dấu hiệu liềm hơi dưới cơ hoành và liên hệ thủng tạng rỗng như dạ dày hoặc ruột.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N02",
+              "title": "X-quang ổ bụng không cản quang",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81438b0ccc7fe3337d02",
+              "page_locator": "PDF p.3",
+              "evidence_type": "mixed",
+              "verification_status": "in_progress"
+            },
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N33",
+              "title": "Hình X-quang minh họa ổ bụng",
+              "note_url": "https://app.notion.com/p/4265a63d7bde811fbda9dcca479c5833",
+              "page_locator": "PDF p.4",
+              "evidence_type": "image",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.morphology.x-quang-bung-khong-chuan-bi-2",
+          "title": "Mức nước – hơi trong ruột",
+          "description": "Nhận diện mức nước – hơi trên phim bụng và liên hệ tình huống nghi tắc ruột.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N02",
+              "title": "X-quang ổ bụng không cản quang",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81438b0ccc7fe3337d02",
+              "page_locator": "PDF p.3",
+              "evidence_type": "mixed",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.morphology.x-quang-bung-khong-chuan-bi-3",
+          "title": "Sỏi mật và sỏi tụy trên X-quang",
+          "description": "Tìm hiểu khả năng phát hiện sỏi mật, sỏi tụy trên phim bụng không chuẩn bị và giới hạn của phương pháp.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N02",
+              "title": "X-quang ổ bụng không cản quang",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81438b0ccc7fe3337d02",
+              "page_locator": "PDF p.3",
+              "evidence_type": "mixed",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        }
+      ]
+    },
+    {
+      "topic_id": "cls.morphology.x-quang-ong-tieu-hoa-co-can-quang",
+      "topic_name": "X-quang ống tiêu hóa có cản quang",
+      "branch_id": "morphology",
+      "satellite_count": 4,
+      "linked_satellites": 4,
+      "unlinked_satellites": 0,
+      "satellites": [
+        {
+          "satellite_id": "SRC-001-cls.morphology.x-quang-ong-tieu-hoa-co-can-quang-1",
+          "title": "Khảo sát thực quản có cản quang",
+          "description": "Tìm hiểu cách thuốc cản quang baryte khảo sát lòng thực quản và nhận diện hẹp thực quản.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N03",
+              "title": "X-quang tạng rỗng có cản quang",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81738c27fbb4a4f317c0",
+              "page_locator": "PDF p.5",
+              "evidence_type": "mixed",
+              "verification_status": "in_progress"
+            },
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N34",
+              "title": "Hình X-quang hẹp thực quản",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81418254ef292bc7301a",
+              "page_locator": "PDF p.6",
+              "evidence_type": "image",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.morphology.x-quang-ong-tieu-hoa-co-can-quang-2",
+          "title": "Khảo sát dạ dày – hành tá tràng",
+          "description": "Tìm hiểu dấu hiệu X-quang có thể gợi ý viêm, loét hoặc khối bất thường dạ dày – hành tá tràng.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N03",
+              "title": "X-quang tạng rỗng có cản quang",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81738c27fbb4a4f317c0",
+              "page_locator": "PDF p.5",
+              "evidence_type": "mixed",
+              "verification_status": "in_progress"
+            },
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N35",
+              "title": "Hình X-quang loét dạ dày và hành tá tràng",
+              "note_url": "https://app.notion.com/p/4265a63d7bde813f9805e8e71146b661",
+              "page_locator": "PDF p.7",
+              "evidence_type": "image",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.morphology.x-quang-ong-tieu-hoa-co-can-quang-3",
+          "title": "Khảo sát đại tràng có cản quang",
+          "description": "Tìm hiểu khảo sát đại tràng và các bất thường như hẹp, túi thừa hoặc polyp.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N03",
+              "title": "X-quang tạng rỗng có cản quang",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81738c27fbb4a4f317c0",
+              "page_locator": "PDF p.5",
+              "evidence_type": "mixed",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.morphology.x-quang-ong-tieu-hoa-co-can-quang-4",
+          "title": "Giới hạn và tổn thương tạng rỗng",
+          "description": "Phân biệt thông tin gián tiếp của X-quang cản quang với quan sát trực tiếp bằng nội soi.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N03",
+              "title": "X-quang tạng rỗng có cản quang",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81738c27fbb4a4f317c0",
+              "page_locator": "PDF p.5",
+              "evidence_type": "mixed",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        }
+      ]
+    },
+    {
+      "topic_id": "cls.morphology.chup-uong-mat",
+      "topic_name": "Chụp đường mật",
+      "branch_id": "morphology",
+      "satellite_count": 4,
+      "linked_satellites": 4,
+      "unlinked_satellites": 0,
+      "satellites": [
+        {
+          "satellite_id": "SRC-001-cls.morphology.chup-uong-mat-1",
+          "title": "Chụp đường mật đường uống và tĩnh mạch",
+          "description": "Tìm hiểu nguyên lý các phương pháp chụp đường mật dùng thuốc cản quang qua đường uống hoặc tiêm tĩnh mạch.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N04",
+              "title": "Chụp đường mật (ERCP/PTC)",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81bba29be172842ea23b",
+              "page_locator": "PDF p.8",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.morphology.chup-uong-mat-2",
+          "title": "ERCP – chụp mật tụy ngược dòng",
+          "description": "Nắm nguyên lý tiếp cận đường mật qua nội soi và vai trò chẩn đoán – can thiệp.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N04",
+              "title": "Chụp đường mật (ERCP/PTC)",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81bba29be172842ea23b",
+              "page_locator": "PDF p.8",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.morphology.chup-uong-mat-3",
+          "title": "PTC – chụp đường mật xuyên gan qua da",
+          "description": "Tìm hiểu đường tiếp cận xuyên gan qua da và thông tin hình ảnh thu được.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N04",
+              "title": "Chụp đường mật (ERCP/PTC)",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81bba29be172842ea23b",
+              "page_locator": "PDF p.8",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.morphology.chup-uong-mat-4",
+          "title": "Phát hiện tắc nghẽn đường mật",
+          "description": "Liên hệ hình ảnh đường mật với nguyên nhân tắc nghẽn như sỏi hoặc u.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N04",
+              "title": "Chụp đường mật (ERCP/PTC)",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81bba29be172842ea23b",
+              "page_locator": "PDF p.8",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        }
+      ]
+    },
+    {
+      "topic_id": "cls.morphology.noi-soi-tieu-hoa",
+      "topic_name": "Nội soi tiêu hóa",
+      "branch_id": "morphology",
+      "satellite_count": 4,
+      "linked_satellites": 4,
+      "unlinked_satellites": 0,
+      "satellites": [
+        {
+          "satellite_id": "SRC-001-cls.morphology.noi-soi-tieu-hoa-1",
+          "title": "Quan sát trực tiếp niêm mạc tiêu hóa",
+          "description": "Nhận diện vai trò nội soi trong phát hiện viêm, loét, xuất huyết, polyp và u.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N05",
+              "title": "Nội soi tiêu hóa",
+              "note_url": "https://app.notion.com/p/4265a63d7bde816e92a0e58377cd7336",
+              "page_locator": "PDF p.9–10",
+              "evidence_type": "mixed",
+              "verification_status": "in_progress"
+            },
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N36",
+              "title": "Hình nội soi loét tá tràng và loét dạ dày",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81ae810bdf57002feb7b",
+              "page_locator": "PDF p.10",
+              "evidence_type": "image",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.morphology.noi-soi-tieu-hoa-2",
+          "title": "Nội soi trong xuất huyết tiêu hóa",
+          "description": "Tìm hiểu vai trò chẩn đoán và cầm máu qua nội soi trong xuất huyết tiêu hóa.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N05",
+              "title": "Nội soi tiêu hóa",
+              "note_url": "https://app.notion.com/p/4265a63d7bde816e92a0e58377cd7336",
+              "page_locator": "PDF p.9–10",
+              "evidence_type": "mixed",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.morphology.noi-soi-tieu-hoa-3",
+          "title": "Can thiệp qua nội soi",
+          "description": "Phân biệt gắp dị vật, cắt polyp và cắt niêm mạc trong điều trị tổn thương sớm.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N05",
+              "title": "Nội soi tiêu hóa",
+              "note_url": "https://app.notion.com/p/4265a63d7bde816e92a0e58377cd7336",
+              "page_locator": "PDF p.9–10",
+              "evidence_type": "mixed",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.morphology.noi-soi-tieu-hoa-4",
+          "title": "Kỹ thuật nội soi tăng cường hình ảnh",
+          "description": "Làm quen nội soi siêu âm, nhuộm màu, phóng đại và ánh sáng chọn lọc theo nội dung bài giảng.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N06",
+              "title": "Kỹ thuật soi nội tạng nâng cao",
+              "note_url": "https://app.notion.com/p/4265a63d7bde815c8ef2d6cf267cc61c",
+              "page_locator": "PDF p.11",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        }
+      ]
+    },
+    {
+      "topic_id": "cls.morphology.sieu-am-bung",
+      "topic_name": "Siêu âm bụng",
+      "branch_id": "morphology",
+      "satellite_count": 3,
+      "linked_satellites": 3,
+      "unlinked_satellites": 0,
+      "satellites": [
+        {
+          "satellite_id": "SRC-001-cls.morphology.sieu-am-bung-1",
+          "title": "Khảo sát gan – mật – tụy – lách",
+          "description": "Tìm hiểu vai trò siêu âm trong khảo sát các tạng đặc vùng bụng.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N08",
+              "title": "Siêu âm bụng",
+              "note_url": "https://app.notion.com/p/4265a63d7bde814eaf40fefd82bf525a",
+              "page_locator": "PDF p.13",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.morphology.sieu-am-bung-2",
+          "title": "Đánh giá khối trong ổ bụng",
+          "description": "Tìm hiểu cách siêu âm mô tả vị trí, kích thước và tính chất dịch hay mô của khối.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N08",
+              "title": "Siêu âm bụng",
+              "note_url": "https://app.notion.com/p/4265a63d7bde814eaf40fefd82bf525a",
+              "page_locator": "PDF p.13",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.morphology.sieu-am-bung-3",
+          "title": "Ưu điểm và giới hạn của siêu âm",
+          "description": "Phân biệt khả năng khảo sát của siêu âm và tình huống cần phương tiện hình ảnh khác.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N08",
+              "title": "Siêu âm bụng",
+              "note_url": "https://app.notion.com/p/4265a63d7bde814eaf40fefd82bf525a",
+              "page_locator": "PDF p.13",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        }
+      ]
+    },
+    {
+      "topic_id": "cls.morphology.sieu-am-noi-soi-eus",
+      "topic_name": "Siêu âm nội soi (EUS)",
+      "branch_id": "morphology",
+      "satellite_count": 3,
+      "linked_satellites": 3,
+      "unlinked_satellites": 0,
+      "satellites": [
+        {
+          "satellite_id": "SRC-001-cls.morphology.sieu-am-noi-soi-eus-1",
+          "title": "Năm lớp thành dạ dày",
+          "description": "Nhận diện năm lớp thành dạ dày trên siêu âm nội soi và ý nghĩa xác định độ sâu tổn thương.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N07",
+              "title": "Siêu âm nội soi",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81b98c16eaa33737d43f",
+              "page_locator": "PDF p.12",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.morphology.sieu-am-noi-soi-eus-2",
+          "title": "Hạch và cơ quan lân cận",
+          "description": "Tìm hiểu cách EUS khảo sát hạch, tụy và đường mật ở vị trí gần đầu dò.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N07",
+              "title": "Siêu âm nội soi",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81b98c16eaa33737d43f",
+              "page_locator": "PDF p.12",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.morphology.sieu-am-noi-soi-eus-3",
+          "title": "EUS hỗ trợ can thiệp",
+          "description": "Tìm hiểu các ví dụ can thiệp dưới hướng dẫn siêu âm nội soi được nêu trong bài.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N07",
+              "title": "Siêu âm nội soi",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81b98c16eaa33737d43f",
+              "page_locator": "PDF p.12",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        }
+      ]
+    },
+    {
+      "topic_id": "cls.morphology.ct-scan-o-bung",
+      "topic_name": "CT-scan ổ bụng",
+      "branch_id": "morphology",
+      "satellite_count": 3,
+      "linked_satellites": 3,
+      "unlinked_satellites": 0,
+      "satellites": [
+        {
+          "satellite_id": "SRC-001-cls.morphology.ct-scan-o-bung-1",
+          "title": "Khảo sát tạng đặc",
+          "description": "Tìm hiểu vai trò CT trong đánh giá gan, mật, tụy và các tạng đặc.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N09",
+              "title": "CT-SCAN",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81309f7cf767c4fdf9bb",
+              "page_locator": "PDF p.14",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.morphology.ct-scan-o-bung-2",
+          "title": "Phát hiện tổn thương nhỏ",
+          "description": "Phân tích khi nào CT có thể phát hiện tổn thương khó thấy trên siêu âm.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N09",
+              "title": "CT-SCAN",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81309f7cf767c4fdf9bb",
+              "page_locator": "PDF p.14",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.morphology.ct-scan-o-bung-3",
+          "title": "Khối ổ bụng chưa rõ nguồn gốc",
+          "description": "Tìm hiểu vai trò CT trong định vị và đánh giá khối bất thường trong ổ bụng.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N09",
+              "title": "CT-SCAN",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81309f7cf767c4fdf9bb",
+              "page_locator": "PDF p.14",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        }
+      ]
+    },
+    {
+      "topic_id": "cls.histopathology.sinh-thiet",
+      "topic_name": "Sinh thiết",
+      "branch_id": "histopathology",
+      "satellite_count": 3,
+      "linked_satellites": 1,
+      "unlinked_satellites": 2,
+      "satellites": [
+        {
+          "satellite_id": "SRC-001-cls.histopathology.sinh-thiet-1",
+          "title": "Sinh thiết qua nội soi tiêu hóa",
+          "description": "Tìm hiểu lấy mẫu mô qua nội soi và các tình huống như tổn thương nghi ung thư, loét hoặc polyp.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N11",
+              "title": "Sinh thiết",
+              "note_url": "https://app.notion.com/p/4265a63d7bde8116b3fcd53d0583be2d",
+              "page_locator": "PDF p.15",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.histopathology.sinh-thiet-2",
+          "title": "Sinh thiết qua nội soi ổ bụng",
+          "description": "Tìm hiểu lấy mẫu các khối/u trong ổ bụng qua nội soi ổ bụng.",
+          "source_status": "no_direct_source",
+          "source_refs": [],
+          "verification_status": "not_assessed"
+        },
+        {
+          "satellite_id": "SRC-001-cls.histopathology.sinh-thiet-3",
+          "title": "Sinh thiết gan xuyên da",
+          "description": "Nắm đường tiếp cận xuyên gan qua da và mục tiêu khảo sát mô gan.",
+          "source_status": "no_direct_source",
+          "source_refs": [],
+          "verification_status": "not_assessed"
+        }
+      ]
+    },
+    {
+      "topic_id": "cls.histopathology.te-bao-hoc",
+      "topic_name": "Tế bào học",
+      "branch_id": "histopathology",
+      "satellite_count": 3,
+      "linked_satellites": 3,
+      "unlinked_satellites": 0,
+      "satellites": [
+        {
+          "satellite_id": "SRC-001-cls.histopathology.te-bao-hoc-1",
+          "title": "Chải tế bào",
+          "description": "Tìm hiểu cách dùng bàn chải lấy tế bào bong từ bề mặt tổn thương.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N12",
+              "title": "Tế bào học",
+              "note_url": "https://app.notion.com/p/4265a63d7bde815c97eac2874b926fe2",
+              "page_locator": "PDF p.16",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.histopathology.te-bao-hoc-2",
+          "title": "Chọc hút tế bào",
+          "description": "Tìm hiểu cách dùng kim hút dịch hoặc tế bào để phết lam khảo sát.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N12",
+              "title": "Tế bào học",
+              "note_url": "https://app.notion.com/p/4265a63d7bde815c97eac2874b926fe2",
+              "page_locator": "PDF p.16",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.histopathology.te-bao-hoc-3",
+          "title": "Phân biệt tế bào học và sinh thiết",
+          "description": "So sánh khảo sát tế bào rời với khảo sát cấu trúc mô.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N12",
+              "title": "Tế bào học",
+              "note_url": "https://app.notion.com/p/4265a63d7bde815c97eac2874b926fe2",
+              "page_locator": "PDF p.16",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        }
+      ]
+    },
+    {
+      "topic_id": "cls.etiology.xet-nghiem-vi-sinh",
+      "topic_name": "Xét nghiệm vi sinh",
+      "branch_id": "etiology",
+      "satellite_count": 3,
+      "linked_satellites": 3,
+      "unlinked_satellites": 0,
+      "satellites": [
+        {
+          "satellite_id": "SRC-001-cls.etiology.xet-nghiem-vi-sinh-1",
+          "title": "Nhuộm Gram và soi tươi",
+          "description": "Tìm hiểu cách khảo sát nhanh bệnh phẩm để tìm vi khuẩn hoặc tác nhân có thể quan sát trực tiếp.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N14",
+              "title": "Xét nghiệm bệnh phẩm",
+              "note_url": "https://app.notion.com/p/4265a63d7bde811aa6ebe699f807071c",
+              "page_locator": "PDF p.17",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.etiology.xet-nghiem-vi-sinh-2",
+          "title": "Nuôi cấy và kháng sinh đồ",
+          "description": "Phân biệt mục tiêu định danh tác nhân với đánh giá độ nhạy kháng sinh.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N14",
+              "title": "Xét nghiệm bệnh phẩm",
+              "note_url": "https://app.notion.com/p/4265a63d7bde811aa6ebe699f807071c",
+              "page_locator": "PDF p.17",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.etiology.xet-nghiem-vi-sinh-3",
+          "title": "Lựa chọn bệnh phẩm",
+          "description": "Nhận diện các loại bệnh phẩm được nêu trong bài như phân, máu, mủ và mô.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N14",
+              "title": "Xét nghiệm bệnh phẩm",
+              "note_url": "https://app.notion.com/p/4265a63d7bde811aa6ebe699f807071c",
+              "page_locator": "PDF p.17",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        }
+      ]
+    },
+    {
+      "topic_id": "cls.etiology.xet-nghiem-dich-mang-bung",
+      "topic_name": "Xét nghiệm dịch màng bụng",
+      "branch_id": "etiology",
+      "satellite_count": 4,
+      "linked_satellites": 3,
+      "unlinked_satellites": 1,
+      "satellites": [
+        {
+          "satellite_id": "SRC-001-cls.etiology.xet-nghiem-dich-mang-bung-1",
+          "title": "Đếm tế bào và bạch cầu đa nhân",
+          "description": "Tìm hiểu vai trò đếm tế bào, đặc biệt PMN, khi đánh giá dịch cổ trướng.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N15",
+              "title": "Dịch màng bụng: đếm tế bào",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81d1847cea5eb6a36f33",
+              "page_locator": "PDF p.18",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.etiology.xet-nghiem-dich-mang-bung-2",
+          "title": "Albumin, protein và SAAG",
+          "description": "Tính SAAG từ albumin huyết thanh trừ albumin dịch báng và giải thích ý nghĩa phân nhóm tăng áp cửa.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N16",
+              "title": "Dịch màng bụng: SAAG/protein",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81058ef0c228b4a75a3b",
+              "page_locator": "PDF p.19",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.etiology.xet-nghiem-dich-mang-bung-3",
+          "title": "Nhuộm Gram và nuôi cấy dịch báng",
+          "description": "Tìm hiểu cách khảo sát vi sinh khi nghi nhiễm trùng dịch báng.",
+          "source_status": "no_direct_source",
+          "source_refs": [],
+          "verification_status": "not_assessed"
+        },
+        {
+          "satellite_id": "SRC-001-cls.etiology.xet-nghiem-dich-mang-bung-4",
+          "title": "Xét nghiệm bổ sung dịch báng",
+          "description": "Phân tích glucose, LDH, amylase, bilirubin, creatinin hoặc tế bào học theo câu hỏi lâm sàng.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N17",
+              "title": "Dịch màng bụng: xét nghiệm bổ sung",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81f4be84c85d2d858a50",
+              "page_locator": "PDF p.20",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        }
+      ]
+    },
+    {
+      "topic_id": "cls.etiology.xet-nghiem-mien-dich",
+      "topic_name": "Xét nghiệm miễn dịch",
+      "branch_id": "etiology",
+      "satellite_count": 3,
+      "linked_satellites": 3,
+      "unlinked_satellites": 0,
+      "satellites": [
+        {
+          "satellite_id": "SRC-001-cls.etiology.xet-nghiem-mien-dich-1",
+          "title": "Dấu ấn huyết thanh viêm gan B",
+          "description": "Phân biệt HBsAg, anti-HBs, HBeAg, anti-HBe và anti-HBc theo nội dung bài.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N18",
+              "title": "Miễn dịch/huyết thanh chẩn đoán",
+              "note_url": "https://app.notion.com/p/4265a63d7bde817a84a4d997c1300d75",
+              "page_locator": "PDF p.21",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.etiology.xet-nghiem-mien-dich-2",
+          "title": "Kháng thể viêm gan C",
+          "description": "Hiểu ý nghĩa anti-HCV và vì sao cần xét nghiệm phù hợp để xác định nhiễm hiện tại.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N18",
+              "title": "Miễn dịch/huyết thanh chẩn đoán",
+              "note_url": "https://app.notion.com/p/4265a63d7bde817a84a4d997c1300d75",
+              "page_locator": "PDF p.21",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.etiology.xet-nghiem-mien-dich-3",
+          "title": "H. pylori và ký sinh trùng",
+          "description": "Tìm hiểu các xét nghiệm huyết thanh được liệt kê trong bài giảng và giới hạn diễn giải.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N18",
+              "title": "Miễn dịch/huyết thanh chẩn đoán",
+              "note_url": "https://app.notion.com/p/4265a63d7bde817a84a4d997c1300d75",
+              "page_locator": "PDF p.21",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        }
+      ]
+    },
+    {
+      "topic_id": "cls.function.chuc-nang-da-day",
+      "topic_name": "Chức năng dạ dày",
+      "branch_id": "function",
+      "satellite_count": 3,
+      "linked_satellites": 3,
+      "unlinked_satellites": 0,
+      "satellites": [
+        {
+          "satellite_id": "SRC-001-cls.function.chuc-nang-da-day-1",
+          "title": "Đo pH thực quản và dạ dày",
+          "description": "Tìm hiểu mục tiêu đo độ acid ở thực quản hoặc dịch dạ dày.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N20",
+              "title": "Thăm dò thực quản/dạ dày",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81168a0fca1d69f9b8a6",
+              "page_locator": "PDF p.22",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.function.chuc-nang-da-day-2",
+          "title": "Gastrin máu",
+          "description": "Nắm vai trò gastrin trong điều hòa tiết acid và các tình huống có thể tăng.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N20",
+              "title": "Thăm dò thực quản/dạ dày",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81168a0fca1d69f9b8a6",
+              "page_locator": "PDF p.22",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.function.chuc-nang-da-day-3",
+          "title": "Pepsinogen máu",
+          "description": "Tìm hiểu pepsinogen liên quan hoạt động niêm mạc vùng thân vị theo nội dung bài.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N20",
+              "title": "Thăm dò thực quản/dạ dày",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81168a0fca1d69f9b8a6",
+              "page_locator": "PDF p.22",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        }
+      ]
+    },
+    {
+      "topic_id": "cls.function.chuc-nang-ruot-non",
+      "topic_name": "Chức năng ruột non",
+      "branch_id": "function",
+      "satellite_count": 3,
+      "linked_satellites": 3,
+      "unlinked_satellites": 0,
+      "satellites": [
+        {
+          "satellite_id": "SRC-001-cls.function.chuc-nang-ruot-non-1",
+          "title": "Khảo sát phân",
+          "description": "Tìm hiểu các phép thử Lugol, soi sợi thịt và Sudan III được nêu trong bài giảng.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N21",
+              "title": "Thăm dò ruột non",
+              "note_url": "https://app.notion.com/p/4265a63d7bde812ea3a2f5e1f4ab2731",
+              "page_locator": "PDF p.23",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.function.chuc-nang-ruot-non-2",
+          "title": "Nghiệm pháp D-xylose",
+          "description": "Giải thích D-xylose đánh giá hấp thu ở đoạn đầu ruột non và ý nghĩa khi giảm.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N21",
+              "title": "Thăm dò ruột non",
+              "note_url": "https://app.notion.com/p/4265a63d7bde812ea3a2f5e1f4ab2731",
+              "page_locator": "PDF p.23",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.function.chuc-nang-ruot-non-3",
+          "title": "Nghiệm pháp Schilling",
+          "description": "Nắm mục tiêu lịch sử của nghiệm pháp trong đánh giá hấp thu vitamin B12 và yếu tố nội tại.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N21",
+              "title": "Thăm dò ruột non",
+              "note_url": "https://app.notion.com/p/4265a63d7bde812ea3a2f5e1f4ab2731",
+              "page_locator": "PDF p.23",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        }
+      ]
+    },
+    {
+      "topic_id": "cls.function.chuc-nang-ruot-gia",
+      "topic_name": "Chức năng ruột già",
+      "branch_id": "function",
+      "satellite_count": 2,
+      "linked_satellites": 2,
+      "unlinked_satellites": 0,
+      "satellites": [
+        {
+          "satellite_id": "SRC-001-cls.function.chuc-nang-ruot-gia-1",
+          "title": "Hấp thu nước và tạo khuôn phân",
+          "description": "Giải thích vai trò hấp thu nước của đại tràng và liên hệ tính chất phân.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N22",
+              "title": "Thăm dò ruột già",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81e1bd1fd38273131d63",
+              "page_locator": "PDF p.24",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.function.chuc-nang-ruot-gia-2",
+          "title": "Vận động đại tràng",
+          "description": "Tìm hiểu chức năng vận động đại tràng và mối liên hệ với táo bón hoặc tiêu chảy.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N22",
+              "title": "Thăm dò ruột già",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81e1bd1fd38273131d63",
+              "page_locator": "PDF p.24",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        }
+      ]
+    },
+    {
+      "topic_id": "cls.function.xet-nghiem-gan-mat",
+      "topic_name": "Xét nghiệm gan – mật",
+      "branch_id": "function",
+      "satellite_count": 6,
+      "linked_satellites": 6,
+      "unlinked_satellites": 0,
+      "satellites": [
+        {
+          "satellite_id": "SRC-001-cls.function.xet-nghiem-gan-mat-1",
+          "title": "Bilirubin toàn phần và phân suất",
+          "description": "Phân biệt bilirubin trực tiếp, gián tiếp và các nhóm nguyên nhân làm tăng.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N23",
+              "title": "Bilirubin",
+              "note_url": "https://app.notion.com/p/4265a63d7bde819aa225fae9bbdd4644",
+              "page_locator": "PDF p.25",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.function.xet-nghiem-gan-mat-2",
+          "title": "Albumin và protein huyết tương",
+          "description": "Tìm hiểu vai trò tổng hợp albumin của gan và các yếu tố ngoài gan ảnh hưởng nồng độ.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N24",
+              "title": "Albumin/A:G",
+              "note_url": "https://app.notion.com/p/4265a63d7bde8186b651e949bfd392e4",
+              "page_locator": "PDF p.26",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.function.xet-nghiem-gan-mat-3",
+          "title": "Tỷ lệ prothrombin và đông máu",
+          "description": "Giải thích PT/tỷ lệ prothrombin phản ánh một phần chức năng tổng hợp và các yếu tố gây nhiễu.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N25",
+              "title": "Prothrombin/Koller",
+              "note_url": "https://app.notion.com/p/4265a63d7bde8151ae20dc7ba6578d99",
+              "page_locator": "PDF p.27",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.function.xet-nghiem-gan-mat-4",
+          "title": "AST và ALT",
+          "description": "Phân biệt hai men gan và ý nghĩa khi tăng trong tổn thương tế bào gan.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N26",
+              "title": "AST/ALT",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81b78bc6fbde5200d64b",
+              "page_locator": "PDF p.28",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.function.xet-nghiem-gan-mat-5",
+          "title": "GGT và phosphatase kiềm",
+          "description": "Nhận diện kiểu tăng men gợi ý ứ mật và vai trò phối hợp GGT với ALP.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N27",
+              "title": "GGT",
+              "note_url": "https://app.notion.com/p/4265a63d7bde815ba959e3565eb0658c",
+              "page_locator": "PDF p.29",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            },
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N28",
+              "title": "Phosphatase kiềm",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81a9b6efd4548f87fd20",
+              "page_locator": "PDF p.30",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.function.xet-nghiem-gan-mat-6",
+          "title": "Ammoniac máu",
+          "description": "Tìm hiểu chuyển hóa ammoniac và giới hạn của xét nghiệm khi đánh giá bệnh não gan.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N29",
+              "title": "Ammoniac",
+              "note_url": "https://app.notion.com/p/4265a63d7bde8138b982cd5c875fecad",
+              "page_locator": "PDF p.31",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        }
+      ]
+    },
+    {
+      "topic_id": "cls.function.dau-an-u",
+      "topic_name": "Dấu ấn u",
+      "branch_id": "function",
+      "satellite_count": 3,
+      "linked_satellites": 3,
+      "unlinked_satellites": 0,
+      "satellites": [
+        {
+          "satellite_id": "SRC-001-cls.function.dau-an-u-1",
+          "title": "CEA",
+          "description": "Nắm vai trò và giới hạn của CEA trong hỗ trợ theo dõi một số ung thư tiêu hóa.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N30",
+              "title": "CEA",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81588b89e05c9e517a4c",
+              "page_locator": "PDF p.32",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.function.dau-an-u-2",
+          "title": "CA 19-9",
+          "description": "Tìm hiểu ý nghĩa CA 19-9 và các nguyên nhân lành tính có thể làm tăng.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N31",
+              "title": "CA 19-9",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81ddb704f54b3782402c",
+              "page_locator": "PDF p.33",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        },
+        {
+          "satellite_id": "SRC-001-cls.function.dau-an-u-3",
+          "title": "AFP",
+          "description": "Tìm hiểu vai trò AFP trong bối cảnh đánh giá ung thư biểu mô tế bào gan và giới hạn khi dùng đơn độc.",
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N32",
+              "title": "AFP",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81028097d59733b2279f",
+              "page_locator": "PDF p.34",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
+          "verification_status": "in_progress"
+        }
+      ]
+    }
+  ]
+}
