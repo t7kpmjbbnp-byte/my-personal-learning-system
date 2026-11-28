@@ -14,7 +14,8 @@
       "universe_topic_id": null,
       "page_locator": "PDF p.3–14",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": []
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N02",
@@ -26,7 +27,12 @@
       "universe_topic_id": "cls.morphology.x-quang-bung-khong-chuan-bi",
       "page_locator": "PDF p.3",
       "evidence_type": "mixed",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.morphology.x-quang-bung-khong-chuan-bi-1",
+        "SRC-001-cls.morphology.x-quang-bung-khong-chuan-bi-2",
+        "SRC-001-cls.morphology.x-quang-bung-khong-chuan-bi-3"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N03",
@@ -38,7 +44,13 @@
       "universe_topic_id": "cls.morphology.x-quang-ong-tieu-hoa-co-can-quang",
       "page_locator": "PDF p.5",
       "evidence_type": "mixed",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.morphology.x-quang-ong-tieu-hoa-co-can-quang-1",
+        "SRC-001-cls.morphology.x-quang-ong-tieu-hoa-co-can-quang-2",
+        "SRC-001-cls.morphology.x-quang-ong-tieu-hoa-co-can-quang-3",
+        "SRC-001-cls.morphology.x-quang-ong-tieu-hoa-co-can-quang-4"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N04",
@@ -50,7 +62,13 @@
       "universe_topic_id": "cls.morphology.chup-uong-mat",
       "page_locator": "PDF p.8",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.morphology.chup-uong-mat-1",
+        "SRC-001-cls.morphology.chup-uong-mat-2",
+        "SRC-001-cls.morphology.chup-uong-mat-3",
+        "SRC-001-cls.morphology.chup-uong-mat-4"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N05",
@@ -62,7 +80,12 @@
       "universe_topic_id": "cls.morphology.noi-soi-tieu-hoa",
       "page_locator": "PDF p.9–10",
       "evidence_type": "mixed",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.morphology.noi-soi-tieu-hoa-1",
+        "SRC-001-cls.morphology.noi-soi-tieu-hoa-2",
+        "SRC-001-cls.morphology.noi-soi-tieu-hoa-3"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N06",
@@ -74,7 +97,10 @@
       "universe_topic_id": "cls.morphology.noi-soi-tieu-hoa",
       "page_locator": "PDF p.11",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.morphology.noi-soi-tieu-hoa-4"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N07",
@@ -86,7 +112,12 @@
       "universe_topic_id": "cls.morphology.sieu-am-noi-soi-eus",
       "page_locator": "PDF p.12",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.morphology.sieu-am-noi-soi-eus-1",
+        "SRC-001-cls.morphology.sieu-am-noi-soi-eus-2",
+        "SRC-001-cls.morphology.sieu-am-noi-soi-eus-3"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N08",
@@ -98,7 +129,12 @@
       "universe_topic_id": "cls.morphology.sieu-am-bung",
       "page_locator": "PDF p.13",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.morphology.sieu-am-bung-1",
+        "SRC-001-cls.morphology.sieu-am-bung-2",
+        "SRC-001-cls.morphology.sieu-am-bung-3"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N09",
@@ -110,7 +146,12 @@
       "universe_topic_id": "cls.morphology.ct-scan-o-bung",
       "page_locator": "PDF p.14",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.morphology.ct-scan-o-bung-1",
+        "SRC-001-cls.morphology.ct-scan-o-bung-2",
+        "SRC-001-cls.morphology.ct-scan-o-bung-3"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N10",
@@ -122,7 +163,8 @@
       "universe_topic_id": null,
       "page_locator": "PDF p.15–16",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": []
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N11",
@@ -134,7 +176,10 @@
       "universe_topic_id": "cls.histopathology.sinh-thiet",
       "page_locator": "PDF p.15",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.histopathology.sinh-thiet-1"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N12",
@@ -146,7 +191,12 @@
       "universe_topic_id": "cls.histopathology.te-bao-hoc",
       "page_locator": "PDF p.16",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.histopathology.te-bao-hoc-1",
+        "SRC-001-cls.histopathology.te-bao-hoc-2",
+        "SRC-001-cls.histopathology.te-bao-hoc-3"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N13",
@@ -158,7 +208,8 @@
       "universe_topic_id": null,
       "page_locator": "PDF p.17–21",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": []
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N14",
@@ -170,7 +221,12 @@
       "universe_topic_id": "cls.etiology.xet-nghiem-vi-sinh",
       "page_locator": "PDF p.17",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.etiology.xet-nghiem-vi-sinh-1",
+        "SRC-001-cls.etiology.xet-nghiem-vi-sinh-2",
+        "SRC-001-cls.etiology.xet-nghiem-vi-sinh-3"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N15",
@@ -182,7 +238,10 @@
       "universe_topic_id": "cls.etiology.xet-nghiem-dich-mang-bung",
       "page_locator": "PDF p.18",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.etiology.xet-nghiem-dich-mang-bung-1"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N16",
@@ -194,7 +253,10 @@
       "universe_topic_id": "cls.etiology.xet-nghiem-dich-mang-bung",
       "page_locator": "PDF p.19",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.etiology.xet-nghiem-dich-mang-bung-2"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N17",
@@ -206,7 +268,10 @@
       "universe_topic_id": "cls.etiology.xet-nghiem-dich-mang-bung",
       "page_locator": "PDF p.20",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.etiology.xet-nghiem-dich-mang-bung-4"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N18",
@@ -218,7 +283,12 @@
       "universe_topic_id": "cls.etiology.xet-nghiem-mien-dich",
       "page_locator": "PDF p.21",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.etiology.xet-nghiem-mien-dich-1",
+        "SRC-001-cls.etiology.xet-nghiem-mien-dich-2",
+        "SRC-001-cls.etiology.xet-nghiem-mien-dich-3"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N19",
@@ -230,7 +300,8 @@
       "universe_topic_id": null,
       "page_locator": "PDF p.22–24",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": []
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N20",
@@ -242,7 +313,12 @@
       "universe_topic_id": "cls.function.chuc-nang-da-day",
       "page_locator": "PDF p.22",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.function.chuc-nang-da-day-1",
+        "SRC-001-cls.function.chuc-nang-da-day-2",
+        "SRC-001-cls.function.chuc-nang-da-day-3"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N21",
@@ -254,7 +330,12 @@
       "universe_topic_id": "cls.function.chuc-nang-ruot-non",
       "page_locator": "PDF p.23",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.function.chuc-nang-ruot-non-1",
+        "SRC-001-cls.function.chuc-nang-ruot-non-2",
+        "SRC-001-cls.function.chuc-nang-ruot-non-3"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N22",
@@ -266,7 +347,11 @@
       "universe_topic_id": "cls.function.chuc-nang-ruot-gia",
       "page_locator": "PDF p.24",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.function.chuc-nang-ruot-gia-1",
+        "SRC-001-cls.function.chuc-nang-ruot-gia-2"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N23",
@@ -278,7 +363,10 @@
       "universe_topic_id": "cls.function.xet-nghiem-gan-mat",
       "page_locator": "PDF p.25",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.function.xet-nghiem-gan-mat-1"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N24",
@@ -290,7 +378,10 @@
       "universe_topic_id": "cls.function.xet-nghiem-gan-mat",
       "page_locator": "PDF p.26",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.function.xet-nghiem-gan-mat-2"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N25",
@@ -302,7 +393,10 @@
       "universe_topic_id": "cls.function.xet-nghiem-gan-mat",
       "page_locator": "PDF p.27",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.function.xet-nghiem-gan-mat-3"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N26",
@@ -314,7 +408,10 @@
       "universe_topic_id": "cls.function.xet-nghiem-gan-mat",
       "page_locator": "PDF p.28",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.function.xet-nghiem-gan-mat-4"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N27",
@@ -326,7 +423,10 @@
       "universe_topic_id": "cls.function.xet-nghiem-gan-mat",
       "page_locator": "PDF p.29",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.function.xet-nghiem-gan-mat-5"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N28",
@@ -338,7 +438,10 @@
       "universe_topic_id": "cls.function.xet-nghiem-gan-mat",
       "page_locator": "PDF p.30",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.function.xet-nghiem-gan-mat-5"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N29",
@@ -350,7 +453,10 @@
       "universe_topic_id": "cls.function.xet-nghiem-gan-mat",
       "page_locator": "PDF p.31",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.function.xet-nghiem-gan-mat-6"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N30",
@@ -362,7 +468,10 @@
       "universe_topic_id": "cls.function.dau-an-u",
       "page_locator": "PDF p.32",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.function.dau-an-u-1"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N31",
@@ -374,7 +483,10 @@
       "universe_topic_id": "cls.function.dau-an-u",
       "page_locator": "PDF p.33",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.function.dau-an-u-2"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N32",
@@ -386,7 +498,10 @@
       "universe_topic_id": "cls.function.dau-an-u",
       "page_locator": "PDF p.34",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.function.dau-an-u-3"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N33",
@@ -398,7 +513,10 @@
       "universe_topic_id": "cls.morphology.x-quang-bung-khong-chuan-bi",
       "page_locator": "PDF p.4",
       "evidence_type": "image",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.morphology.x-quang-bung-khong-chuan-bi-1"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N34",
@@ -410,7 +528,10 @@
       "universe_topic_id": "cls.morphology.x-quang-ong-tieu-hoa-co-can-quang",
       "page_locator": "PDF p.6",
       "evidence_type": "image",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.morphology.x-quang-ong-tieu-hoa-co-can-quang-1"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N35",
@@ -422,7 +543,10 @@
       "universe_topic_id": "cls.morphology.x-quang-ong-tieu-hoa-co-can-quang",
       "page_locator": "PDF p.7",
       "evidence_type": "image",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.morphology.x-quang-ong-tieu-hoa-co-can-quang-2"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N36",
@@ -434,7 +558,10 @@
       "universe_topic_id": "cls.morphology.noi-soi-tieu-hoa",
       "page_locator": "PDF p.10",
       "evidence_type": "image",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": [
+        "SRC-001-cls.morphology.noi-soi-tieu-hoa-1"
+      ]
     },
     {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N37",
@@ -446,7 +573,8 @@
       "universe_topic_id": null,
       "page_locator": "PDF p.25–34",
       "evidence_type": "text",
-      "verification_status": "in_progress"
+      "verification_status": "in_progress",
+      "universe_satellite_ids": []
     }
   ],
   "metadata": {
@@ -454,6 +582,8 @@
     "medical_validation": false,
     "verification_status": "in_progress",
     "integration": "universe_topic_to_notion_note_links",
-    "note": "Ánh xạ chỉ tạo đường truy xuất nguồn. Không xác nhận tính đúng đắn y khoa hoặc mức độ thành thạo."
+    "note": "Ánh xạ chỉ tạo đường truy xuất nguồn. Không xác nhận tính đúng đắn y khoa hoặc mức độ thành thạo.",
+    "satellite_mapping": "curated_lesson_level_v1",
+    "satellite_mapping_note": "Ánh xạ ghi chú vào vệ tinh được biên tập theo tiêu đề và vị trí trang nguồn; ghi chú không gắn vệ tinh vẫn hiển thị ở cấp hành tinh/nhánh."
   }
 }
