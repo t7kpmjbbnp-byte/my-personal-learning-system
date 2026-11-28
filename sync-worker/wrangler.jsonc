@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/config-schema.json",
+  "name": "sach-troi-sync",
+  "main": "src/index.js",
+  "compatibility_date": "2026-11-28",
+  "workers_dev": true,
+  "vars": {
+    "APP_ORIGIN": "https://t7kpmjbbnp-byte.github.io",
+    "TOPIC_STATE_SOURCE_ID": "4265a63d-7bde-81e5-b46c-000bd7c29125",
+    "EVENT_LOG_SOURCE_ID": "4265a63d-7bde-81aa-932a-000bc27e497e"
+  },
+  "secrets": {
+    "required": ["NOTION_TOKEN", "APP_ACCESS_TOKEN"]
+  }
+}
