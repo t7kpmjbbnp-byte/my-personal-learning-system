@@ -1,0 +1,508 @@
+{
+  "schema_version": 1,
+  "report_id": "AUDIT-CLS-TIEUHOA-20261128-V1",
+  "source_id": "SRC-CLS-TIEUHOA-20261128",
+  "source_title": "CẬN LÂM SÀNG TIÊU HÓA",
+  "audit_date": "2026-11-28",
+  "source_pages": 35,
+  "audit_method": "Đối chiếu văn bản trích xuất theo từng trang với chỉ mục Notion N01-N37, manifest nguồn, coverage 57 vệ tinh và nhật ký QA hình ảnh. Đây là kiểm toán độ phủ/nguồn dẫn, không phải thẩm định y khoa.",
+  "page_inventory": [
+    {
+      "page": 1,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P001",
+      "content_type": "cover",
+      "summary": "Trang bìa và tên giảng viên",
+      "note_ids": [],
+      "status": "non_learning_content",
+      "action": "Không cần bài học riêng."
+    },
+    {
+      "page": 2,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P002",
+      "content_type": "learning_objectives",
+      "summary": "Ba mục tiêu học tập của toàn bài",
+      "note_ids": [],
+      "status": "curriculum_gap",
+      "action": "Chưa có ghi chú/mục tiêu học tập được nối vào bản đồ vệ tinh."
+    },
+    {
+      "page": 3,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P003",
+      "content_type": "text_and_figure",
+      "summary": "X-quang bụng không cản quang; liềm hơi, mức nước-hơi, sỏi mật/tụy",
+      "note_ids": [
+        "N02"
+      ],
+      "status": "covered",
+      "action": "Nội dung chữ có note; cần giữ hình X-quang cùng chú giải."
+    },
+    {
+      "page": 4,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P004",
+      "content_type": "figure",
+      "summary": "Hình X-quang minh họa ngực và bụng",
+      "note_ids": [
+        "N33"
+      ],
+      "status": "figure_note",
+      "action": "Có note hình riêng; cần kiểm tra mô tả hình có chỉ rõ từng dấu hiệu hay chỉ ghi chung."
+    },
+    {
+      "page": 5,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P005",
+      "content_type": "text",
+      "summary": "X-quang tạng rỗng có cản quang; viêm, loét, u, hẹp, túi thừa, polyp",
+      "note_ids": [
+        "N03"
+      ],
+      "status": "covered",
+      "action": "Đối chiếu danh sách bệnh lý và chỉ định."
+    },
+    {
+      "page": 6,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P006",
+      "content_type": "figure",
+      "summary": "Hình X-quang hẹp thực quản",
+      "note_ids": [
+        "N34"
+      ],
+      "status": "figure_note",
+      "action": "Có note hình riêng; nên bổ sung dấu hiệu hình ảnh và giới hạn diễn giải nếu slide không ghi."
+    },
+    {
+      "page": 7,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P007",
+      "content_type": "figure",
+      "summary": "Hình X-quang loét dạ dày và hành tá tràng",
+      "note_ids": [
+        "N35"
+      ],
+      "status": "figure_note",
+      "action": "Có note hình riêng; tránh suy diễn ngoài caption slide."
+    },
+    {
+      "page": 8,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P008",
+      "content_type": "text",
+      "summary": "Chụp đường mật: đường uống/tiêm, ERCP, PTC; tắc nghẽn do sỏi/u",
+      "note_ids": [
+        "N04"
+      ],
+      "status": "covered",
+      "action": "Bảo toàn tên kỹ thuật và phân biệt đường tiếp cận."
+    },
+    {
+      "page": 9,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P009",
+      "content_type": "text",
+      "summary": "Nội soi: quan sát trực tiếp và can thiệp điều trị",
+      "note_ids": [
+        "N05"
+      ],
+      "status": "covered",
+      "action": "Có nội dung chẩn đoán và điều trị qua nội soi."
+    },
+    {
+      "page": 10,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P010",
+      "content_type": "figure",
+      "summary": "Hình nội soi loét tá tràng và loét dạ dày",
+      "note_ids": [
+        "N36"
+      ],
+      "status": "figure_note",
+      "action": "Có note hình riêng; nên mô tả tách hai hình/vị trí."
+    },
+    {
+      "page": 11,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P011",
+      "content_type": "text",
+      "summary": "Nội soi siêu âm, nhuộm màu, phóng đại 80–120 lần, ánh sáng chọn lọc",
+      "note_ids": [
+        "N06"
+      ],
+      "status": "covered",
+      "action": "Giữ con số phóng đại nguyên văn theo slide."
+    },
+    {
+      "page": 12,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P012",
+      "content_type": "text",
+      "summary": "Siêu âm nội soi; hạch, tụy/đường mật, 5 lớp thành dạ dày",
+      "note_ids": [
+        "N07"
+      ],
+      "status": "covered",
+      "action": "Có note chuyên đề riêng."
+    },
+    {
+      "page": 13,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P013",
+      "content_type": "text",
+      "summary": "Siêu âm bụng; gan mật tụy lách; tổn thương >3 cm; hướng dẫn can thiệp",
+      "note_ids": [
+        "N08"
+      ],
+      "status": "covered",
+      "action": "Giữ ngưỡng >3 cm như nội dung slide, cần thẩm định riêng nếu dùng lâm sàng."
+    },
+    {
+      "page": 14,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P014",
+      "content_type": "text",
+      "summary": "CT-scan; tạng đặc và u ổ bụng",
+      "note_ids": [
+        "N09"
+      ],
+      "status": "covered",
+      "action": "So sánh với siêu âm chỉ được ghi nhận theo slide."
+    },
+    {
+      "page": 15,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P015",
+      "content_type": "text",
+      "summary": "Sinh thiết qua nội soi tiêu hóa, nội soi ổ bụng, xuyên gan qua da",
+      "note_ids": [
+        "N11"
+      ],
+      "status": "mapping_gap",
+      "action": "Một note nguồn bao phủ cả ba đường lấy mẫu nhưng mới gắn satellite 1; vệ tinh 2 và 3 chưa có liên kết trực tiếp."
+    },
+    {
+      "page": 16,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P016",
+      "content_type": "text",
+      "summary": "Tế bào học bằng bàn chải/kim hút; slide ghi ít sử dụng",
+      "note_ids": [
+        "N12"
+      ],
+      "status": "covered",
+      "action": "Cần giữ chú thích theo bối cảnh bài giảng."
+    },
+    {
+      "page": 17,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P017",
+      "content_type": "text",
+      "summary": "Bệnh phẩm: Gram, soi tươi, cấy/kháng sinh đồ; mẫu phân, máu, mủ, mô",
+      "note_ids": [
+        "N14"
+      ],
+      "status": "covered",
+      "action": "Phân biệt loại bệnh phẩm và phương pháp xét nghiệm."
+    },
+    {
+      "page": 18,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P018",
+      "content_type": "text",
+      "summary": "Dịch màng bụng: chỉ định cổ trướng; đếm tế bào; bạch cầu; neutrophil/lymphocyte",
+      "note_ids": [
+        "N15"
+      ],
+      "status": "covered_with_ocr_qa",
+      "action": "Đã ghi nhận lỗi OCR ở cụm Lympho tăng; ảnh đã đối chiếu."
+    },
+    {
+      "page": 19,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P019",
+      "content_type": "text",
+      "summary": "Dịch màng bụng: SAAG, albumin và protein toàn phần; ngưỡng 1,1 g/dL",
+      "note_ids": [
+        "N16"
+      ],
+      "status": "covered",
+      "action": "Giữ đúng đơn vị và dấu lớn/nhỏ."
+    },
+    {
+      "page": 20,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P020",
+      "content_type": "text",
+      "summary": "Dịch màng bụng: Gram/cấy, glucose, LDH, amylase, bilirubin, creatinin, tế bào lạ",
+      "note_ids": [
+        "N17"
+      ],
+      "status": "mapping_gap",
+      "action": "Nguồn có nội dung Gram/cấy nhưng vệ tinh dành riêng cho Gram/cấy chưa được gắn note."
+    },
+    {
+      "page": 21,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P021",
+      "content_type": "text",
+      "summary": "Miễn dịch/huyết thanh: marker HBV/HCV, H. pylori và ký sinh trùng",
+      "note_ids": [
+        "N18"
+      ],
+      "status": "covered",
+      "action": "Đối chiếu từng marker và cách viết."
+    },
+    {
+      "page": 22,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P022",
+      "content_type": "text",
+      "summary": "Chức năng thực quản/dạ dày: pH, gastrin, pepsinogen",
+      "note_ids": [
+        "N20"
+      ],
+      "status": "covered",
+      "action": "Bảo toàn nội dung xét nghiệm và ý nghĩa được nêu."
+    },
+    {
+      "page": 23,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P023",
+      "content_type": "text",
+      "summary": "Chức năng ruột non: Lugol, sợi thịt, Sudan III, D-xylose, Schilling",
+      "note_ids": [
+        "N21"
+      ],
+      "status": "covered",
+      "action": "Schilling là nội dung lịch sử trong slide; cần chú thích bối cảnh."
+    },
+    {
+      "page": 24,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P024",
+      "content_type": "text",
+      "summary": "Chức năng đại tràng: hấp thu nước, bài tiết phân, táo bón/tiêu chảy",
+      "note_ids": [
+        "N22"
+      ],
+      "status": "covered",
+      "action": "Slide nêu vận động đại tràng ít được khảo sát."
+    },
+    {
+      "page": 25,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P025",
+      "content_type": "text",
+      "summary": "Bilirubin toàn phần, trực tiếp, gián tiếp và vàng da-niêm",
+      "note_ids": [
+        "N23"
+      ],
+      "status": "covered_numeric_qa",
+      "action": "Đã đối chiếu trang hình; giá trị tham chiếu cần thẩm định y khoa riêng."
+    },
+    {
+      "page": 26,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P026",
+      "content_type": "text",
+      "summary": "Albumin, áp lực keo, ngưỡng >35 g/L, A/G",
+      "note_ids": [
+        "N24"
+      ],
+      "status": "covered_numeric_qa",
+      "action": "Đã đối chiếu slide; không coi ngưỡng trong bài giảng là khuyến cáo hiện hành."
+    },
+    {
+      "page": 27,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P027",
+      "content_type": "text",
+      "summary": "Prothrombin, ngưỡng >80% hoặc <14 giây, nghiệm pháp Koller",
+      "note_ids": [
+        "N25"
+      ],
+      "status": "flagged_instructor_review",
+      "action": "Giữ nguyên câu trên slide; cần giảng viên xác minh cách diễn đạt/ngưỡng."
+    },
+    {
+      "page": 28,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P028",
+      "content_type": "text",
+      "summary": "AST/ALT; ALT <40 U/L; tổn thương tế bào gan",
+      "note_ids": [
+        "N26"
+      ],
+      "status": "covered_numeric_qa",
+      "action": "Đã đối chiếu slide; khoảng tham chiếu có thể tùy labo."
+    },
+    {
+      "page": 29,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P029",
+      "content_type": "text",
+      "summary": "GGT <60 U/L; tăng trong bệnh lý gan, nhất là do rượu theo slide",
+      "note_ids": [
+        "N27"
+      ],
+      "status": "covered_numeric_qa",
+      "action": "Đã đối chiếu slide; khoảng tham chiếu tùy labo."
+    },
+    {
+      "page": 30,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P030",
+      "content_type": "text",
+      "summary": "Phosphatase kiềm; tăng trong tắc mật theo slide",
+      "note_ids": [
+        "N28"
+      ],
+      "status": "covered",
+      "action": "Đối chiếu diễn giải theo nguyên văn slide."
+    },
+    {
+      "page": 31,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P031",
+      "content_type": "text",
+      "summary": "Ammoniac; liên hệ suy gan và bệnh não gan theo slide",
+      "note_ids": [
+        "N29"
+      ],
+      "status": "covered",
+      "action": "Không biến diễn giải slide thành quy tắc chẩn đoán độc lập."
+    },
+    {
+      "page": 32,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P032",
+      "content_type": "text",
+      "summary": "CEA; giá trị <5 ng/mL; ý nghĩa và giới hạn",
+      "note_ids": [
+        "N30"
+      ],
+      "status": "covered_numeric_qa",
+      "action": "Đã đối chiếu slide; giữ phần giới hạn độ đặc hiệu."
+    },
+    {
+      "page": 33,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P033",
+      "content_type": "text",
+      "summary": "CA 19-9; 0–22 U/mL; ý nghĩa và yếu tố gây tăng không do ung thư",
+      "note_ids": [
+        "N31"
+      ],
+      "status": "covered_numeric_qa",
+      "action": "Đã đối chiếu slide; khoảng tham chiếu tùy labo."
+    },
+    {
+      "page": 34,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P034",
+      "content_type": "text",
+      "summary": "AFP; 10–20 ng/mL; nội dung về ung thư gan nguyên phát",
+      "note_ids": [
+        "N32"
+      ],
+      "status": "covered_numeric_qa",
+      "action": "Đã đối chiếu slide; giá trị tham chiếu và hiệu năng cần nguồn cập nhật nếu dùng lâm sàng."
+    },
+    {
+      "page": 35,
+      "unit_id": "SRC-CLS-TIEUHOA-20261128-P035",
+      "content_type": "end_slide",
+      "summary": "Trang cảm ơn",
+      "note_ids": [],
+      "status": "non_learning_content",
+      "action": "Không cần bài học riêng."
+    }
+  ],
+  "findings": {
+    "page_coverage": "Các trang nội dung chuyên môn 3-34 đều có ghi chú nguồn tương ứng; trang 2 là mục tiêu học tập chưa có bản ghi/đường liên kết riêng. Trang 1 và 35 là trang phi nội dung học tập.",
+    "visual_evidence": "4 trang hình chuyên môn (4,6,7,10) có ghi chú hình riêng N33-N36. Cần tiếp tục nâng mô tả hình thành các đơn vị figure có caption/dấu hiệu rõ ràng; không suy diễn chẩn đoán ngoài slide.",
+    "mapping_gaps": [
+      {
+        "satellite_id": "SRC-001-cls.histopathology.sinh-thiet-2",
+        "title": "Sinh thiết qua nội soi ổ bụng",
+        "source_pages": [
+          15
+        ],
+        "reason": "Nguồn N11 có nội dung đường sinh thiết này nhưng chưa gắn vào vệ tinh riêng."
+      },
+      {
+        "satellite_id": "SRC-001-cls.histopathology.sinh-thiet-3",
+        "title": "Sinh thiết gan xuyên da",
+        "source_pages": [
+          15
+        ],
+        "reason": "Nguồn N11 có nội dung đường sinh thiết này nhưng chưa gắn vào vệ tinh riêng."
+      },
+      {
+        "satellite_id": "SRC-001-cls.etiology.xet-nghiem-dich-mang-bung-3",
+        "title": "Nhuộm Gram và nuôi cấy dịch báng",
+        "source_pages": [
+          20
+        ],
+        "reason": "Nguồn N17 có nội dung Gram/cấy nhưng chưa gắn vào vệ tinh riêng."
+      }
+    ],
+    "quality_flags": [
+      {
+        "code": "QA-01",
+        "pages": [
+          18
+        ],
+        "issue": "Lỗi OCR dấu trong cụm Lympho tăng",
+        "status": "Đã đối chiếu hình ảnh, cần giữ provenance."
+      },
+      {
+        "code": "QA-02",
+        "pages": [
+          27
+        ],
+        "issue": "Ngưỡng prothrombin được ghi 'Bình thường >80% hoặc <14 giây'",
+        "status": "Giữ nguyên văn; cần giảng viên xác minh."
+      },
+      {
+        "code": "QA-03",
+        "pages": [
+          3,
+          4,
+          6,
+          7,
+          10
+        ],
+        "issue": "Hình X-quang/nội soi cần bản ghi figure rõ caption và mô tả",
+        "status": "Có 4 ghi chú hình riêng; tiếp tục chi tiết hóa."
+      },
+      {
+        "code": "QA-04",
+        "pages": [
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ],
+        "issue": "Thuật ngữ, chỉ số và đơn vị",
+        "status": "Đã đối chiếu theo QA; chưa thẩm định y khoa độc lập."
+      },
+      {
+        "code": "QA-05",
+        "pages": [
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34
+        ],
+        "issue": "Giá trị tham chiếu và diễn giải xét nghiệm",
+        "status": "Đã so với slide; cần nguồn/labo/giảng viên xác minh trước ứng dụng lâm sàng."
+      },
+      {
+        "code": "QA-06",
+        "pages": "1-35",
+        "issue": "Tự động không nhận diện bảng",
+        "status": "Không đủ căn cứ kết luận không có bảng; cần kiểm tra bố cục thủ công."
+      }
+    ],
+    "asset_inventory": {
+      "unique_embedded_images": 10,
+      "image_placements": 38,
+      "duplicate_placements": 28,
+      "automatic_tables_detected": 0,
+      "interpretation": "0 bảng tự động phát hiện không chứng minh tài liệu không có bảng hoặc bố cục dạng bảng."
+    }
+  },
+  "next_actions": [
+    "Tạo bản ghi mục tiêu học tập cho trang 2 và nối vào cấp tài liệu/nhánh học.",
+    "Gắn N11 vào hai vệ tinh sinh thiết còn thiếu và N17 vào vệ tinh Gram/cấy dịch báng.",
+    "Bổ sung caption/diễn giải hình theo trang cho N33-N36 và kiểm tra 38 vị trí ảnh để phân loại ảnh chuyên môn, logo, nền và ảnh lặp.",
+    "Chuyển các ngưỡng/giá trị trang 25-34 thành dữ liệu có đơn vị, ngữ cảnh và cờ cần xác minh; không tự cập nhật giá trị theo kiến thức ngoài.",
+    "Thực hiện kiểm thử giao diện Universe trên iPhone và xác nhận đường dẫn từ vệ tinh về đúng trang nguồn."
+  ],
+  "limits": [
+    "Audit xác nhận mức độ có nguồn và ánh xạ, không chứng minh ghi chú bao quát mọi chi tiết trong trang.",
+    "Các note N01-N37 vẫn ở trạng thái đang đối chiếu.",
+    "Chưa thẩm định y khoa độc lập.",
+    "Việc nhận diện hình/bảng tự động chưa hoàn chỉnh."
+  ]
+}
