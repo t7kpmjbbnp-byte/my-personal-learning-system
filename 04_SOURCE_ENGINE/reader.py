@@ -39,6 +39,18 @@ def source_id_for(path: Path) -> str:
     return "SRC-" + sha256_file(path)[:16].upper()
 
 
+def sha256_bytes(data: bytes) -> str:
+    return hashlib.sha256(data).hexdigest()
+
+
+def classify_pdf_profile(native_text_pages: int, ocr_pages: int) -> str:
+    if native_text_pages == 0 and ocr_pages > 0:
+        return "scan"
+    if native_text_pages > 0 and ocr_pages > 0:
+        return "mixed"
+    return "text"
+
+
 def write_json(path: Path, value: Any) -> None:
     path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
@@ -93,7 +105,16 @@ def image_unit(path: Path, out: Path, language: str, source_id: str) -> tuple[li
         "source_id": source_id, "title": path.stem, "source_type": "image",
         "original_asset": {"name": path.name, "mime_type": {".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".tif": "image/tiff", ".tiff": "image/tiff", ".bmp": "image/bmp"}.get(path.suffix.lower(), "application/octet-stream"),
                            "uri": None, "sha256": sha256_file(path), "size_bytes": path.stat().st_size},
-        "metadata": {"language": language, "rights_status": "unknown"},
+        "metadata": {
+            "language": language,
+            "rights_status": "unknown",
+            "pdf_profile": pdf_profile,
+            "native_text_pages": native_text_pages,
+            "ocr_pages": ocr_pages,
+            "unique_embedded_images": len(image_asset_by_hash),
+            "image_placements": image_placements,
+            "duplicate_image_placements": max(0, image_placements - len(image_asset_by_hash))
+        },
         "ingestion_status": "needs_review",
         "extraction_runs": [{"run_id": "RUN-001", "method": "ocr", "status": "completed",
                              "started_at": None, "finished_at": now_iso(), "error_summary": None}],
@@ -118,7 +139,11 @@ def pdf_units(path: Path, out: Path, language: str, source_id: str, dpi: int) ->
     units: list[dict] = []
     unreadable: list[str] = []
     extracted_pages = 0
+    native_text_pages = 0
     ocr_pages = 0
+    page_report: list[dict] = []
+    image_asset_by_hash: dict[str, str] = {}
+    image_placements = 0
     run_start = now_iso()
 
     for page_index, page in enumerate(doc):
@@ -127,9 +152,12 @@ def pdf_units(path: Path, out: Path, language: str, source_id: str, dpi: int) ->
         method = "native_parser"
         confidence = None
         warnings: list[str] = []
+        has_native_text = len(re.sub(r"\s+", "", page_text)) >= 30
+        if has_native_text:
+            native_text_pages += 1
 
-        # Scanned pages often have no meaningful text layer. OCR only those pages.
-        if len(re.sub(r"\s+", "", page_text)) < 30:
+        # Scanned or near-empty pages: OCR only those pages.
+        if not has_native_text:
             try:
                 from PIL import Image
                 pix = page.get_pixmap(dpi=dpi, alpha=False)
@@ -164,12 +192,16 @@ def pdf_units(path: Path, out: Path, language: str, source_id: str, dpi: int) ->
             "warnings": warnings, "created_at": now_iso()
         })
 
+        page_figure_count = 0
+        page_table_count = 0
+
         # Preserve detected tables as separate structured units where supported.
         try:
             finder = page.find_tables()
             for table_index, table in enumerate(finder.tables, start=1):
                 rows = table.extract()
                 if rows:
+                    page_table_count += 1
                     units.append({
                         "source_id": source_id, "source_version": version,
                         "unit_id": f"{source_id}-P{page_no:04d}-TABLE{table_index:02d}",
@@ -197,10 +229,17 @@ def pdf_units(path: Path, out: Path, language: str, source_id: str, dpi: int) ->
             seen_on_page.add(xref)
             try:
                 extracted = doc.extract_image(xref)
+                image_bytes = extracted["image"]
                 suffix = extracted.get("ext", "bin")
-                asset_name = f"page-{page_no:04d}-image-{image_index:02d}.{suffix}"
-                asset_path = assets_dir / asset_name
-                asset_path.write_bytes(extracted["image"])
+                image_digest = sha256_bytes(image_bytes)
+                asset_name = image_asset_by_hash.get(image_digest)
+                if asset_name is None:
+                    asset_name = f"image-{image_digest[:16]}.{suffix}"
+                    asset_path = assets_dir / asset_name
+                    asset_path.write_bytes(image_bytes)
+                    image_asset_by_hash[image_digest] = asset_name
+                image_placements += 1
+                page_figure_count += 1
                 rects = page.get_image_rects(xref)
                 rect = rects[0] if rects else None
                 locator = {"kind": "page", "page": page_no, "label": asset_name}
@@ -236,13 +275,24 @@ def pdf_units(path: Path, out: Path, language: str, source_id: str, dpi: int) ->
                     "language": language, "warnings": [f"Không xuất được ảnh nhúng: {exc}"],
                     "created_at": now_iso()
                 })
+        page_report.append({
+            "page": page_no,
+            "extraction_method": method,
+            "text_characters": len(page_text),
+            "text_extracted": bool(page_text),
+            "ocr_used": method == "ocr",
+            "tables_detected": page_table_count,
+            "image_placements": page_figure_count,
+            "warnings": warnings
+        })
 
     page_count = len(doc)
     doc.close()
     # Extraction success is not human verification: never auto-publish as verified.
     status = "needs_review"
+    pdf_profile = classify_pdf_profile(native_text_pages, ocr_pages)
     manifest = {
-        "source_id": source_id, "title": path.stem, "source_type": "pdf_scan" if ocr_pages > 0 else "pdf_text",
+        "source_id": source_id, "title": path.stem, "source_type": "pdf_scan" if pdf_profile == "scan" else "pdf_text",
         "original_asset": {"name": path.name, "mime_type": "application/pdf", "uri": None,
                            "sha256": version, "size_bytes": path.stat().st_size},
         "metadata": {"language": language, "rights_status": "unknown"},
@@ -257,6 +307,21 @@ def pdf_units(path: Path, out: Path, language: str, source_id: str, dpi: int) ->
                      "unreadable_units": unreadable},
         "created_at": now_iso(), "updated_at": now_iso()
     }
+    write_json(out / "coverage-report.json", {
+        "source_id": source_id,
+        "source_name": path.name,
+        "page_count": page_count,
+        "pdf_profile": pdf_profile,
+        "native_text_pages": native_text_pages,
+        "ocr_pages": ocr_pages,
+        "extracted_pages": extracted_pages,
+        "unreadable_pages": unreadable,
+        "unique_embedded_images": len(image_asset_by_hash),
+        "image_placements": image_placements,
+        "duplicate_image_placements": max(0, image_placements - len(image_asset_by_hash)),
+        "pages": page_report,
+        "note": "Trích xuất thành công không đồng nghĩa nội dung đã được kiểm chứng."
+    })
     return units, manifest
 
 
@@ -294,6 +359,7 @@ def main() -> int:
         "source_id": sid, "manifest": str(args.out / "source-manifest.json"),
         "units_file": str(args.out / "source-units.jsonl"),
         "coverage": manifest["coverage"], "unit_count": len(units),
+        "coverage_report": str(args.out / "coverage-report.json") if source.suffix.lower() == ".pdf" else None,
         "status": manifest["ingestion_status"]
     }, ensure_ascii=False, indent=2))
     return 0
