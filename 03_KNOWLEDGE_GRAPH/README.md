@@ -89,3 +89,15 @@ The site root is the graph viewer because the workflow uploads only this folder.
 - The mapping does not create new mastery progress, overwrite existing local progress, or claim that opening a source equals learning it.
 - All source notes remain marked **in progress / đang đối chiếu**. The links provide provenance, not independent medical validation.
 - GitHub Pages workflow run [46114885820](https://github.com/t7kpmjbbnp-byte/my-personal-learning-system/actions/runs/46114885820) completed successfully on 2026-11-28 after the Universe integration changes.
+
+
+## Kiểm toán độ phủ nguồn theo từng trang – 28/11/2026
+
+- Báo cáo máy đọc được: `cls_tieu_hoa_source_audit.json` (35 trang, mỗi trang có unit ID ổn định P001–P035).
+- Đã đối chiếu chỉ mục theo trang với 37 ghi chú N01–N37, 4 ghi chú hình N33–N36, manifest nguồn và báo cáo 57 vệ tinh.
+- Các trang nội dung chuyên môn 3–34 đều có ghi chú nguồn tương ứng. Trang 2 (mục tiêu học tập) chưa có bản ghi/đường liên kết riêng; trang 1 và 35 là trang phi nội dung học tập.
+- 3 lỗ hổng hiện tại là **lỗ hổng ánh xạ vệ tinh**, không phải thiếu nội dung trong PDF: hai vệ tinh đường sinh thiết (PDF p.15) chưa được gắn N11; vệ tinh nhuộm Gram/cấy dịch báng (PDF p.20) chưa được gắn N17.
+- Bốn trang hình chuyên môn p.4, p.6, p.7, p.10 có ghi chú hình N33–N36. Cần tiếp tục làm rõ caption/dấu hiệu hình và phân loại 38 vị trí ảnh (10 ảnh nhúng duy nhất, 28 vị trí lặp).
+- Các cờ QA được giữ nguyên: lỗi OCR p.18 đã đối chiếu; câu ngưỡng prothrombin p.27 cần giảng viên xác minh; giá trị xét nghiệm p.25–34 chỉ được đối chiếu với slide, chưa thẩm định y khoa độc lập.
+- Bộ trích xuất tự động nhận diện 0 bảng; không được diễn giải thành kết luận tài liệu không có bảng.
+- Audit là kiểm tra độ phủ và truy xuất nguồn, không phải thẩm định chuyên môn hay xác nhận mastery.
