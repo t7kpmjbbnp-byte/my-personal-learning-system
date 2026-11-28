@@ -101,6 +101,14 @@ html.fullscreen-open,body.fullscreen-open{width:100%;height:100%;overflow:hidden
 .universe.pseudo-fullscreen #motherSystemCanvas{position:absolute!important;inset:0!important;width:100%!important;height:100%!important}
 .universe.pseudo-fullscreen .planet-visual{max-height:70dvh}
 @supports(height:100svh){.universe.pseudo-fullscreen{height:100svh!important}.universe.pseudo-fullscreen #space{height:calc(100svh - 54px)!important}}
+/* Reliable fallback: if WebGL/Three.js fails, retain the SVG planets instead of hiding the entire scene. */
+#universeView.galaxy-view:not(.mother-3d-ready) #space{opacity:1!important;visibility:visible!important;pointer-events:auto!important;transform:none!important}
+#universeView.galaxy-view:not(.mother-3d-ready) #galaxies .mother-planet-node{opacity:1!important;visibility:visible!important;pointer-events:all!important}
+#universeView.galaxy-view:not(.mother-3d-ready) .mother-system-3d{display:none!important}
+#universeView.galaxy-view.mother-3d-ready .mother-system-3d{display:block!important}
+#universeView.galaxy-view.mother-3d-ready #space{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+#universeView .fullscreen-toggle{position:fixed;z-index:2147483647;top:max(10px,env(safe-area-inset-top));right:max(10px,env(safe-area-inset-right))}
+#universeView.pseudo-fullscreen .fullscreen-toggle{position:fixed!important;top:max(10px,env(safe-area-inset-top))!important;right:max(10px,env(safe-area-inset-right))!important}
 </style>  <style id="scene-layer-isolation">.universe.galaxy-view.zoomed .mother-system-3d{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important}</style>
 
 <style id="mother-system-readable-controls">
