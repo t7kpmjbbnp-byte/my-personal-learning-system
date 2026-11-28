@@ -1,0 +1,828 @@
+{
+  "map_id": "MAP-CLS-TIEUHOA-20261128",
+  "source_id": "SRC-CLS-TIEUHOA-20261128",
+  "version": 1,
+  "root_node_id": "ST-CLS-TIEUHOA",
+  "groups": [
+    {
+      "group_id": "G01",
+      "node_id": "ST-CLS-TIEUHOA-G01",
+      "title": "Thăm dò hình thái",
+      "page_range": "3–14"
+    },
+    {
+      "group_id": "G02",
+      "node_id": "ST-CLS-TIEUHOA-G02",
+      "title": "Thăm dò mô bệnh học",
+      "page_range": "15–16"
+    },
+    {
+      "group_id": "G03",
+      "node_id": "ST-CLS-TIEUHOA-G03",
+      "title": "Thăm dò nguyên nhân",
+      "page_range": "17–21"
+    },
+    {
+      "group_id": "G04",
+      "node_id": "ST-CLS-TIEUHOA-G04",
+      "title": "Thăm dò chức năng",
+      "page_range": "22–24"
+    },
+    {
+      "group_id": "G05",
+      "node_id": "ST-CLS-TIEUHOA-G05",
+      "title": "Các xét nghiệm và chỉ số",
+      "page_range": "25–34"
+    }
+  ],
+  "nodes": [
+    {
+      "node_id": "ST-CLS-TIEUHOA-N01",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N01",
+      "note_url": "https://app.notion.com/p/4265a63d7bde810c882ec79c66be40eb",
+      "node_type": "summary",
+      "group_id": "G01",
+      "page_locator": "PDF p.3–14",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": null
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N02",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N02",
+      "note_url": "https://app.notion.com/p/4265a63d7bde81438b0ccc7fe3337d02",
+      "node_type": "concept",
+      "group_id": "G01",
+      "page_locator": "PDF p.3",
+      "evidence_type": "mixed",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N01"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N03",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N03",
+      "note_url": "https://app.notion.com/p/4265a63d7bde81738c27fbb4a4f317c0",
+      "node_type": "concept",
+      "group_id": "G01",
+      "page_locator": "PDF p.5",
+      "evidence_type": "mixed",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N01"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N04",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N04",
+      "note_url": "https://app.notion.com/p/4265a63d7bde81bba29be172842ea23b",
+      "node_type": "concept",
+      "group_id": "G01",
+      "page_locator": "PDF p.8",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N01"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N05",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N05",
+      "note_url": "https://app.notion.com/p/4265a63d7bde816e92a0e58377cd7336",
+      "node_type": "concept",
+      "group_id": "G01",
+      "page_locator": "PDF p.9–10",
+      "evidence_type": "mixed",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N01"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N06",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N06",
+      "note_url": "https://app.notion.com/p/4265a63d7bde815c8ef2d6cf267cc61c",
+      "node_type": "concept",
+      "group_id": "G01",
+      "page_locator": "PDF p.11",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N01"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N07",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N07",
+      "note_url": "https://app.notion.com/p/4265a63d7bde81b98c16eaa33737d43f",
+      "node_type": "concept",
+      "group_id": "G01",
+      "page_locator": "PDF p.12",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N01"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N08",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N08",
+      "note_url": "https://app.notion.com/p/4265a63d7bde814eaf40fefd82bf525a",
+      "node_type": "concept",
+      "group_id": "G01",
+      "page_locator": "PDF p.13",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N01"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N09",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N09",
+      "note_url": "https://app.notion.com/p/4265a63d7bde81309f7cf767c4fdf9bb",
+      "node_type": "concept",
+      "group_id": "G01",
+      "page_locator": "PDF p.14",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N01"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N10",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N10",
+      "note_url": "https://app.notion.com/p/4265a63d7bde81d3b6fff93b7b94512a",
+      "node_type": "summary",
+      "group_id": "G02",
+      "page_locator": "PDF p.15–16",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": null
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N11",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N11",
+      "note_url": "https://app.notion.com/p/4265a63d7bde8116b3fcd53d0583be2d",
+      "node_type": "concept",
+      "group_id": "G02",
+      "page_locator": "PDF p.15",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N10"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N12",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N12",
+      "note_url": "https://app.notion.com/p/4265a63d7bde815c97eac2874b926fe2",
+      "node_type": "concept",
+      "group_id": "G02",
+      "page_locator": "PDF p.16",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N10"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N13",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N13",
+      "note_url": "https://app.notion.com/p/4265a63d7bde8112928ef9a1cc2737f4",
+      "node_type": "summary",
+      "group_id": "G03",
+      "page_locator": "PDF p.17–21",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": null
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N14",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N14",
+      "note_url": "https://app.notion.com/p/4265a63d7bde811aa6ebe699f807071c",
+      "node_type": "concept",
+      "group_id": "G03",
+      "page_locator": "PDF p.17",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N13"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N15",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N15",
+      "note_url": "https://app.notion.com/p/4265a63d7bde81d1847cea5eb6a36f33",
+      "node_type": "concept",
+      "group_id": "G03",
+      "page_locator": "PDF p.18",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N13"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N16",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N16",
+      "note_url": "https://app.notion.com/p/4265a63d7bde81058ef0c228b4a75a3b",
+      "node_type": "concept",
+      "group_id": "G03",
+      "page_locator": "PDF p.19",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N13"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N17",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N17",
+      "note_url": "https://app.notion.com/p/4265a63d7bde81f4be84c85d2d858a50",
+      "node_type": "concept",
+      "group_id": "G03",
+      "page_locator": "PDF p.20",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N13"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N18",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N18",
+      "note_url": "https://app.notion.com/p/4265a63d7bde817a84a4d997c1300d75",
+      "node_type": "concept",
+      "group_id": "G03",
+      "page_locator": "PDF p.21",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N13"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N19",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N19",
+      "note_url": "https://app.notion.com/p/4265a63d7bde819aa719d218b422fc30",
+      "node_type": "summary",
+      "group_id": "G04",
+      "page_locator": "PDF p.22–24",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": null
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N20",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N20",
+      "note_url": "https://app.notion.com/p/4265a63d7bde81168a0fca1d69f9b8a6",
+      "node_type": "concept",
+      "group_id": "G04",
+      "page_locator": "PDF p.22",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N19"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N21",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N21",
+      "note_url": "https://app.notion.com/p/4265a63d7bde812ea3a2f5e1f4ab2731",
+      "node_type": "concept",
+      "group_id": "G04",
+      "page_locator": "PDF p.23",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N19"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N22",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N22",
+      "note_url": "https://app.notion.com/p/4265a63d7bde81e1bd1fd38273131d63",
+      "node_type": "concept",
+      "group_id": "G04",
+      "page_locator": "PDF p.24",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N19"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N23",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N23",
+      "note_url": "https://app.notion.com/p/4265a63d7bde819aa225fae9bbdd4644",
+      "node_type": "concept",
+      "group_id": "G05",
+      "page_locator": "PDF p.25",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N37"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N24",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N24",
+      "note_url": "https://app.notion.com/p/4265a63d7bde8186b651e949bfd392e4",
+      "node_type": "concept",
+      "group_id": "G05",
+      "page_locator": "PDF p.26",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N37"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N25",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N25",
+      "note_url": "https://app.notion.com/p/4265a63d7bde8151ae20dc7ba6578d99",
+      "node_type": "concept",
+      "group_id": "G05",
+      "page_locator": "PDF p.27",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N37"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N26",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N26",
+      "note_url": "https://app.notion.com/p/4265a63d7bde81b78bc6fbde5200d64b",
+      "node_type": "concept",
+      "group_id": "G05",
+      "page_locator": "PDF p.28",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N37"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N27",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N27",
+      "note_url": "https://app.notion.com/p/4265a63d7bde815ba959e3565eb0658c",
+      "node_type": "concept",
+      "group_id": "G05",
+      "page_locator": "PDF p.29",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N37"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N28",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N28",
+      "note_url": "https://app.notion.com/p/4265a63d7bde81a9b6efd4548f87fd20",
+      "node_type": "concept",
+      "group_id": "G05",
+      "page_locator": "PDF p.30",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N37"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N29",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N29",
+      "note_url": "https://app.notion.com/p/4265a63d7bde8138b982cd5c875fecad",
+      "node_type": "concept",
+      "group_id": "G05",
+      "page_locator": "PDF p.31",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N37"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N30",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N30",
+      "note_url": "https://app.notion.com/p/4265a63d7bde81588b89e05c9e517a4c",
+      "node_type": "concept",
+      "group_id": "G05",
+      "page_locator": "PDF p.32",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N37"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N31",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N31",
+      "note_url": "https://app.notion.com/p/4265a63d7bde81ddb704f54b3782402c",
+      "node_type": "concept",
+      "group_id": "G05",
+      "page_locator": "PDF p.33",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N37"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N32",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N32",
+      "note_url": "https://app.notion.com/p/4265a63d7bde81028097d59733b2279f",
+      "node_type": "concept",
+      "group_id": "G05",
+      "page_locator": "PDF p.34",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N37"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N33",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N33",
+      "note_url": "https://app.notion.com/p/4265a63d7bde811fbda9dcca479c5833",
+      "node_type": "figure",
+      "group_id": "G01",
+      "page_locator": "PDF p.4",
+      "evidence_type": "image",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N02"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N34",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N34",
+      "note_url": "https://app.notion.com/p/4265a63d7bde81418254ef292bc7301a",
+      "node_type": "figure",
+      "group_id": "G01",
+      "page_locator": "PDF p.6",
+      "evidence_type": "image",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N03"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N35",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N35",
+      "note_url": "https://app.notion.com/p/4265a63d7bde813f9805e8e71146b661",
+      "node_type": "figure",
+      "group_id": "G01",
+      "page_locator": "PDF p.7",
+      "evidence_type": "image",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N03"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N36",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N36",
+      "note_url": "https://app.notion.com/p/4265a63d7bde81ae810bdf57002feb7b",
+      "node_type": "figure",
+      "group_id": "G01",
+      "page_locator": "PDF p.10",
+      "evidence_type": "image",
+      "verification_status": "in_progress",
+      "parent_note_id": "SRC-CLS-TIEUHOA-20261128-N05"
+    },
+    {
+      "node_id": "ST-CLS-TIEUHOA-N37",
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N37",
+      "note_url": "https://app.notion.com/p/4265a63d7bde81babd47e3bfe21ee91e",
+      "node_type": "summary",
+      "group_id": "G05",
+      "page_locator": "PDF p.25–34",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "parent_note_id": null
+    }
+  ],
+  "edges": [
+    {
+      "from_node_id": "ST-CLS-TIEUHOA",
+      "to_node_id": "ST-CLS-TIEUHOA-G01",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA",
+      "to_node_id": "ST-CLS-TIEUHOA-G02",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA",
+      "to_node_id": "ST-CLS-TIEUHOA-G03",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA",
+      "to_node_id": "ST-CLS-TIEUHOA-G04",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA",
+      "to_node_id": "ST-CLS-TIEUHOA-G05",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G01",
+      "to_node_id": "ST-CLS-TIEUHOA-N01",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G01",
+      "to_node_id": "ST-CLS-TIEUHOA-N02",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N01",
+      "to_node_id": "ST-CLS-TIEUHOA-N02",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G01",
+      "to_node_id": "ST-CLS-TIEUHOA-N03",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N01",
+      "to_node_id": "ST-CLS-TIEUHOA-N03",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G01",
+      "to_node_id": "ST-CLS-TIEUHOA-N04",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N01",
+      "to_node_id": "ST-CLS-TIEUHOA-N04",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G01",
+      "to_node_id": "ST-CLS-TIEUHOA-N05",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N01",
+      "to_node_id": "ST-CLS-TIEUHOA-N05",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G01",
+      "to_node_id": "ST-CLS-TIEUHOA-N06",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N01",
+      "to_node_id": "ST-CLS-TIEUHOA-N06",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G01",
+      "to_node_id": "ST-CLS-TIEUHOA-N07",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N01",
+      "to_node_id": "ST-CLS-TIEUHOA-N07",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G01",
+      "to_node_id": "ST-CLS-TIEUHOA-N08",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N01",
+      "to_node_id": "ST-CLS-TIEUHOA-N08",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G01",
+      "to_node_id": "ST-CLS-TIEUHOA-N09",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N01",
+      "to_node_id": "ST-CLS-TIEUHOA-N09",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G02",
+      "to_node_id": "ST-CLS-TIEUHOA-N10",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G02",
+      "to_node_id": "ST-CLS-TIEUHOA-N11",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N10",
+      "to_node_id": "ST-CLS-TIEUHOA-N11",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G02",
+      "to_node_id": "ST-CLS-TIEUHOA-N12",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N10",
+      "to_node_id": "ST-CLS-TIEUHOA-N12",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G03",
+      "to_node_id": "ST-CLS-TIEUHOA-N13",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G03",
+      "to_node_id": "ST-CLS-TIEUHOA-N14",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N13",
+      "to_node_id": "ST-CLS-TIEUHOA-N14",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G03",
+      "to_node_id": "ST-CLS-TIEUHOA-N15",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N13",
+      "to_node_id": "ST-CLS-TIEUHOA-N15",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G03",
+      "to_node_id": "ST-CLS-TIEUHOA-N16",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N13",
+      "to_node_id": "ST-CLS-TIEUHOA-N16",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G03",
+      "to_node_id": "ST-CLS-TIEUHOA-N17",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N13",
+      "to_node_id": "ST-CLS-TIEUHOA-N17",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G03",
+      "to_node_id": "ST-CLS-TIEUHOA-N18",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N13",
+      "to_node_id": "ST-CLS-TIEUHOA-N18",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G04",
+      "to_node_id": "ST-CLS-TIEUHOA-N19",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G04",
+      "to_node_id": "ST-CLS-TIEUHOA-N20",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N19",
+      "to_node_id": "ST-CLS-TIEUHOA-N20",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G04",
+      "to_node_id": "ST-CLS-TIEUHOA-N21",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N19",
+      "to_node_id": "ST-CLS-TIEUHOA-N21",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G04",
+      "to_node_id": "ST-CLS-TIEUHOA-N22",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N19",
+      "to_node_id": "ST-CLS-TIEUHOA-N22",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G05",
+      "to_node_id": "ST-CLS-TIEUHOA-N23",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N37",
+      "to_node_id": "ST-CLS-TIEUHOA-N23",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G05",
+      "to_node_id": "ST-CLS-TIEUHOA-N24",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N37",
+      "to_node_id": "ST-CLS-TIEUHOA-N24",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G05",
+      "to_node_id": "ST-CLS-TIEUHOA-N25",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N37",
+      "to_node_id": "ST-CLS-TIEUHOA-N25",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G05",
+      "to_node_id": "ST-CLS-TIEUHOA-N26",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N37",
+      "to_node_id": "ST-CLS-TIEUHOA-N26",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G05",
+      "to_node_id": "ST-CLS-TIEUHOA-N27",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N37",
+      "to_node_id": "ST-CLS-TIEUHOA-N27",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G05",
+      "to_node_id": "ST-CLS-TIEUHOA-N28",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N37",
+      "to_node_id": "ST-CLS-TIEUHOA-N28",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G05",
+      "to_node_id": "ST-CLS-TIEUHOA-N29",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N37",
+      "to_node_id": "ST-CLS-TIEUHOA-N29",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G05",
+      "to_node_id": "ST-CLS-TIEUHOA-N30",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N37",
+      "to_node_id": "ST-CLS-TIEUHOA-N30",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G05",
+      "to_node_id": "ST-CLS-TIEUHOA-N31",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N37",
+      "to_node_id": "ST-CLS-TIEUHOA-N31",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G05",
+      "to_node_id": "ST-CLS-TIEUHOA-N32",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N37",
+      "to_node_id": "ST-CLS-TIEUHOA-N32",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G01",
+      "to_node_id": "ST-CLS-TIEUHOA-N33",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N02",
+      "to_node_id": "ST-CLS-TIEUHOA-N33",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G01",
+      "to_node_id": "ST-CLS-TIEUHOA-N34",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N03",
+      "to_node_id": "ST-CLS-TIEUHOA-N34",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G01",
+      "to_node_id": "ST-CLS-TIEUHOA-N35",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N03",
+      "to_node_id": "ST-CLS-TIEUHOA-N35",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G01",
+      "to_node_id": "ST-CLS-TIEUHOA-N36",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-N05",
+      "to_node_id": "ST-CLS-TIEUHOA-N36",
+      "edge_type": "contains"
+    },
+    {
+      "from_node_id": "ST-CLS-TIEUHOA-G05",
+      "to_node_id": "ST-CLS-TIEUHOA-N37",
+      "edge_type": "contains"
+    }
+  ],
+  "metadata": {
+    "source_url": "https://app.notion.com/p/4265a63d7bde811080bbf9521351fe76",
+    "hierarchy_note_url": "https://app.notion.com/p/4265a63d7bde817491b7cf193488cb0d",
+    "total_note_records": 37,
+    "note_record_status": "in_progress",
+    "medical_validation": false,
+    "integration_status": "mapping_manifest_only",
+    "semantics": "Contains/part-of relationships represent document taxonomy only, not clinical causality, indications, or prerequisites."
+  }
+}
