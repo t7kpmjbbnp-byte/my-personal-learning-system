@@ -11,7 +11,8 @@
     "root_node_id",
     "groups",
     "nodes",
-    "edges"
+    "edges",
+    "metadata"
   ],
   "properties": {
     "map_id": {
@@ -178,6 +179,53 @@
         },
         "additionalProperties": false
       }
+    },
+    "metadata": {
+      "type": "object",
+      "required": [
+        "source_url",
+        "hierarchy_note_url",
+        "total_note_records",
+        "note_record_status",
+        "medical_validation",
+        "integration_status",
+        "semantics"
+      ],
+      "properties": {
+        "source_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "hierarchy_note_url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "total_note_records": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "note_record_status": {
+          "enum": [
+            "unreviewed",
+            "in_progress",
+            "verified"
+          ]
+        },
+        "medical_validation": {
+          "type": "boolean"
+        },
+        "integration_status": {
+          "enum": [
+            "mapping_manifest_only",
+            "frontend_connected",
+            "tested"
+          ]
+        },
+        "semantics": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
     }
   },
   "additionalProperties": false
