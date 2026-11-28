@@ -98,3 +98,24 @@ GitHub Pages is a static frontend. Never embed a Notion integration token, Supab
 4. Revision conflicts are surfaced and merged safely, never silently overwritten.
 5. Backup/restore and schema migration are tested.
 6. Two independent browsers/devices pass the above checks before sync is declared complete.
+
+
+## Cloud sync implementation scaffold (v1.2, 2026-11-28)
+
+A draft Cloudflare Worker has been added under `sync-worker/` on branch `feat/sach-troi-cloud-sync` and is proposed in draft PR #14:
+https://github.com/t7kpmjbbnp-byte/my-personal-learning-system/pull/14
+
+- Worker code: `sync-worker/src/index.js`
+- Wrangler config: `sync-worker/wrangler.jsonc`
+- Setup/security notes: `sync-worker/README.md`
+- Worker calls the Notion API using server-side secrets; no Notion token or app access token is committed.
+- Intended endpoints: `GET /health`, `GET /v1/state`, `GET /v1/events`, `POST /v1/events`.
+- App integration, deployment, live API verification, data migration, and two-device tests are NOT done.
+
+Live Notion schema was fetched and checked. Property names/types align with the scaffold's intended field mapping (Topic ID title in snapshot; Topic ID text in event log; allowed event/status select options match). Notion integration access has not yet been granted or tested.
+
+Important known engineering gaps before production:
+- Worker event creation and snapshot update are sequential, not transactional; reconciliation is needed for partial failure.
+- Event listing currently requests one page (max 100); implement cursor pagination before long-term use.
+- App bearer token is a shared secret and requires secure private configuration on both devices; consider a stronger per-user login/session design before broad exposure.
+- Confirm Notion API version and data_source query/parent compatibility in the live Worker environment.
