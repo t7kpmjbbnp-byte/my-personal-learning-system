@@ -203,7 +203,7 @@ function motherTopicCore(topic){
  return lessons.slice(0,2).map(x=>x.description).filter(Boolean).join(" ")||("Chủ đề thuộc nhóm "+topic.gr.name+". Nội dung cốt lõi sẽ được triển khai theo tài liệu nguồn khi mở hành tinh.");
 }
 function showMotherSystem3D(galaxyId){
- const g=curriculum.find(x=>x.id===galaxyId),host=$("motherSystem3D"),canvas=$("motherSystemCanvas");if(!g||!host||!canvas)return;
+ const g=curriculum.find(x=>x.id===galaxyId),host=$("motherSystem3D");if(!g||!host||!$("motherSystemCanvas"))return;
  host.style.display="block";
  if(motherSystem3D&&motherSystem3D.galaxyId===galaxyId){const w=Math.max(1,host.clientWidth),h=Math.max(1,host.clientHeight);motherSystem3D.renderer.setSize(w,h,false);motherSystem3D.camera.aspect=w/h;motherSystem3D.camera.updateProjectionMatrix();$("universeView").classList.add("mother-3d-ready");resumeMotherSystem3D();requestAnimationFrame(()=>$("universeView").classList.remove("mother-system-enter"));return;}
  const topics=allTopics().filter(t=>t.g.id===galaxyId);
@@ -218,6 +218,7 @@ function showMotherSystem3D(galaxyId){
  if(!window.THREE){cardSummary.textContent="Thiết bị chưa tải được thư viện 3D. Bạn vẫn có thể chọn chủ đề từ bản đồ.";$("universeView").classList.remove("mother-system-enter");return}
  try{
   disposeMotherSystem3D();
+  const canvas=$("motherSystemCanvas");if(!canvas)throw new Error("Không tìm thấy canvas hệ hành tinh sau khi khởi tạo lại.");
   const renderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:"high-performance"});renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));renderer.setClearColor(0x000000,0);
   const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(48,1,.1,100);camera.position.set(0,10.2,22);camera.lookAt(0,0,0);
   scene.add(new THREE.AmbientLight(0x9fcfff,.9));const key=new THREE.PointLight(0xffd58a,38,28);key.position.set(0,0,0);scene.add(key);
