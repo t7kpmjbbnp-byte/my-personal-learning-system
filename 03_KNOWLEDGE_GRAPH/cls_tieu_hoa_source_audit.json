@@ -21,9 +21,11 @@
       "unit_id": "SRC-CLS-TIEUHOA-20261128-P002",
       "content_type": "learning_objectives",
       "summary": "Ba mục tiêu học tập của toàn bài",
-      "note_ids": [],
-      "status": "curriculum_gap",
-      "action": "Chưa có ghi chú/mục tiêu học tập được nối vào bản đồ vệ tinh."
+      "note_ids": [
+        "N38"
+      ],
+      "status": "covered_learning_objectives",
+      "action": "Đã tạo N38 gồm ba mục tiêu học tập; vẫn đang đối chiếu với slide gốc."
     },
     {
       "page": 3,
@@ -165,8 +167,8 @@
       "note_ids": [
         "N11"
       ],
-      "status": "mapping_gap",
-      "action": "Một note nguồn bao phủ cả ba đường lấy mẫu nhưng mới gắn satellite 1; vệ tinh 2 và 3 chưa có liên kết trực tiếp."
+      "status": "mapped",
+      "action": "Đã nối note nguồn vào đầy đủ vệ tinh liên quan; note vẫn đang đối chiếu."
     },
     {
       "page": 16,
@@ -220,8 +222,8 @@
       "note_ids": [
         "N17"
       ],
-      "status": "mapping_gap",
-      "action": "Nguồn có nội dung Gram/cấy nhưng vệ tinh dành riêng cho Gram/cấy chưa được gắn note."
+      "status": "mapped",
+      "action": "Đã nối note nguồn vào đầy đủ vệ tinh liên quan; note vẫn đang đối chiếu."
     },
     {
       "page": 21,
@@ -388,34 +390,9 @@
     }
   ],
   "findings": {
-    "page_coverage": "Các trang nội dung chuyên môn 3-34 đều có ghi chú nguồn tương ứng; trang 2 là mục tiêu học tập chưa có bản ghi/đường liên kết riêng. Trang 1 và 35 là trang phi nội dung học tập.",
+    "page_coverage": "Các trang nội dung học tập 2–34 đều có ghi chú nguồn tương ứng; trang 1 và 35 là trang phi nội dung học tập.",
     "visual_evidence": "4 trang hình chuyên môn (4,6,7,10) có ghi chú hình riêng N33-N36. Cần tiếp tục nâng mô tả hình thành các đơn vị figure có caption/dấu hiệu rõ ràng; không suy diễn chẩn đoán ngoài slide.",
-    "mapping_gaps": [
-      {
-        "satellite_id": "SRC-001-cls.histopathology.sinh-thiet-2",
-        "title": "Sinh thiết qua nội soi ổ bụng",
-        "source_pages": [
-          15
-        ],
-        "reason": "Nguồn N11 có nội dung đường sinh thiết này nhưng chưa gắn vào vệ tinh riêng."
-      },
-      {
-        "satellite_id": "SRC-001-cls.histopathology.sinh-thiet-3",
-        "title": "Sinh thiết gan xuyên da",
-        "source_pages": [
-          15
-        ],
-        "reason": "Nguồn N11 có nội dung đường sinh thiết này nhưng chưa gắn vào vệ tinh riêng."
-      },
-      {
-        "satellite_id": "SRC-001-cls.etiology.xet-nghiem-dich-mang-bung-3",
-        "title": "Nhuộm Gram và nuôi cấy dịch báng",
-        "source_pages": [
-          20
-        ],
-        "reason": "Nguồn N17 có nội dung Gram/cấy nhưng chưa gắn vào vệ tinh riêng."
-      }
-    ],
+    "mapping_gaps": [],
     "quality_flags": [
       {
         "code": "QA-01",
@@ -490,14 +467,14 @@
       "duplicate_placements": 28,
       "automatic_tables_detected": 0,
       "interpretation": "0 bảng tự động phát hiện không chứng minh tài liệu không có bảng hoặc bố cục dạng bảng."
-    }
+    },
+    "mapping_resolution": "Đã nối N11 vào cả ba vệ tinh sinh thiết và N17 vào vệ tinh Gram/cấy dịch báng; 57/57 vệ tinh hiện có nguồn trực tiếp."
   },
   "next_actions": [
-    "Tạo bản ghi mục tiêu học tập cho trang 2 và nối vào cấp tài liệu/nhánh học.",
-    "Gắn N11 vào hai vệ tinh sinh thiết còn thiếu và N17 vào vệ tinh Gram/cấy dịch báng.",
-    "Bổ sung caption/diễn giải hình theo trang cho N33-N36 và kiểm tra 38 vị trí ảnh để phân loại ảnh chuyên môn, logo, nền và ảnh lặp.",
-    "Chuyển các ngưỡng/giá trị trang 25-34 thành dữ liệu có đơn vị, ngữ cảnh và cờ cần xác minh; không tự cập nhật giá trị theo kiến thức ngoài.",
-    "Thực hiện kiểm thử giao diện Universe trên iPhone và xác nhận đường dẫn từ vệ tinh về đúng trang nguồn."
+    "Bổ sung mô tả figure có cấu trúc, caption chính xác và giới hạn diễn giải cho N33–N36.",
+    "Phân loại 38 vị trí ảnh để xác định ảnh chuyên môn, logo/nền và ảnh lặp.",
+    "Chuyển các ngưỡng/giá trị trang 25–34 thành dữ liệu có đơn vị, ngữ cảnh và cờ cần xác minh.",
+    "Thực hiện kiểm thử giao diện Universe trên iPhone và xác nhận đường dẫn từ vệ tinh về đúng ghi chú và trang PDF."
   ],
   "limits": [
     "Audit xác nhận mức độ có nguồn và ánh xạ, không chứng minh ghi chú bao quát mọi chi tiết trong trang.",
