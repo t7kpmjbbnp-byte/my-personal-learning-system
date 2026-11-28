@@ -5,6 +5,19 @@
   "source_url": "https://app.notion.com/p/4265a63d7bde811080bbf9521351fe76",
   "notes": [
     {
+      "note_id": "SRC-CLS-TIEUHOA-20261128-N38",
+      "title": "Mục tiêu học tập – Cận lâm sàng tiêu hóa",
+      "note_url": "https://app.notion.com/p/4265a63d7bde815d8d42c171df44b93e",
+      "node_type": "summary",
+      "group_id": "G00",
+      "universe_group_id": null,
+      "universe_topic_id": null,
+      "page_locator": "PDF p.2",
+      "evidence_type": "text",
+      "verification_status": "in_progress",
+      "universe_satellite_ids": []
+    },
+    {
       "note_id": "SRC-CLS-TIEUHOA-20261128-N01",
       "title": "Tóm tắt thăm dò hình thái",
       "note_url": "https://app.notion.com/p/4265a63d7bde810c882ec79c66be40eb",
@@ -178,7 +191,9 @@
       "evidence_type": "text",
       "verification_status": "in_progress",
       "universe_satellite_ids": [
-        "SRC-001-cls.histopathology.sinh-thiet-1"
+        "SRC-001-cls.histopathology.sinh-thiet-1",
+        "SRC-001-cls.histopathology.sinh-thiet-2",
+        "SRC-001-cls.histopathology.sinh-thiet-3"
       ]
     },
     {
@@ -270,7 +285,8 @@
       "evidence_type": "text",
       "verification_status": "in_progress",
       "universe_satellite_ids": [
-        "SRC-001-cls.etiology.xet-nghiem-dich-mang-bung-4"
+        "SRC-001-cls.etiology.xet-nghiem-dich-mang-bung-4",
+        "SRC-001-cls.etiology.xet-nghiem-dich-mang-bung-3"
       ]
     },
     {
