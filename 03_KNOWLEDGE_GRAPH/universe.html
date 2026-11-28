@@ -58,10 +58,10 @@ html.fullscreen-open,body.fullscreen-open{overflow:hidden!important;width:100%!i
 #universeView.zoomed .planet-visual.active{opacity:1!important}
 
 /* 3D mother-planet system: selectable orbiting worlds with an in-scene info card */
-.mother-system-3d{display:none;position:absolute;inset:0;z-index:3;overflow:hidden;pointer-events:none;background:radial-gradient(ellipse at 50% 42%,rgba(21,54,86,.08),rgba(3,10,22,.1) 70%)}
+.mother-system-3d{display:none;position:absolute;inset:0;z-index:3;overflow:hidden;pointer-events:none;background:radial-gradient(ellipse at 50% 42%,#102b48 0%,#071629 58%,#040b16 100%)}
 .galaxy-view .mother-system-3d{display:block}
 .galaxy-view.mother-3d-ready #galaxies .mother-planet-node{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
-#motherSystemCanvas{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:auto;touch-action:pan-y}
+#motherSystemCanvas{position:absolute;inset:0;z-index:1;width:100%;height:100%;display:block;background:#071629;pointer-events:auto;touch-action:pan-y}.mother-system-hint,.mother-system-card{z-index:2}
 .mother-system-hint{position:absolute;top:56px;left:50%;transform:translateX(-50%);max-width:90%;padding:7px 12px;border:1px solid #6ca8d455;border-radius:30px;background:#071629c9;color:#c9e7ff;font-size:11px;text-align:center;pointer-events:none;backdrop-filter:blur(8px)}
 .mother-system-card{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);width:min(440px,calc(100% - 22px));max-height:34%;overflow:auto;padding:13px 15px calc(13px + env(safe-area-inset-bottom));border:1px solid #73b9e7aa;border-radius:17px;background:linear-gradient(145deg,rgba(13,34,59,.96),rgba(4,13,27,.97));box-shadow:0 10px 34px #000a,0 0 22px #328fd044;backdrop-filter:blur(15px);pointer-events:auto}
 .mother-system-card h2{font-size:17px;margin:3px 0}.mother-system-card p{font-size:11px;color:#c0d5e9;margin:4px 0;line-height:1.4}
@@ -253,8 +253,8 @@ function showMotherSystem3D(galaxyId){
  try{
   disposeMotherSystem3D();
   const canvas=$("motherSystemCanvas");if(!canvas)throw new Error("Không tìm thấy canvas hệ hành tinh sau khi khởi tạo lại.");
-  const renderer=pendingRenderer=new THREE.WebGLRenderer({canvas,alpha:true,antialias:true,powerPreference:"high-performance"});renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));renderer.setClearColor(0x000000,0);
-  const scene=new THREE.Scene(),camera=new THREE.PerspectiveCamera(48,1,.1,100);camera.position.set(0,10.2,22);camera.lookAt(0,0,0);
+  const renderer=pendingRenderer=new THREE.WebGLRenderer({canvas,alpha:false,antialias:true,powerPreference:"high-performance"});renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));renderer.setClearColor(0x000000,0);
+  const scene=new THREE.Scene();scene.background=new THREE.Color(0x071629);const camera=new THREE.PerspectiveCamera(48,1,.1,100);camera.position.set(0,10.2,22);camera.lookAt(0,0,0);
   scene.add(new THREE.AmbientLight(0x9fcfff,.9));const key=new THREE.PointLight(0xffd58a,38,28);key.position.set(0,0,0);scene.add(key);
   const fill=new THREE.DirectionalLight(0x83caff,1.2);fill.position.set(-5,7,8);scene.add(fill);
   const system=new THREE.Group();scene.add(system);
