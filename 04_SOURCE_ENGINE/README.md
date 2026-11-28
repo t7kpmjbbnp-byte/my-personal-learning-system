@@ -37,3 +37,14 @@ Xem `source-record.schema.json`.
 
 ## Trạng thái
 Đây là nền tảng hợp đồng dữ liệu và kiến trúc. Chưa có adapter OCR/parser hoặc giao diện upload được triển khai chỉ bằng việc thêm hai tệp này.
+
+
+## Knowledge map / Universe mapping
+
+- Schema: `knowledge-map.schema.json`
+- Example manifest: `maps/cls-tieuhoa-20261128.json`
+- Stable universe IDs use the `ST-CLS-TIEUHOA-*` namespace; source note IDs remain the canonical references.
+- The manifest maps all 37 Notion notes (N01–N37) into five document-topic groups and preserves Notion page URLs plus PDF page locators.
+- Edges currently encode document hierarchy (`contains`) only. They do not imply clinical causality, indications, or learning prerequisites.
+- `verification_status: in_progress` is intentionally retained until content review is complete.
+- This is a data contract and mapping manifest, not yet a live front-end integration. The universe UI must load this manifest and resolve the stable node IDs before the map can be considered connected.
