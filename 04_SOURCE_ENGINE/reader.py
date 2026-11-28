@@ -91,7 +91,7 @@ def image_unit(path: Path, out: Path, language: str, source_id: str) -> tuple[li
     }]
     manifest = {
         "source_id": source_id, "title": path.stem, "source_type": "image",
-        "original_asset": {"name": path.name, "mime_type": Image.MIME.get(image.format, "image/unknown"),
+        "original_asset": {"name": path.name, "mime_type": {".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".tif": "image/tiff", ".tiff": "image/tiff", ".bmp": "image/bmp"}.get(path.suffix.lower(), "application/octet-stream"),
                            "uri": None, "sha256": sha256_file(path), "size_bytes": path.stat().st_size},
         "metadata": {"language": language, "rights_status": "unknown"},
         "ingestion_status": "needs_review",
@@ -118,6 +118,7 @@ def pdf_units(path: Path, out: Path, language: str, source_id: str, dpi: int) ->
     units: list[dict] = []
     unreadable: list[str] = []
     extracted_pages = 0
+    ocr_pages = 0
     run_start = now_iso()
 
     for page_index, page in enumerate(doc):
@@ -135,6 +136,7 @@ def pdf_units(path: Path, out: Path, language: str, source_id: str, dpi: int) ->
                 page_image = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
                 page_text, confidence = ocr_image(page_image, language)
                 method = "ocr"
+                ocr_pages += 1
                 rendered = assets_dir / f"page-{page_no:04d}-ocr.png"
                 pix.save(rendered)
             except RuntimeError as exc:
@@ -237,9 +239,10 @@ def pdf_units(path: Path, out: Path, language: str, source_id: str, dpi: int) ->
 
     page_count = len(doc)
     doc.close()
-    status = "needs_review" if unreadable or any(u["verification_status"] == "needs_review" for u in units) else "verified"
+    # Extraction success is not human verification: never auto-publish as verified.
+    status = "needs_review"
     manifest = {
-        "source_id": source_id, "title": path.stem, "source_type": "pdf_scan" if extracted_pages < page_count else "pdf_text",
+        "source_id": source_id, "title": path.stem, "source_type": "pdf_scan" if ocr_pages > 0 else "pdf_text",
         "original_asset": {"name": path.name, "mime_type": "application/pdf", "uri": None,
                            "sha256": version, "size_bytes": path.stat().st_size},
         "metadata": {"language": language, "rights_status": "unknown"},
