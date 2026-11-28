@@ -1,0 +1,200 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://t7kpmjbbnp-byte.github.io/my-personal-learning-system/schemas/source-unit.schema.json",
+  "title": "SÁCH TRỜI Source Unit",
+  "description": "Normalized, evidence-linked unit extracted from a source. One source may produce many units and extraction runs.",
+  "type": "object",
+  "required": [
+    "source_id",
+    "source_version",
+    "unit_id",
+    "content_type",
+    "content",
+    "locator",
+    "extraction_method",
+    "verification_status"
+  ],
+  "properties": {
+    "source_id": {
+      "type": "string",
+      "pattern": "^SRC-[A-Z0-9-]+$"
+    },
+    "source_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "unit_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "parent_unit_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "content_type": {
+      "enum": [
+        "text",
+        "table",
+        "figure",
+        "equation",
+        "transcript",
+        "metadata",
+        "mixed"
+      ]
+    },
+    "content": {
+      "type": [
+        "string",
+        "object",
+        "array"
+      ]
+    },
+    "locator": {
+      "type": "object",
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "page",
+            "slide",
+            "paragraph",
+            "sheet_cell",
+            "timestamp",
+            "url_fragment",
+            "image_region",
+            "other"
+          ]
+        },
+        "page": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "page_end": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "slide": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sheet": {
+          "type": "string"
+        },
+        "cell_range": {
+          "type": "string"
+        },
+        "timestamp_start_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "timestamp_end_ms": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "fragment": {
+          "type": "string"
+        },
+        "region": {
+          "type": "object",
+          "properties": {
+            "x": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "y": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "width": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "height": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "additionalProperties": false
+        },
+        "label": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "extraction_method": {
+      "enum": [
+        "native_parser",
+        "ocr",
+        "vision",
+        "transcription",
+        "web_reader",
+        "manual",
+        "other"
+      ]
+    },
+    "extractor_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "extractor_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "confidence": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "verification_status": {
+      "enum": [
+        "unreviewed",
+        "needs_review",
+        "verified",
+        "rejected"
+      ]
+    },
+    "evidence_ref": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "language": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}
