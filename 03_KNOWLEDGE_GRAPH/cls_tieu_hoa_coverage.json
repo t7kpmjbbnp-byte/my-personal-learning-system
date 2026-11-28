@@ -12,10 +12,12 @@
   "summary": {
     "topic_count": 17,
     "satellite_count": 57,
-    "linked_satellites": 54,
-    "unlinked_satellites": 3,
+    "linked_satellites": 57,
+    "unlinked_satellites": 0,
     "source_link_count": 59,
-    "notes_in_progress": 37
+    "notes_in_progress": 37,
+    "source_note_to_satellite_links": 62,
+    "note_records": 38
   },
   "topics": [
     {
@@ -557,16 +559,34 @@
           "satellite_id": "SRC-001-cls.histopathology.sinh-thiet-2",
           "title": "Sinh thiết qua nội soi ổ bụng",
           "description": "Tìm hiểu lấy mẫu các khối/u trong ổ bụng qua nội soi ổ bụng.",
-          "source_status": "no_direct_source",
-          "source_refs": [],
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N11",
+              "title": "Sinh thiết",
+              "note_url": "https://app.notion.com/p/4265a63d7bde8116b3fcd53d0583be2d",
+              "page_locator": "PDF p.15",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
           "verification_status": "not_assessed"
         },
         {
           "satellite_id": "SRC-001-cls.histopathology.sinh-thiet-3",
           "title": "Sinh thiết gan xuyên da",
           "description": "Nắm đường tiếp cận xuyên gan qua da và mục tiêu khảo sát mô gan.",
-          "source_status": "no_direct_source",
-          "source_refs": [],
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N11",
+              "title": "Sinh thiết",
+              "note_url": "https://app.notion.com/p/4265a63d7bde8116b3fcd53d0583be2d",
+              "page_locator": "PDF p.15",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
           "verification_status": "not_assessed"
         }
       ]
@@ -739,8 +759,17 @@
           "satellite_id": "SRC-001-cls.etiology.xet-nghiem-dich-mang-bung-3",
           "title": "Nhuộm Gram và nuôi cấy dịch báng",
           "description": "Tìm hiểu cách khảo sát vi sinh khi nghi nhiễm trùng dịch báng.",
-          "source_status": "no_direct_source",
-          "source_refs": [],
+          "source_status": "linked",
+          "source_refs": [
+            {
+              "note_id": "SRC-CLS-TIEUHOA-20261128-N17",
+              "title": "Dịch màng bụng: xét nghiệm bổ sung",
+              "note_url": "https://app.notion.com/p/4265a63d7bde81f4be84c85d2d858a50",
+              "page_locator": "PDF p.20",
+              "evidence_type": "text",
+              "verification_status": "in_progress"
+            }
+          ],
           "verification_status": "not_assessed"
         },
         {
