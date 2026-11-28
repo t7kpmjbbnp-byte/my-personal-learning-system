@@ -1,0 +1,251 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://t7kpmjbbnp-byte.github.io/my-personal-learning-system/schemas/source-manifest.schema.json",
+  "title": "SÁCH TRỜI Source Manifest",
+  "type": "object",
+  "required": [
+    "source_id",
+    "title",
+    "source_type",
+    "original_asset",
+    "ingestion_status",
+    "coverage"
+  ],
+  "properties": {
+    "source_id": {
+      "type": "string",
+      "pattern": "^SRC-[A-Z0-9-]+$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_type": {
+      "enum": [
+        "image",
+        "pdf_text",
+        "pdf_scan",
+        "document",
+        "slides",
+        "spreadsheet",
+        "web",
+        "audio",
+        "video",
+        "other"
+      ]
+    },
+    "original_asset": {
+      "type": "object",
+      "required": [
+        "name",
+        "mime_type"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "mime_type": {
+          "type": "string"
+        },
+        "uri": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "sha256": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "size_bytes": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "author": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "publisher": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "published_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "language": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rights_status": {
+          "enum": [
+            "unknown",
+            "internal_use_allowed",
+            "sharing_allowed",
+            "restricted",
+            "public_domain",
+            "user_owned"
+          ]
+        },
+        "accessed_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "canonical_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        }
+      }
+    },
+    "ingestion_status": {
+      "enum": [
+        "registered",
+        "inspecting",
+        "extracting",
+        "indexing",
+        "analyzing",
+        "needs_review",
+        "verified",
+        "failed"
+      ]
+    },
+    "extraction_runs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "run_id",
+          "method",
+          "status"
+        ],
+        "properties": {
+          "run_id": {
+            "type": "string"
+          },
+          "method": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "queued",
+              "running",
+              "completed",
+              "partial",
+              "failed"
+            ]
+          },
+          "started_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "finished_at": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "date-time"
+          },
+          "error_summary": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "required": [
+        "unit_kind",
+        "expected_units",
+        "discovered_units",
+        "extracted_units",
+        "verified_units",
+        "failed_units"
+      ],
+      "properties": {
+        "unit_kind": {
+          "enum": [
+            "pages",
+            "slides",
+            "sheets",
+            "segments",
+            "timestamps",
+            "web_sections",
+            "items",
+            "unknown"
+          ]
+        },
+        "expected_units": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "discovered_units": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "extracted_units": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "verified_units": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "failed_units": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "unreadable_units": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "additionalProperties": false
+}
