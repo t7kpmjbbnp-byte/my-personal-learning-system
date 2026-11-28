@@ -63,3 +63,38 @@ When the user says "MỞ SÁCH" or "ĐỒNG BỘ SÁCH TRỜI":
 "ĐỒNG BỘ SÁCH TRỜI"
 
 Read the sources, report version and evidence, identify gaps, and only then continue.
+
+
+## Progress sync data model (v1.2, 2026-11-28)
+
+Notion databases created under the canonical learning architecture page:
+
+- Topic snapshot: https://app.notion.com/p/4265a63d7bde815aa76be4d2b33f9df1
+  - data source: `collection://4265a63d-7bde-81e5-b46c-000bd7c29125`
+- Append-only event log: https://app.notion.com/p/4265a63d7bde8165aa92d6e30e8502b9
+  - data source: `collection://4265a63d-7bde-81aa-932a-000bc27e497e`
+
+The current app file is `03_KNOWLEDGE_GRAPH/universe.html`. Its `load()`, `save()`, `rec()`, and `setRec()` functions still use browser localStorage. JSON export/import is a manual single-device backup, not cross-device synchronization.
+
+### Sync safety requirements
+
+- Stable `Topic ID` is the record key; display names are not keys.
+- Append a uniquely identified event for each learning, assessment, recall, forgetting, relearning, or level-change action.
+- Update the topic snapshot with a monotonically increasing revision; never overwrite the append-only event history.
+- Keep answer-quality score (0–5) separate from universe light level (0–5).
+- Fourth and subsequent confirmed forgetting events reset the topic to level 0 and mark it for relearning; relearning plus a passed check restarts at level 1.
+- First cloud import must preview and back up local data before upload. A stale revision must never blindly overwrite a newer cloud revision.
+- Offline writes require a retry queue and visible sync status.
+
+### Backend security gate
+
+GitHub Pages is a static frontend. Never embed a Notion integration token, Supabase service-role key, or other server secret in public HTML/JavaScript. Automatic sync requires an authenticated backend (for example, a Cloudflare Worker or Supabase Edge Function) with secrets stored server-side and account authorization configured by the owner. No backend endpoint or credentials have been verified yet; therefore the app's current localStorage behavior remains unchanged and automatic sync is NOT implemented.
+
+### Acceptance tests
+
+1. A progress event written on device A appears on device B after authentication and sync.
+2. Event IDs are unique and events preserve timestamp, topic ID, type, before/after level, evidence, and device.
+3. Offline events retry without loss or duplication.
+4. Revision conflicts are surfaced and merged safely, never silently overwritten.
+5. Backup/restore and schema migration are tested.
+6. Two independent browsers/devices pass the above checks before sync is declared complete.
