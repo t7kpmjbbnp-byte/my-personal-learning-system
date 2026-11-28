@@ -93,6 +93,14 @@ html.fullscreen-open,body.fullscreen-open{overflow:hidden!important;width:100%!i
 .mother-planet-node.selected{filter:drop-shadow(0 0 7px #ffd76b)}
 @keyframes selectedPlanetPulse{0%,100%{opacity:.72}50%{opacity:1}}
 .mother-planet-node.selected .mother-planet-aura{animation:selectedPlanetPulse 1.8s ease-in-out infinite}
+/* iOS/WebView fullscreen fallback: keep the scene pinned to the actual visible viewport. */
+html.fullscreen-open,body.fullscreen-open{width:100%;height:100%;overflow:hidden!important;overscroll-behavior:none!important}
+.universe.pseudo-fullscreen{position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;height:100dvh!important;max-width:none!important;margin:0!important;border:0!important;border-radius:0!important;overflow:hidden!important;z-index:2147483000!important;display:block!important;box-sizing:border-box!important}
+.universe.pseudo-fullscreen #space{display:block!important;width:100%!important;height:calc(100vh - 54px)!important;height:calc(100dvh - 54px)!important;min-height:0!important;max-height:100%!important}
+.universe.pseudo-fullscreen #motherSystem3D{position:absolute!important;inset:0!important;width:100%!important;height:100%!important}
+.universe.pseudo-fullscreen #motherSystemCanvas{position:absolute!important;inset:0!important;width:100%!important;height:100%!important}
+.universe.pseudo-fullscreen .planet-visual{max-height:70dvh}
+@supports(height:100svh){.universe.pseudo-fullscreen{height:100svh!important}.universe.pseudo-fullscreen #space{height:calc(100svh - 54px)!important}}
 </style>  <style id="scene-layer-isolation">.universe.galaxy-view.zoomed .mother-system-3d{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important}</style>
 
 <style id="mother-system-readable-controls">
@@ -518,21 +526,43 @@ $("file").addEventListener("change",async e=>{
 const universeView=$("universeView"),fullscreenToggle=$("fullscreenToggle");
 function isUniverseFullscreen(){return document.fullscreenElement===universeView||universeView.classList.contains("pseudo-fullscreen")}
 function updateFullscreenButton(){const active=isUniverseFullscreen();fullscreenToggle.textContent=active?"✕ Thoát toàn màn hình":"⛶ Toàn màn hình";fullscreenToggle.setAttribute("aria-label",active?"Thoát chế độ toàn màn hình":"Mở bản đồ toàn màn hình");document.body.classList.toggle("fullscreen-open",active);document.documentElement.classList.toggle("fullscreen-open",active)}
+let fullscreenScrollY=0,fullscreenResizeFrame=0;
+function scheduleUniverseResize(){
+ if(fullscreenResizeFrame)cancelAnimationFrame(fullscreenResizeFrame);
+ fullscreenResizeFrame=requestAnimationFrame(()=>{
+  fullscreenResizeFrame=0;
+  const host=$("motherSystem3D");
+  if(motherSystem3D&&host&&host.style.display!=="none"){
+   const w=Math.max(1,host.clientWidth),h=Math.max(1,host.clientHeight);
+   motherSystem3D.renderer.setSize(w,h,false);motherSystem3D.camera.aspect=w/h;motherSystem3D.camera.updateProjectionMatrix();
+  }
+  if(planet3dState&&$("planetVisual").classList.contains("active")){
+   const host=$("planetVisual"),w=Math.max(1,host.clientWidth),h=Math.max(1,host.clientHeight);
+   planet3dState.renderer.setSize(w,h,false);planet3dState.camera.aspect=w/h;planet3dState.camera.updateProjectionMatrix();
+  }
+ });
+}
 async function toggleUniverseFullscreen(){
  if(isUniverseFullscreen()){
-  if(document.fullscreenElement===universeView&&document.exitFullscreen){try{await document.exitFullscreen()}catch(e){}}
-  universeView.classList.remove("pseudo-fullscreen");updateFullscreenButton();return;
+  if(document.fullscreenElement===universeView&&document.exitFullscreen){try{await document.exitFullscreen()}catch(e){console.warn("Native fullscreen exit failed",e)}}
+  universeView.classList.remove("pseudo-fullscreen");
+  document.body.classList.remove("fullscreen-open");document.documentElement.classList.remove("fullscreen-open");
+  window.scrollTo(0,fullscreenScrollY);updateFullscreenButton();scheduleUniverseResize();return;
  }
+ fullscreenScrollY=window.scrollY||window.pageYOffset||0;
  const ios=/iPhone|iPad|iPod/i.test(navigator.userAgent)||(navigator.platform==="MacIntel"&&navigator.maxTouchPoints>1);
- if(!ios&&universeView.requestFullscreen){try{await universeView.requestFullscreen();updateFullscreenButton();return}catch(e){console.warn("Native fullscreen unavailable; using page fallback",e)}}
+ if(!ios&&universeView.requestFullscreen){try{await universeView.requestFullscreen();updateFullscreenButton();scheduleUniverseResize();return}catch(e){console.warn("Native fullscreen unavailable; using page fallback",e)}}
  universeView.classList.add("pseudo-fullscreen");
  document.body.classList.add("fullscreen-open");document.documentElement.classList.add("fullscreen-open");
- window.scrollTo(0,0);updateFullscreenButton();
+ updateFullscreenButton();scheduleUniverseResize();
 }
 fullscreenToggle.addEventListener("click",e=>{e.preventDefault();e.stopPropagation();toggleUniverseFullscreen()});
-document.addEventListener("fullscreenchange",updateFullscreenButton);
-document.addEventListener("webkitfullscreenchange",updateFullscreenButton);
-document.addEventListener("keydown",e=>{if(e.key==="Escape"&&universeView.classList.contains("pseudo-fullscreen")){universeView.classList.remove("pseudo-fullscreen");updateFullscreenButton()}});
+document.addEventListener("fullscreenchange",()=>{updateFullscreenButton();scheduleUniverseResize()});
+document.addEventListener("webkitfullscreenchange",()=>{updateFullscreenButton();scheduleUniverseResize()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&universeView.classList.contains("pseudo-fullscreen")){universeView.classList.remove("pseudo-fullscreen");document.body.classList.remove("fullscreen-open");document.documentElement.classList.remove("fullscreen-open");window.scrollTo(0,fullscreenScrollY);updateFullscreenButton();scheduleUniverseResize()}});
+window.addEventListener("resize",scheduleUniverseResize,{passive:true});
+window.visualViewport?.addEventListener("resize",scheduleUniverseResize,{passive:true});
+window.visualViewport?.addEventListener("scroll",scheduleUniverseResize,{passive:true});
 $("planetBack").addEventListener("click",returnToGalaxy);$("galaxyBack").addEventListener("click",returnToUniverse);
 $("planetOpenLesson").addEventListener("click",()=>{returnToGalaxy();$("detail").scrollIntoView({behavior:"smooth",block:"start"})});
 
