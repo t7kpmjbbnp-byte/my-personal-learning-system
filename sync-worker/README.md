@@ -1,40 +1,48 @@
-# SÁCH TRỜI Sync Worker (setup scaffold)
+# SÁCH TRỜI Sync Worker
 
 This Worker is a private API adapter between the static SÁCH TRỜI app and the two Notion progress databases. Notion remains the progress store. No secrets are committed.
 
-## Before deployment
+## Configuration
 
-1. Create a Notion integration and grant it access to BOTH databases:
-   - Topic state data source: `4265a63d-7bde-81e5-b46c-000bd7c29125`
-   - Event log data source: `4265a63d-7bde-81aa-932a-000bc27e497e`
-2. Copy the integration secret privately. Never paste it into GitHub, chat, or the frontend.
-3. Create a long random app access token and keep it private. Use the same value only in the Worker secret and in the app's private local configuration.
-4. Install Node.js, then run from this folder:
-   ```sh
-   npm create cloudflare@latest -- --existing-script ./src/index.js
-   npx wrangler secret put NOTION_TOKEN
-   npx wrangler secret put APP_ACCESS_TOKEN
-   npx wrangler deploy
-   ```
-   If the project is not initialized by the command, install Wrangler with `npm install -D wrangler` and run `npx wrangler deploy`.
-5. Verify `GET https://YOUR-WORKER.workers.dev/health` returns `{"ok":true,...}`.
-6. Keep the Worker URL and app token out of public source. The frontend integration is a separate gated step.
+Set these Worker variables:
+- `APP_ORIGIN`: exact GitHub Pages origin, currently `https://t7kpmjbbnp-byte.github.io`
+- `TOPIC_STATE_SOURCE_ID`: `4265a63d-7bde-81e5-b46c-000bd7c29125`
+- `EVENT_LOG_SOURCE_ID`: `4265a63d-7bde-81aa-932a-000bc27e497e`
+
+Set these as encrypted Worker secrets (never as vars, in GitHub, or in frontend code):
+- `NOTION_TOKEN`: Notion integration secret
+- `APP_ACCESS_TOKEN`: long random bearer token
+
+The Notion integration must be explicitly granted access to BOTH databases.
+
+## Deploy
+
+From this folder, with Wrangler installed and authenticated:
+```sh
+npx wrangler secret put NOTION_TOKEN
+npx wrangler secret put APP_ACCESS_TOKEN
+npx wrangler deploy
+``
+
+Verify `GET https://YOUR-WORKER.workers.dev/health` returns `{"ok":true,"service":"sach-troi-sync","schemaVersion":1}`.
 
 ## API
 
-- `GET /health` — public liveness only.
-- `GET /v1/state?topicId=...` — authenticated topic snapshot.
-- `GET /v1/events?topicId=...` — authenticated event history.
-- `POST /v1/events` — authenticated append event + revision-checked snapshot update.
+All `/v1/*` endpoints require `Authorization: Bearer <APP_ACCESS_TOKEN>`.
 
-Send `Authorization: Bearer <APP_ACCESS_TOKEN>`. POST body requires `eventId`, `topicId`, `type`, `occurredAt`, `state`, and `baseRevision`. A stale revision returns HTTP 409 and current state.
+- `GET /health` — public liveness check.
+- `GET /v1/state?topicId=...` — topic snapshot.
+- `GET /v1/events?topicId=...` — first event page.
+- `GET /v1/events?topicId=...&cursor=...` — next event page; response includes `hasMore` and `nextCursor`.
+- `POST /v1/events` — append event and revision-checked snapshot update.
 
-## Security and current limitations
+POST requires `eventId`, `topicId`, `type`, `occurredAt`, `state`, and preferably `baseRevision`. A stale revision returns HTTP 409 with the current state. Reusing an event ID is idempotent; if the event was saved but the snapshot write failed, a retry can reconcile the snapshot from the event's stored state.
 
-- Secrets are Worker secrets, never plaintext `vars` or frontend code.
-- CORS is restricted to the GitHub Pages origin configured in `APP_ORIGIN`; CORS is not authentication, so the bearer token is still required.
-- This scaffold is not yet deployed or connected to the app.
-- Notion API property compatibility and integration permissions must be verified against the live databases before production use.
-- Event and snapshot writes are sequential, not transactional. If snapshot update fails after event creation, retry is idempotent for the event ID but a reconciliation pass is needed to repair the snapshot.
-- Event query pagination is currently limited to the first 100 rows; add cursor pagination before large-scale production use.
-- Do not use this API until the setup and two-device acceptance tests pass.
+## Security and acceptance gates
+
+- Secrets are encrypted Worker secrets; never commit or expose them.
+- CORS allows only the configured GitHub Pages origin. CORS is not authentication; the bearer token is still required.
+- Error responses do not expose raw Notion error messages.
+- Notion API property compatibility and integration permissions must be verified against the live databases.
+- Notion does not provide a transaction spanning event and snapshot writes. Retry reconciliation reduces partial-write risk, but simultaneous writes from multiple devices still require conflict handling and real acceptance tests.
+- The frontend is not yet connected to this Worker. Do not treat the service as production-ready until the API, migration, offline behavior, and two-device tests pass.
