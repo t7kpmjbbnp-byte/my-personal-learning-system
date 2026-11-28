@@ -75,3 +75,14 @@ The site root is the graph viewer because the workflow uploads only this folder.
 - The outline records the source verification limitation explicitly: text extraction has been reviewed, but all 35 original pages have not yet been visually verified.
 - The next viewer phase is to render the curriculum hierarchy (subject → four groups → topics → subtopics) while retaining the existing case graph and evidence navigation.
 - Do not mark topics as mastered based only on their presence in this outline.
+
+
+## SÁCH TRỜI Universe ↔ Notion source-note integration
+
+- `universe.html` now loads `cls_tieu_hoa_source_map.json` alongside the existing curriculum.
+- The source map contains **37 source-backed Notion note records** (N01–N37), with stable note IDs, direct Notion URLs, PDF page locators, evidence type, and verification state.
+- **32 notes** are mapped to the existing 17 CLS mother-planet topics; **5 group-summary notes** are attached at their existing parent learning branches. The current four visual learning branches are preserved; the source taxonomy's fifth group (G05, lab values/tumor markers) is nested within the existing function/lab branch.
+- Selecting a mother planet shows its related Notion source notes. Opening a lesson satellite also shows the same traceable references and page locators.
+- The mapping does not create new mastery progress, overwrite existing local progress, or claim that opening a source equals learning it.
+- All source notes remain marked **in progress / đang đối chiếu**. The links provide provenance, not independent medical validation.
+- GitHub Pages workflow run [46114885820](https://github.com/t7kpmjbbnp-byte/my-personal-learning-system/actions/runs/46114885820) completed successfully on 2026-11-28 after the Universe integration changes.
