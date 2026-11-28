@@ -109,6 +109,23 @@ html.fullscreen-open,body.fullscreen-open{width:100%;height:100%;overflow:hidden
 #universeView.galaxy-view.mother-3d-ready #space{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
 #universeView .fullscreen-toggle{position:fixed;z-index:2147483647;top:max(10px,env(safe-area-inset-top));right:max(10px,env(safe-area-inset-right))}
 #universeView.pseudo-fullscreen .fullscreen-toggle{position:fixed!important;top:max(10px,env(safe-area-inset-top))!important;right:max(10px,env(safe-area-inset-right))!important}
+
+/* 2026 visual refinement: vivid worlds, crisp type, unmistakable selection */
+.mother-system-card h2,.mother-system-card p,.mother-system-hint{color:#f0f8ff;text-shadow:none}
+.mother-system-card p{font-size:12px;line-height:1.5;color:#d6eaff}
+.mother-system-card{border-color:#8bdcffcc;box-shadow:0 14px 42px #000c,0 0 28px #45baff55}
+.mother-system-card button{background:linear-gradient(120deg,#126a78,#2456a8);border:1px solid #8deaff;color:#fff;box-shadow:0 0 18px #36cfff44}
+.mother-system-hint{background:#07182df2;border-color:#75cfff88;color:#e8f7ff;font-size:12px;font-weight:650}
+.mother-planet-node .mother-planet-core.selected{stroke:#fff2a8;stroke-width:3.5;filter:drop-shadow(0 0 8px #ffe58a) drop-shadow(0 0 16px #55cfff)}
+.galaxy-view .mother-planet-node[aria-pressed="true"] .mother-planet-aura{fill:#ffe18a;opacity:.75;filter:drop-shadow(0 0 12px #ffe18a)}
+.galaxy-view .mother-planet-node[aria-pressed="true"] .mother-planet-core{fill:#fff0a6;stroke:#fff;stroke-width:3;filter:drop-shadow(0 0 10px #ffe18a)}
+.orbit-mission{background:radial-gradient(circle at 32% 25%,#a9e8ff 0%,#347fb8 22%,#102d53 68%,#071426 100%);border:1.5px solid #c7f1ff;color:#fff;box-shadow:inset -4px -5px 8px #020914aa,0 0 10px #4ccaff88,0 0 0 3px #5acaff20}
+.orbit-mission.selected{background:radial-gradient(circle at 30% 25%,#fff9c7 0%,#ffe18a 24%,#d88927 70%,#6b3c16 100%);border:2px solid #fff;color:#1b2638;box-shadow:0 0 0 5px #ffe18a44,0 0 16px #ffe18a,0 0 32px #ffb347cc;animation:chosenSatellitePulse 1.25s ease-in-out infinite alternate}
+.orbit-mission.complete{background:radial-gradient(circle at 30% 25%,#fff 0%,#ffe18a 35%,#a66a1c 100%);color:#17243a}
+@keyframes chosenSatellitePulse{from{box-shadow:0 0 0 4px #ffe18a33,0 0 12px #ffe18a,0 0 22px #ffbd3f77}to{box-shadow:0 0 0 8px #ffe18a22,0 0 20px #fff1a8,0 0 38px #ffbd3fcc}}
+#planetName,#planetMeta,.satellite-detail h3,.satellite-detail p{color:#f0f7ff;text-shadow:none}
+#planetName{font-size:clamp(17px,2.2vw,22px);line-height:1.25}
+.satellite-detail p{font-size:13px;line-height:1.55;color:#d8eaff}
 </style>  <style id="scene-layer-isolation">.universe.galaxy-view.zoomed .mother-system-3d{display:none!important;visibility:hidden!important;opacity:0!important;pointer-events:none!important}</style>
 
 <style id="mother-system-readable-controls">
@@ -617,20 +634,3 @@ document.addEventListener("visibilitychange",()=>{if(document.hidden){pausePlane
 
 load();renderStars();renderMap();renderReviewQueue();renderJourney();loadSourceNoteMap();
 </script></body></html>
-
-/* 2026 visual refinement: vivid worlds, crisp type, unmistakable selection */
-.mother-system-card h2,.mother-system-card p,.mother-system-hint{color:#f0f8ff;text-shadow:none}
-.mother-system-card p{font-size:12px;line-height:1.5;color:#d6eaff}
-.mother-system-card{border-color:#8bdcffcc;box-shadow:0 14px 42px #000c,0 0 28px #45baff55}
-.mother-system-card button{background:linear-gradient(120deg,#126a78,#2456a8);border:1px solid #8deaff;color:#fff;box-shadow:0 0 18px #36cfff44}
-.mother-system-hint{background:#07182df2;border-color:#75cfff88;color:#e8f7ff;font-size:12px;font-weight:650}
-.mother-planet-node .mother-planet-core.selected{stroke:#fff2a8;stroke-width:3.5;filter:drop-shadow(0 0 8px #ffe58a) drop-shadow(0 0 16px #55cfff)}
-.galaxy-view .mother-planet-node[aria-pressed="true"] .mother-planet-aura{fill:#ffe18a;opacity:.75;filter:drop-shadow(0 0 12px #ffe18a)}
-.galaxy-view .mother-planet-node[aria-pressed="true"] .mother-planet-core{fill:#fff0a6;stroke:#fff;stroke-width:3;filter:drop-shadow(0 0 10px #ffe18a)}
-.orbit-mission{background:radial-gradient(circle at 32% 25%,#a9e8ff 0%,#347fb8 22%,#102d53 68%,#071426 100%);border:1.5px solid #c7f1ff;color:#fff;box-shadow:inset -4px -5px 8px #020914aa,0 0 10px #4ccaff88,0 0 0 3px #5acaff20}
-.orbit-mission.selected{background:radial-gradient(circle at 30% 25%,#fff9c7 0%,#ffe18a 24%,#d88927 70%,#6b3c16 100%);border:2px solid #fff;color:#1b2638;box-shadow:0 0 0 5px #ffe18a44,0 0 16px #ffe18a,0 0 32px #ffb347cc;animation:chosenSatellitePulse 1.25s ease-in-out infinite alternate}
-.orbit-mission.complete{background:radial-gradient(circle at 30% 25%,#fff 0%,#ffe18a 35%,#a66a1c 100%);color:#17243a}
-@keyframes chosenSatellitePulse{from{box-shadow:0 0 0 4px #ffe18a33,0 0 12px #ffe18a,0 0 22px #ffbd3f77}to{box-shadow:0 0 0 8px #ffe18a22,0 0 20px #fff1a8,0 0 38px #ffbd3fcc}}
-#planetName,#planetMeta,.satellite-detail h3,.satellite-detail p{color:#f0f7ff;text-shadow:none}
-#planetName{font-size:clamp(17px,2.2vw,22px);line-height:1.25}
-.satellite-detail p{font-size:13px;line-height:1.55;color:#d8eaff}
